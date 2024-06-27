@@ -84,7 +84,7 @@
 
         <div>
             <a href="{{ route('login') }}">
-                <button type="button" class="register-button">Register</button>
+                <button type="button" class="register-button">Login</button>
             </a>
         </div>
     </form>
