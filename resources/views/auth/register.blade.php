@@ -74,12 +74,17 @@
         </div>
 
         <div>
+            <label for="password_confirmation">Confirm Password</label>
+            <input id="password_confirmation" type="password" name="password_confirmation" required>
+        </div>
+
+        <div>
             <button type="submit">Register</button>
         </div>
 
         <div>
             <a href="{{ route('login') }}">
-                <button type="button" class="register-button">Login</button>
+                <button type="button" class="register-button">Register</button>
             </a>
         </div>
     </form>

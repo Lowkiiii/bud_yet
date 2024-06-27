@@ -17,7 +17,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = Auth::user(); // Get the currently authenticated user
+        $user = Auth::user(); 
         return view('dashboard.dashboard', compact('user'));
     }
    
