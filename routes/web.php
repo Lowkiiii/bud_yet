@@ -1,16 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\IncomeCategoryController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 
-// Income Category CRUD
-Route::get('/category', [IncomeCategoryController::class, 'index'])->name('tbl_income_category.index');
-Route::post('/category', [IncomeCategoryController::class, 'store'])->name('tbl_income_category.store');
-Route::get('/edit-category/{id}', [IncomeCategoryController::class, 'edit'])->name('tbl_income_category.edit');
-Route::put('/update-category', [IncomeCategoryController::class, 'update'])->name('tbl_income_category.update');
-Route::get('/delete-category/{id}', [IncomeCategoryController::class, 'delete'])->name('tbl_income_category.delete');
+
+require __DIR__ . '/auth.php';
