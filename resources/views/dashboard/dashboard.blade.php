@@ -41,6 +41,7 @@
             <h1>Welcome to Your Dashboard</h1>
             <div class="user-info">
                 <p>Hello, <strong>{{ $user->first_name }} {{ $user->last_name }}</strong>!</p>
+                {{-- <p>Hello, <strong>{{ $user->username }}</strong>!</p> --}}
                 <p>We're glad to see you here.</p>
             </div>
             <!-- Add more dashboard content here -->
