@@ -17,6 +17,7 @@ class IncomeCategoryController extends Controller
     {
         $category = new tbl_income_category;
         $category->category_name = $req->category_name;
+        $category->user_id = auth()->id(); //Laravel's built-in auth system
         $category->save();
         return redirect()->back();
     }
