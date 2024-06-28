@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class tbl_income_category extends Model
 {
     use HasFactory;
-    // protected $fillable= ['add_on_name','add_on_price','created_at', 'updated_at',];
+    protected $table = 'tbl_income_category';
+    protected $fillable = ['category_name', 'created_at', 'updated_at',];
 }
