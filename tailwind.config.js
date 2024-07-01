@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import animations from "@midudev/tailwind-animations";
 export default {
     content: [
         "./resources/**/*.blade.php",
@@ -7,7 +8,14 @@ export default {
         "node_modules/preline/dist/*.js",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                gotham: ["Gotham", "sans-serif"], // Replace 'Gotham' with the actual font family name
+            },
+        },
     },
-    plugins: [require("preline/plugin")],
+    plugins: [
+        animations,
+        require("preline/plugin"), // Include preline plugin
+    ],
 };
