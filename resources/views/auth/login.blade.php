@@ -1,7 +1,7 @@
 @extends('auth.layouts.app')
 
 @section('webtitle')
-loginn
+    Login
 @endsection
 
 @section('content')
@@ -42,12 +42,12 @@ loginn
                             </div>
 
                             {{-- Login Forms --}}
-                            <form action="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div id="LoginForm" class="my-[5.5rem] animate-blink">
                                     <div class="max-w-sm space-y-3">
                                         <div class="relative">
-                                            <input type="text" name="username" id="username" value="{{ old('username') }}" required
+                                            <input type="text" name="username" id="username" required
                                                 class="peer py-3 px-4 ps-11 block w-full bg-[#E5E5E5] border-transparent rounded-[12px] text-sm dark:bg-[#E5E5E5] dark:border-transparent dark:text-black dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                                 placeholder="Enter email">
                                             <div class="absolute inset-y-0 start-0 flex items-center ps-4">
@@ -61,7 +61,7 @@ loginn
                                             </div>
                                         </div>
                                         <div class="relative">
-                                            <input type="password" id="password" name="password"
+                                            <input type="password" id="password" name="password" required
                                                 class="peer py-3 px-4 ps-11 block w-full bg-[#E5E5E5] border-transparent rounded-[12px] text-sm dark:bg-[#E5E5E5] dark:border-transparent dark:text-black dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                                 placeholder="Enter password">
                                             <div class="absolute inset-y-0 start-0 flex items-center ps-4">
@@ -76,21 +76,33 @@ loginn
                                             </div>
                                         </div>
 
+
+                                        <button type=""
+                                            class="inline-block rounded-[12px] bg-[#05D9FF] px-7 pb-2.5 pt-3 text-sm font-medium  leading-normal text-[#272727] transition duration-300 ease-in-out hover:bg-[#00B1D0]  focus:bg-[#00B1D0] focus:outline-none focus:ring-0 active:bg-[#00B1D0] active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] w-full sk-bold "
+                                            data-te-ripple-init data-te-ripple-color="light">
+                                            Login
+                                        </button>
+
+
+
                                     </div>
                                 </div>
                             </form>
 
                             {{-- Register Form --}}
 
-                            <form action="POST" action="{{ route('register.account') }}">
+
+                            <form method="POST" action="{{ route('register.account') }}">
+                                @csrf
                                 <div class="my-8 hidden animate-blink " id="RegisterForm">
 
                                     <div class="max-w-sm space-y-3">
                                         <div class="relative">
 
+
                                             <div class="flex flex-row">
                                                 <div class="relative flex-grow mr-2">
-                                                    <input type="first_name" id="first_name"
+                                                    <input type="text" id="first_name" name="first_name"
                                                         class="peer py-3 px-4 ps-4 block w-full bg-[#E5E5E5] border-transparent rounded-[12px] text-sm  disabled:opacity-50 disabled:pointer-events-none dark:bg-[#E5E5E5] dark:border-transparent dark:text-black dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                                         placeholder="First Name">
                                                     <div
@@ -101,7 +113,7 @@ loginn
 
 
                                                 <div class="relative flex-grow">
-                                                    <input type="text" id="last_name" name="last_name"  value="{{ old('last_name') }}" required
+                                                    <input type="text" id="last_name" name="last_name"
                                                         class="peer py-3 px-4 ps-4 block w-full bg-[#E5E5E5] border-transparent rounded-[12px] text-sm  disabled:opacity-50 disabled:pointer-events-none dark:bg-[#E5E5E5] dark:border-transparent dark:text-black dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                                         placeholder="Last Name">
                                                     <div
@@ -116,15 +128,19 @@ loginn
                                         </div>
 
                                         <div class="relative">
-                                            <input type="text" id="username" name="username" value="{{ old('username') }}" required
+                                            <input type="text" id="register_username" name="username"
                                                 class="peer py-3 px-4 ps-4 block w-full bg-[#E5E5E5] border-transparent rounded-[12px] text-sm dark:bg-[#E5E5E5] dark:border-transparent dark:text-black dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                                                placeholder="UserName" id="">
-                                            <div class="absolute inset-y-0 start-0 flex items-center ps-4">
+                                                placeholder="UserName">
 
+
+
+                                            <div
+                                                class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                                <!-- Optional: Add an icon or indicator here if needed -->
                                             </div>
                                         </div>
                                         <div class="relative">
-                                            <input type="password" id="password" name="password" required
+                                            <input type="password" id="register_password" name="password"
                                                 class="peer py-3 px-4 ps-4 block w-full bg-[#E5E5E5] border-transparent rounded-[12px] text-sm dark:bg-[#E5E5E5] dark:border-transparent dark:text-black dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                                 placeholder="Enter Password">
                                             <div class="absolute inset-y-0 start-0 flex items-center ps-4">
@@ -132,7 +148,8 @@ loginn
                                             </div>
                                         </div>
                                         <div class="relative">
-                                            <input type="password" form="password_confirmation" name="password"
+                                            <input type="password" form="password_confirmation"
+                                                name="password_confirmation"
                                                 class="peer py-3 px-4 ps-4 block w-full bg-[#E5E5E5] border-transparent rounded-[12px] text-sm dark:bg-[#E5E5E5] dark:border-transparent dark:text-black dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                                 placeholder="Re-enter Password">
                                             <div class="absolute inset-y-0 start-0 flex items-center ps-4">
@@ -140,17 +157,17 @@ loginn
                                             </div>
                                         </div>
 
+                                        <button type="submit"
+                                            class="inline-block rounded-[12px] bg-[#05D9FF] px-7 pb-2.5 pt-3 text-sm font-medium  leading-normal text-[#272727] transition duration-300 ease-in-out hover:bg-[#00B1D0]  focus:bg-[#00B1D0] focus:outline-none focus:ring-0 active:bg-[#00B1D0] active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] w-full sk-bold "
+                                            data-te-ripple-init data-te-ripple-color="light">
+                                            Register
+                                        </button>
+
                                     </div>
                                 </div>
                             </form>
 
-
                             <div class="py-6 animate-blink " id="RegisterNow">
-                                <button type="submit"
-                                    class="inline-block rounded-[12px] bg-[#05D9FF] px-7 pb-2.5 pt-3 text-sm font-medium  leading-normal text-[#272727] transition duration-300 ease-in-out hover:bg-[#00B1D0]  focus:bg-[#00B1D0] focus:outline-none focus:ring-0 active:bg-[#00B1D0] active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] w-full sk-bold "
-                                    data-te-ripple-init data-te-ripple-color="light">
-                                    Login
-                                </button>
 
 
                                 <div id="" class="text-xs text-[#959595] text-center py-2 ">
@@ -166,16 +183,10 @@ loginn
 
                             </div>
 
+                            <div class="py-6 animate-blink hidden " id="LoginNow">
 
 
-                            <div class="py-6 hidden animate-blink" id="LoginNow">
-                                <button type="submit"
-                                    class="  rounded-[12px] bg-[#05D9FF] px-7 pb-2.5 pt-3 text-sm font-medium  leading-normal text-[#272727] transition duration-300 ease-in-out hover:bg-[#00B1D0]  focus:bg-[#00B1D0] focus:outline-none focus:ring-0 active:bg-[#00B1D0] active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] w-full sk-bold "
-                                    data-te-ripple-init data-te-ripple-color="light">
-                                    Register
-                                </button>
-
-                                <div id="" class="text-xs text-[#959595] text-center py-2">
+                                <div id="" class="text-xs text-[#959595] text-center py-2 ">
                                     <span>Already have an Account?</span>
                                     <div class="flex justify-center items-center">
                                         <button id="LoginToggle"
@@ -186,8 +197,11 @@ loginn
 
 
 
-
                             </div>
+
+
+
+
 
 
                         </div>
@@ -234,8 +248,8 @@ loginn
 
 
                     </div>
-                    <div class="">
-                        <img src="/image/Abstract-1.png" class="absolute right-0 h-[35rem] opacity-50 animate-spin "
+                    <div class="w-full">
+                        <img src="/image/Abstract-1.png" class="absolute right-0 h-[37rem] opacity-60 animate-spin "
                             alt="">
                     </div>
                     <!-- Background Image -->
@@ -251,7 +265,6 @@ loginn
 
         </div>
 
-        <script src="./node_modules/preline/dist/preline.js"></script>
 
     </section>
 @endsection

@@ -34,7 +34,7 @@ class RegisterController extends Controller
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', Rules\Password::defaults()],
         ]);
 
         try {
@@ -44,8 +44,9 @@ class RegisterController extends Controller
                 'username' => $request->username,
                 'password' => Hash::make($request->password),
             ]);
+Auth::login($user);
 
-            return redirect()->back()->with('success', 'Successfully registered');
+            return redirect()->route('/dashboard')->with('success', 'Successfully registered');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'An error occurred while registering. Please try again.');
         }
