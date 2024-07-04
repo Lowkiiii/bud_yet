@@ -50,4 +50,6 @@ class IncomeCategoryController extends Controller
             return redirect()->route('tbl_income_category.index')->with('error', 'Category not found');
         }
     }
+
+    
 }

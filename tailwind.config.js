@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import ApexCharts from "apexcharts";
 import animations from "@midudev/tailwind-animations";
 export default {
     content: [

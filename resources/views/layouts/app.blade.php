@@ -1,20 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@latest/dist/apexcharts.css">
+
+
+
     <title></title>
 
+    @vite('resources/css/fonts.css')
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 </head>
+
 <body>
-    @yield('layout.header')
+    @include('layouts.header')
 
     @yield('content')
 
     @include('layouts.footer')
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest/dist/apexcharts.min.js"></script>
+    <script src="https://preline.co/assets/js/hs-apexcharts-helpers.js"></script>
+
+
+    <script src="https://preline.co/assets/js/hs-apexcharts-helpers.js"></script>
+
+    <script src="https://preline.co/assets/js/hs-apexcharts-helpers.js"></script>
+
+    <script src="https://preline.co/assets/js/hs-apexcharts-helpers.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("TransactionSeeAll").addEventListener("click", function() {
+                const transactionView = document.getElementById("TransactionView");
+                transactionView.classList.toggle("max-h-[410px]");
+              
+                
+            });
+
+            document.getElementById("ScheduleSeeAll").addEventListener("click", function() {
+                const scheduleView = document.getElementById("ScheduleView");
+                scheduleView.classList.toggle("max-h-[410px]");
+              
+                
+            });
+
+            document.getElementById("AccountSeeAll").addEventListener("click", function() {
+                const scheduleView = document.getElementById("AccountView");
+                scheduleView.classList.toggle("max-h-[360px]");
+              
+                
+            });
+
+            
+            
+        });
+    </script>
+    <script>
+        window.addEventListener('load', () => {
+            // Apex Line Chart
+            (function() {
+                buildChart('#hs-curved-area-charts', (mode) => ({
+                    chart: {
+                        height: 300,
+                        type: 'area',
+                        toolbar: {
+                            show: false
+                        },
+                        zoom: {
+                            enabled: false
+                        }
+                    },
+                    series: [{
+                            name: 'Incone',
+                            data: [2000, 12000, 9000, 30000, 23000]
+                        },
+                        {
+                            name: 'Expense',
+                            data: [6000, 8000, 6000, 24000, 4000]
+                        }
+                    ],
+                    legend: {
+                        show: false
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    stroke: {
+                        curve: 'smooth',
+                        width: 2
+                    },
+                    grid: {
+                        strokeDashArray: 3
+                       
+                    },
+
+                    xaxis: {
+                        type: 'category',
+                        tickPlacement: 'on',
+                        categories: [
+                            'March',
+                            'April',
+                            'May',
+                            'June',
+                            'July',
+
+                        ],
+                        axisBorder: {
+                            show: true,
+                            color: '#AAAAAA'
+                            
+                        },
+                        axisTicks: {
+                            show: false
+                        },
+                        crosshairs: {
+                            stroke: {
+                                dashArray: 0
+                            },
+                            dropShadow: {
+                                show: false
+                            }
+                        },
+                        tooltip: {
+                            enabled: false
+                        },
+                        labels: {
+                            style: {
+                                colors: '#AAAAAA',
+                                fontSize: '12px',
+                                fontFamily: 'SkModernist, sans-serif',
+                                fontWeight: 400
+                            },
+                            formatter: (title) => {
+                                return title;
+                            }
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            align: 'left',
+                            minWidth: 0,
+                            maxWidth: 140,
+                            style: {
+                                colors: '#AAAAAA',
+                                fontSize: '12px',
+                                fontFamily: 'SkModernist, sans-serif',
+                                fontWeight: 400
+                            },
+                            formatter: (value) => `₱ ${value.toLocaleString('en-US')}`
+                        },
+                        
+                        axisBorder: {
+                            show: true,
+                            color: '#AAAAAA'
+                        },
+                    },
+                    tooltip: {
+                        x: {
+                            format: 'MMMM yyyy'
+                        },
+                        y: {
+                            formatter: (value) => `$${value >= 1000 ? `${value / 1000}k` : value}`
+                        },
+                        custom: function(props) {
+                            const {
+                                categories
+                            } = props.ctx.opts.xaxis;
+                            const {
+                                dataPointIndex
+                            } = props;
+                            const title = categories[dataPointIndex].split(' ');
+                            const newTitle = `${title[0]} ${title[1]}`;
+
+                            return buildTooltip(props, {
+                                title: newTitle,
+                                mode,
+                                hasTextLabel: true,
+                                wrapperExtClasses: 'min-w-28',
+                                labelDivider: ':',
+                                labelExtClasses: 'ms-2'
+                            });
+                        }
+                    },
+                    responsive: [{
+                        breakpoint: 568,
+                        options: {
+                            chart: {
+                                height: 300
+                            },
+                            labels: {
+                                style: {
+                                    colors: '#AAAAAA',
+                                    fontSize: '8px',
+                                    fontFamily: 'sk',
+                                    fontWeight: 400
+                                },
+                                offsetX: -2,
+                                formatter: (value) => value
+                            },
+                            yaxis: {
+                                labels: {
+                                    align: 'left',
+                                    minWidth: 0,
+                                    maxWidth: 140,
+                                    style: {
+                                        colors: '#AAAAAA',
+                                        fontSize: '8px',
+                                        fontFamily: 'sk',
+                                        fontWeight: 400
+                                    },
+                                    formatter: (value) => value >= 1000 ?
+                                        `${value / 1000}k` : value
+                                }
+                            },
+                        },
+                    }]
+                }), {
+                    colors: ['#FF0000', '#05D9FF'],
+                    fill: {
+
+                    },
+                    xaxis: {
+                        labels: {
+                            style: {
+                                colors: '#AAAAAA'
+                            }
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            style: {
+                                colors: '#AAAAAA'
+                            }
+                        }
+                    },
+                    grid: {
+                        borderColor: '#3E3E3E'
+                    }
+                }, {
+                    colors: ['#FF0000', '#FF0000'],
+                    fill: {
+
+                    },
+                    xaxis: {
+                        labels: {
+                            style: {
+                                colors: '#548088',
+                            }
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            style: {
+                                colors: '#a3a3a3'
+                            }
+                        }
+                    },
+                    grid: {
+                        borderColor: '#404040'
+                    }
+                });
+            })();
+        });
+    </script>
 </body>
+
 </html>

@@ -9,13 +9,13 @@
         <div class="flex min-h-full justify-center bg-[#1D1D1D] ">
             <div class="flex flex-col justify-center  sm:w-1/2">
                 <div>
-                    <div class=" p-3 max-w-full sm:mx-auto sm:max-w-md  animate-fade-in-right ">
-                        <div class="px-8 py-9 w-full bg-white rounded-[15px] ">
+                    <div class=" p-2 w-10/12 sm:mx-auto sm:max-w-md  animate-fade-in-right ">
+                        <div class="px-8 py-9 w-full  bg-white rounded-[15px] ">
 
 
-                            <img src="/image/BUDYET-LOGO.png" alt="BUDYET-LOGO" class="block w-8.08 h-7  mt-8 item-start">
+                            <img src="/image/BUDYET-LOGO.png" alt="BUDYET-LOGO" class="block w-8.08 h-7  mt-6 item-start">
 
-                            <div class="mt-9" id="LoginInfo">
+                            <div class="mt-6" id="LoginInfo">
                                 <h2 id="" class="text-2xl flex flex-row sk-bold text-[#272727] animate-blink">
                                     <div>&#9996;</div> <span class="">Login</span>
                                     <div class="flex-grow"></div>
@@ -27,7 +27,7 @@
                                 </p>
                             </div>
 
-                            <div class="mt-9 hidden " id="RegisterInfo">
+                            <div class="mt-6 hidden " id="RegisterInfo">
 
                                 <h2 class="text-2xl flex flex-row sk-bold text-[#272727] animate-blink ">
                                     <div>&#x1F4C8;</div> <span class="">Register</span>
@@ -167,7 +167,7 @@
                                 </div>
                             </form>
 
-                            <div class="py-6 animate-blink " id="RegisterNow">
+                            <div class="py-4 animate-blink " id="RegisterNow">
 
 
                                 <div id="" class="text-xs text-[#959595] text-center py-2 ">
@@ -183,7 +183,7 @@
 
                             </div>
 
-                            <div class="py-6 animate-blink hidden " id="LoginNow">
+                            <div class="py-4 animate-blink hidden " id="LoginNow">
 
 
                                 <div id="" class="text-xs text-[#959595] text-center py-2 ">

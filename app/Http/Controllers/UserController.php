@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Date;
 
 class UserController extends Controller
 {
@@ -20,5 +21,7 @@ class UserController extends Controller
         $user = Auth::user(); 
         return view('dashboard.dashboard', compact('user'));
     }
-   
+
+ 
+    
 }
