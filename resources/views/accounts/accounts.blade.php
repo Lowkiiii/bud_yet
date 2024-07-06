@@ -46,8 +46,28 @@
 
 
             </div>
-
-
+            <!-- Inputs for storing Income (di lang pag panasa ako lang di bahala saylo) -->
+                {{-- <div class="p-8">
+                    <h2 class="text-white text-2xl">Add New Income</h2>
+                    <form action="{{ route('income.store') }}" method="POST" class="mt-4">
+                        @csrf
+                        <div class="mb-4">
+                            <label for="income_name" class="block text-white">Income Name:</label>
+                            <input type="text" name="income_name" id="income_name" class="w-full p-2 mt-1 rounded bg-gray-800 text-white">
+                        </div>
+                        <div class="mb-4">
+                            <label for="amount" class="block text-white">Amount:</label>
+                            <input type="number" name="amount" id="amount" class="w-full p-2 mt-1 rounded bg-gray-800 text-white">
+                        </div>
+                        <div class="mb-4">
+                            <label for="date" class="block text-white">Date:</label>
+                            <input type="date" name="date" id="date" class="w-full p-2 mt-1 rounded bg-gray-800 text-white">
+                        </div>
+                        <div class="mb-4">
+                            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Add Income</button>
+                        </div>
+                    </form>
+                </div> --}}
         </div>
 
 
@@ -154,6 +174,7 @@
                 <img src="/image/GridBG.png" class="object-cover w-screen h-full" alt="Grid Background">
             </div>
         </div>
+
 
 
 

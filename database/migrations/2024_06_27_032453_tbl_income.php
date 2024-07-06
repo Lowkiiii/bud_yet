@@ -14,11 +14,13 @@ return new class extends Migration
     {
         Schema::create('tbl_income', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('user_id');
+            $table->string('income_name');
             $table->double('amount');
+            $table->date('date');
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('tbl_income_category')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
 
@@ -30,7 +32,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('tbl_income', function (Blueprint $table) {
-            $table->dropForeign('tbl_income_category_id_foreign');
+            $table->dropForeign('tbl_income_user_id_foreign');
         });
 
         Schema::dropIfExists('tbl_income');

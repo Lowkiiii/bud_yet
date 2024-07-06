@@ -33,7 +33,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('tbl_account', function (Blueprint $table) {
-            $table->dropForeign('users_category_id_foreign');
+            $table->dropForeign('tbl_account_user_id_foreign');
         });
 
         Schema::dropIfExists('tbl_account');
