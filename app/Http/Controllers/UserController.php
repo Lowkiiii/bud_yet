@@ -22,6 +22,12 @@ class UserController extends Controller
         return view('dashboard.dashboard', compact('user'));
     }
 
+    public function accounts()
+    {
+        $user = Auth::user();
+        return view ('accounts.accounts', compact('user'));
+    }
+
  
     
 }

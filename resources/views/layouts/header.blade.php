@@ -1,10 +1,10 @@
-<div class="z-30  relative w-full mx-auto justify-center items-center overflow-hidden md:w-[87rem]">
-    <div class="px-8">
+<div class="z-30  relative w-auto mx-auto justify-center items-center    xl:w-[92rem]">
+    <div class="px-[4.5rem]">
         <div class="py-8 text-white">
             <div class="flex flex-row">
                 <img src="/image/BY-WHITE.png" class="h-8" alt="">
                 <div class="ml-24 flex text-lg text-[#7A7A7A]">
-                    <button
+                    <button id="ViewDashboard"
                         class="flex items-center px-6 justify-center {{ request()->routeIs('dashboard.dashboard') ? 'text-[#05D9FF]' : 'text-[#7A7A7A]' }} hover:text-[#05D9FF]">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-5">
@@ -17,8 +17,17 @@
 
                             Dashboard
                         </p>
-                    </button {{ request()->routeIs('') ? 'text-[#05D9FF]' : 'text-[#7A7A7A]' }} hover:text-[#05D9FF]">
-                    <button class="flex items-center px-6 justify-center hover:text-[#05D9FF]">
+                    </button >
+                    <button id="ViewAccounts"  class="flex items-center px-6 justify-center {{ request()->routeIs('accounts.accounts') ? 'text-[#05D9FF]' : 'text-[#7A7A7A]' }} hover:text-[#05D9FF]">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
+                            <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
+                            <path fill-rule="evenodd" d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z" clip-rule="evenodd" />
+                          </svg>
+                          
+
+                        <p class="ml-1">Accounts</p>
+                    </button>
+                    <button id="ViewSchedule"  class="flex items-center px-6 justify-center {{ request()->routeIs('') ? 'text-[#05D9FF]' : 'text-[#7A7A7A]' }} hover:text-[#05D9FF]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
                             <path fill-rule="evenodd"
                                 d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
@@ -48,5 +57,14 @@
             </div>
         </div>
     </div>
+    <script>
+    document.getElementById("ViewAccounts").addEventListener("click", function() {
+                window.location.href = "{{ route('accounts.accounts') }}";
+            })
+
+            document.getElementById("ViewDashboard").addEventListener("click", function() {
+                window.location.href = "{{ route('dashboard.dashboard') }}";
+            })
+    </script>
 </div>
 </div>

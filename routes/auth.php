@@ -19,6 +19,8 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     // Income Category CRUD
+    Route::get('/accounts', [UserController::class, 'accounts'])->name('accounts.accounts');
+
     Route::get('/category', [IncomeCategoryController::class, 'index'])->name('tbl_income_category.index');
     Route::post('/category', [IncomeCategoryController::class, 'store'])->name('tbl_income_category.store');
     Route::get('/edit-category/{id}', [IncomeCategoryController::class, 'edit'])->name('tbl_income_category.edit');
