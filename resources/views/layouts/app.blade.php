@@ -278,6 +278,15 @@
             })();
         });
     </script>
+     <script>
+        document.getElementById("ViewAccounts").addEventListener("click", function() {
+                    window.location.href = "{{ route('accounts.accounts') }}";
+                })
+    
+                document.getElementById("ViewDashboard").addEventListener("click", function() {
+                    window.location.href = "{{ route('dashboard.dashboard') }}";
+                })
+        </script>
 </body>
 
 </html>
