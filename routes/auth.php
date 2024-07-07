@@ -24,6 +24,8 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/accounts', [UserController::class, 'accounts'])->name('accounts.accounts');
     Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard.dashboard');
+    Route::get('/schedule', [UserController::class, 'schedule'])->name('schedule.schedule');
+    Route::get('/income', [UserController::class, 'income'])->name('income.income');
 });
 
 Route::middleware('auth')->group(function () {

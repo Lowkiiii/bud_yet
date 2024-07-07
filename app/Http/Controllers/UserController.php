@@ -28,6 +28,16 @@ class UserController extends Controller
         return view ('accounts.accounts', compact('user'));
     }
 
+    public function schedule()
+    {
+        $user = Auth::user();
+        return view ('schedule.schedule', compact('user'));
+    }
+    public function income()
+    {
+        $user = Auth::user();
+        return view ('income.income', compact('user'));
+    }
  
     
 }

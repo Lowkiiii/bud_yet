@@ -15,6 +15,11 @@
     .sk {
         font-family: "SkModernist", sans-serif;
     }
+    .hide-calendar-icon::-webkit-calendar-picker-indicator {
+        filter: invert(65%);
+        width: 18px;
+        height: 18px;
+    }
 }
 
 /* Apply component styles */

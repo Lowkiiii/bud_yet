@@ -7,11 +7,12 @@
 @section('content')
     <section class="bg-[#181818] mx-auto justify-center items-center h-full w-full overflow-hidden">
         <!-- Foreground Content -->
-        <div class="z-20 relative w-full mx-auto justify-center items-center overflow-hidden px-[3rem] xl:w-[94rem] animate-blink">
-             
+        <div
+            class="z-20 relative w-full mx-auto justify-center items-center overflow-hidden px-[3rem] xl:w-[94rem] animate-blink">
+
             <div class="p-8 px-26">
                 <div class="mt-19 md:mt-18  flex">
-                    
+
                     <h1 class="text-white text-4xl  sk">
                         Hello, <span class="sk-bold text-[#05D9FF]"> {{ Auth::user()->username }}</span> &#128075;
                         <p class="text-xl text-[#7A7A7A] mt-1">
@@ -76,17 +77,20 @@
                             </div>
                         </div>
                         <div class="w-full mr-4 ">
-                                   <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold p-4 border  h-full border-[#244C53] ">
-                              <div class="flex">
-                                Transaction Statistics
-                                <button>
-                                <p class="my-auto px-2 "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF" class="size-6 hover:fill-[#00B1D0]">
-                                    <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
-                                  </svg>
-                                  </p>
-                                </button>
-                              </div>
-                            </p> 
+                            <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold p-4 border  h-full border-[#244C53] ">
+                                <div class="flex">
+                                    Transaction Statistics
+                                    <button>
+                                        <p class="my-auto px-2 "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                fill="#05D9FF" class="size-6 hover:fill-[#00B1D0]">
+                                                <path fill-rule="evenodd"
+                                                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </p>
+                                    </button>
+                                </div>
+                                </p>
                                 <!-- Legend Indicator -->
                                 <div class="sk flex justify-center sm:justify-end items-center gap-x-4 mb-3 sm:mb-6">
                                     <div class="inline-flex items-center">
@@ -108,25 +112,29 @@
                         </div>
 
                         <div class="w-3/5  ">
-                            <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold p-4 border h-full [32rem] border-[#244C53] ">
+                            <div
+                                class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold p-4 border h-full [32rem] border-[#244C53] ">
                                 <div class="flex">
                                     Account Listing
-                                 
-                                    <button type="button"  id="ViewAccountFromDashboard" class="my-auto px-2 "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF" class="size-6 hover:fill-[#00B1D0]">
-                                        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
-                                      </svg>
+
+                                    <button type="button" id="ViewAccountFromDashboard" class="my-auto px-2 "><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF"
+                                            class="size-6 hover:fill-[#00B1D0]">
+                                            <path fill-rule="evenodd"
+                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
+                                                clip-rule="evenodd" />
+                                        </svg>
                                     </button>
                                     <script>
                                         document.getElementById("ViewAccountFromDashboard").addEventListener("click", function() {
-                                                    window.location.href = "{{ route('accounts.accounts') }}";
-                                                })
-                                    
-                                             
-                                        </script>
-                                  </div>
+                                            window.location.href = "{{ route('accounts.accounts') }}";
+                                        })
+                                    </script>
+                                </div>
 
-                                  
-                                <div id="AccountView" class="sk  overflow-y-auto w-full max-h-[360px]
+
+                                <div id="AccountView"
+                                    class="sk  overflow-y-auto w-full max-h-[360px]
                                  [&::-webkit-scrollbar]:w-2
                                  [&::-webkit-scrollbar-track]:rounded-full
                                  [&::-webkit-scrollbar-track]:bg-gray-100
@@ -134,71 +142,74 @@
                                  [&::-webkit-scrollbar-thumb]:bg-gray-300
                                  dark:[&::-webkit-scrollbar-track]:bg-neutral-700
                                  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
-                                <table class="table-fixed text-start w-full">
-                                    <table class=" table-auto text-start py-4 w-full ">
-                                        <thead class="text-start py-4 ">
-                                            <tr class="text-sm py-4 text-[#AAAAAA] border-b border-[#4C4C4C]">
-                                                <th class="text-start py-4 text-sm "">Transaction Name</th>
-                                                <th class="text-start py-4 ">Balance</th>
+                                    <table class="table-fixed text-start w-full">
+                                        <table class=" table-auto text-start py-4 w-full ">
+                                            <thead class="text-start py-4 ">
+                                                <tr class="text-sm py-4 text-[#AAAAAA] border-b border-[#4C4C4C]">
+                                                    <th class="text-start py-4 text-sm "">Transaction Name</th>
+                                                    <th class="text-start py-4 ">Balance</th>
 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                           
-                                            <tr class="border-b border-[#4C4C4C]"">
-                                                <td class="py-4 text-sm">G-Cash</td>
-                                                <td class="py-4 text-sm">232.00</td>
-                                            </tr>
-                                            <tr class="border-b border-[#4C4C4C]"">
-                                                <td class="py-4 text-sm">G-Cash</td>
-                                                <td class="py-4 text-sm">232.00</td>
-                                            </tr>
-                                            <tr class="border-b border-[#4C4C4C]"">
-                                                <td class="py-4 text-sm">G-Cash</td>
-                                                <td class="py-4 text-sm">232.00</td>
-                                            </tr>
-                                            <tr class="border-b border-[#4C4C4C]"">
-                                                <td class="py-4 text-sm">G-Cash</td>
-                                                <td class="py-4 text-sm">232.00</td>
-                                            </tr>
-                                            <tr class="border-b border-[#4C4C4C]"">
-                                                <td class="py-4 text-sm">G-Cash</td>
-                                                <td class="py-4 text-sm">232.00</td>
-                                            </tr>
-                                            <tr class="border-b border-[#4C4C4C]"">
-                                                <td class="py-4 text-sm">G-Cash</td>
-                                                <td class="py-4 text-sm">232.00</td>
-                                            </tr>
-                                            <tr class="border-b border-[#4C4C4C]"">
-                                                <td class="py-4 text-sm">G-Cash</td>
-                                                <td class="py-4 text-sm">232.00</td>
-                                            </tr>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                        </tbody>
-                                    </table>
+                                                <tr class="border-b border-[#4C4C4C]"">
+                                                    <td class="py-4 text-sm">G-Cash</td>
+                                                    <td class="py-4 text-sm">232.00</td>
+                                                </tr>
+                                                <tr class="border-b border-[#4C4C4C]"">
+                                                    <td class="py-4 text-sm">G-Cash</td>
+                                                    <td class="py-4 text-sm">232.00</td>
+                                                </tr>
+                                                <tr class="border-b border-[#4C4C4C]"">
+                                                    <td class="py-4 text-sm">G-Cash</td>
+                                                    <td class="py-4 text-sm">232.00</td>
+                                                </tr>
+                                                <tr class="border-b border-[#4C4C4C]"">
+                                                    <td class="py-4 text-sm">G-Cash</td>
+                                                    <td class="py-4 text-sm">232.00</td>
+                                                </tr>
+                                                <tr class="border-b border-[#4C4C4C]"">
+                                                    <td class="py-4 text-sm">G-Cash</td>
+                                                    <td class="py-4 text-sm">232.00</td>
+                                                </tr>
+                                                <tr class="border-b border-[#4C4C4C]"">
+                                                    <td class="py-4 text-sm">G-Cash</td>
+                                                    <td class="py-4 text-sm">232.00</td>
+                                                </tr>
+                                                <tr class="border-b border-[#4C4C4C]"">
+                                                    <td class="py-4 text-sm">G-Cash</td>
+                                                    <td class="py-4 text-sm">232.00</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
                                 </div>
-                             
+
                             </div>
-                            
+
                         </div>
-                        
+
                     </div>
                 </div>
 
                 <div class="w-[full] flex text-white">
                     <div class="w-full mr-4">
-                        <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold p-4 border h-full[32rem] border-[#244C53] ">
+                        <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold p-4 border h-full [32rem] border-[#244C53] ">
                             <div class="flex">
                                 Recent Transaction
-                                <button >
-                                <p class="my-auto px-2 ">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF" class="size-6 hover:fill-[#00B1D0]">
-                                    <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
-                                    
-                                  </svg>
-                                  </p>
+                                <button>
+                                    <p class="my-auto px-2 ">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF"
+                                            class="size-6 hover:fill-[#00B1D0]">
+                                            <path fill-rule="evenodd"
+                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
+                                                clip-rule="evenodd" />
+
+                                        </svg>
+                                    </p>
                                 </button>
-                              </div>
+                            </div>
 
                             <div id="TransactionView"
                                 class="sk  overflow-y-auto w-full max-h-[410px]
@@ -300,7 +311,7 @@
                                 <div>
 
                                 </div>
-                                
+
 
                             </div>
                             <div class="flex  justify-end items-end">
@@ -317,12 +328,15 @@
                             <div class="flex">
                                 Schedule
                                 <button>
-                                <p class="my-auto px-2 "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF" class="size-6 hover:fill-[#00B1D0]">
-                                    <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
-                                  </svg>
-                                  </p>
+                                    <p class="my-auto px-2 "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                            fill="#05D9FF" class="size-6 hover:fill-[#00B1D0]">
+                                            <path fill-rule="evenodd"
+                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </p>
                                 </button>
-                              </div>
+                            </div>
 
                             <div id="ScheduleView"
                                 class=" sk overflow-y-auto w-full max-h-[410px]
@@ -397,7 +411,7 @@
 
             </div>
 
-          
+
         </div>
 
 
@@ -405,24 +419,26 @@
         <div class="absolute h-screen w-full bg-[#181818] inset-0 z-0 flex">
             <div class="absolute w-1/2 mx-auto justify-center items-center">
                 <div class=" w-full h-full  justify-center items-center">
-                    <img src="/image/Abstract2.png" class="absolute object-cover bottom-0 right-0 transform translate-x-[100%] translate-y-[100%] z-30 h-[30rem] opacity-70 hidden md:block" alt="">
+                    <img src="/image/Abstract2.png"
+                        class="absolute object-cover bottom-0 right-0 transform translate-x-[100%] translate-y-[100%] z-30 h-[30rem] opacity-70 hidden md:block"
+                        alt="">
                 </div>
             </div>
             <div class="w-full h-2/5 bg-[#1D1D1D] z-10">
                 <img src="/image/GridBG.png" class="object-cover w-screen h-full" alt="Grid Background">
             </div>
         </div>
-        
+
 
         <script>
             document.getElementById("ViewAccounts").addEventListener("click", function() {
-                        window.location.href = "{{ route('accounts.accounts') }}";
-                    })
-        
-                    document.getElementById("ViewDashboard").addEventListener("click", function() {
-                        window.location.href = "{{ route('dashboard.dashboard') }}";
-                    })
-            </script>
+                window.location.href = "{{ route('accounts.accounts') }}";
+            })
+
+            document.getElementById("ViewDashboard").addEventListener("click", function() {
+                window.location.href = "{{ route('dashboard.dashboard') }}";
+            })
+        </script>
 
     </section>
 @endsection

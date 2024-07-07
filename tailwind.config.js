@@ -17,6 +17,8 @@ export default {
     },
     plugins: [
         animations,
-        require("preline/plugin"), // Include preline plugin
+
+        require("preline/plugin"),
+        // Include preline plugin
     ],
 };

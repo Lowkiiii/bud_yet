@@ -9,9 +9,9 @@
         <!-- Foreground Content -->
 
         <div>
-            @include('modal/addAccount')
-            @include('modal/editAccount')
-            @include('modal/deleteAccount')
+            @include('modal/addSchedule')
+            @include('modal/editSchedule')
+          
         </div>
 
         <div
@@ -22,11 +22,11 @@
 
                     <h1 class="text-white text-4xl  sk">
                         <div class="flex items-center">
-                            <span class="sk-bold text-[#05D9FF]">Accounts</span>
-                            <span class="text-center pb-3 ml-2">&#x1F4B3;</span>
+                            <span class="sk-bold text-[#05D9FF]">Schedule</span>
+                            <span class="text-center mx-auto ml-2">&#x1F4C5;</span>
                         </div>
                         <p class="text-xl text-[#7A7A7A] mt-1">
-                            Create and manage your accounts. </p>
+                            Prepare your expnenses for the month. </p>
                     </h1>
                     <div class="flex flex-row items-center ms-auto ">
                         <div class="flex flex-row">
@@ -47,8 +47,8 @@
                     <div class="flex flex-col">
 
                         <div class="sk-bold text-xl text-start w-full  flex flex-row">
-                            Schedule List
-                            <button type="button" class="disabled:pointer-events-none" data-hs-overlay="#addAccount">
+                            Active Schedules
+                            <button type="button" class="disabled:pointer-events-none" data-hs-overlay="#addSchedule">
                                 <p class="my-auto px-2 "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                         fill="#05D9FF" class="size-6 hover:fill-[#00B1D0]">
                                         <path fill-rule="evenodd"
@@ -99,7 +99,7 @@
                                                         </svg></button>
                                                     <button
                                                         class="px-1 border-l border-[#4C4C4C] disabled:pointer-events-none "
-                                                        data-hs-overlay="#editAccount">
+                                                        data-hs-overlay="#editSchedule">
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                             fill="#8FFF74" class="size-5 hover:fill-[#42FF13]">
                                                             <path
@@ -144,7 +144,6 @@
                 </div>
             </div>
         </div>
-        
 
         <!-- Inputs for storing Income (di lang pag panasa ako lang di bahala saylo) -->
         {{-- <div class="p-8">
