@@ -16,8 +16,7 @@
                     <h1 class="text-white text-4xl  sk">
                         Hello, <span class="sk-bold text-[#05D9FF]"> {{ Auth::user()->username }}</span> &#128075;
                         <p class="text-xl text-[#7A7A7A] mt-1">
-                            Lorem ipsum dolor sit amet consectetur. Nunc id porttitor enim enim vel placerat.
-                        </p>
+                            Welcome to the Dashboard, track your finances here!                        </p>
                     </h1>
                     <div class="flex flex-row items-center ms-auto ">
                         <div class="flex flex-row">

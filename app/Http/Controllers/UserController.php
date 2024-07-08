@@ -38,6 +38,11 @@ class UserController extends Controller
         $user = Auth::user();
         return view ('income.income', compact('user'));
     }
+    public function transaction()
+    {
+        $user = Auth::user();
+        return view ('transaction.transaction', compact('user'));
+    }
  
     
 }

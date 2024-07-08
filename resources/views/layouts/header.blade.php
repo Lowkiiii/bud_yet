@@ -2,7 +2,9 @@
     <div class="px-[4.5rem]">
         <div class="py-8 text-white">
             <div class="flex flex-row">
+                <button type="button" id="ViewDashboard">
                 <img src="/image/BY-WHITE.png" class="h-8" alt="">
+                </button>
                 <div class="sk ml-24 flex text-lg text-[#7A7A7A]">
                     <button id="ViewDashboard"
                         class="flex items-center px-6 justify-center {{ request()->routeIs('dashboard.dashboard') ? 'text-[#05D9FF]' : 'text-[#7A7A7A]' }} hover:text-[#05D9FF]">
@@ -20,12 +22,10 @@
                     </button>
                     <button id="ViewAccounts"
                         class="flex items-center px-6 justify-center {{ request()->routeIs('accounts.accounts') ? 'text-[#05D9FF]' : 'text-[#7A7A7A]' }} hover:text-[#05D9FF]">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
-                            <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
-                            <path fill-rule="evenodd"
-                                d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z"
-                                clip-rule="evenodd" />
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
+                          </svg>
+                          
 
 
                         <p class="ml-1">Accounts</p>
@@ -52,8 +52,8 @@
 
                     <p class="ml-1">Income</p>
                 </button>
-                    <button 
-                        class="flex items-center px-6 justify-center {{ request()->routeIs('') ? 'text-[#05D9FF]' : 'text-[#7A7A7A]' }} hover:text-[#05D9FF]"">
+                    <button id="ViewTransaction" 
+                        class="flex items-center px-6 justify-center {{ request()->routeIs('transaction.transaction') ? 'text-[#05D9FF]' : 'text-[#7A7A7A]' }} hover:text-[#05D9FF]"">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-5">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -87,18 +87,29 @@
                             </button>
                           
                             <div class="sk hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-2 mt-2 dark:bg-neutral-800 dark:border border-[#244C53] after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full" aria-labelledby="hs-dropdown-default">
-                               
-                                  <div class=" py-2 first:pt-0 last:pb-0">
-                                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 bg-[#2B2B2B]" href="#">
-                                      <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-                                      <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <button type="submit">Logout</button>
+                                <div class="py-2 first:pt-0 last:pb-0">
+                                  <div class="flex items-center gap-x-1 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 bg-[#2B2B2B] cursor-pointer" onclick="document.getElementById('logout-form').submit();">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 logout-text">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                                      </svg>
+                                      
+                                    <form id="logout-form" method="POST" action="{{ route('logout') }}" class="inline">
+                                      @csrf
+                                      <button type="submit" class="hidden">Logout</button>
                                     </form>
-                                    </a>
-                                   
+                                    <span class="logout-text text-gray-800 dark:text-neutral-400 sk">Logout</span>
                                   </div>
-                            </div>
+                                </div>
+                              </div>
+                              
+                              <style>
+                                .cursor-pointer:hover .logout-text {
+                                  color: #05D9FF; /* Change this color to your preferred hover color */
+                                }
+                              </style>
+                              
+                              
+                              
                           </div>
                     </div>
                 </div>
@@ -121,6 +132,9 @@
 
         document.getElementById("ViewSchedule").addEventListener("click", function() {
             window.location.href = "{{ route('schedule.schedule') }}";
+        })
+        document.getElementById("ViewTransaction").addEventListener("click", function() {
+            window.location.href = "{{ route('transaction.transaction') }}";
         })
 
         const menuButton = document.getElementById('menuButton');

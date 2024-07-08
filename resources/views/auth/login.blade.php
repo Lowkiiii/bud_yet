@@ -91,7 +91,7 @@
 
 
                                         <button type=""
-                                            class="inline-block rounded-[12px] bg-[#05D9FF] px-7 pb-2.5 pt-3 text-sm font-medium  leading-normal text-[#272727] transition duration-300 ease-in-out hover:bg-[#00B1D0]  focus:bg-[#00B1D0] focus:outline-none focus:ring-0 active:bg-[#00B1D0] active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] w-full sk-bold "
+                                            class="inline-block rounded-[12px] bg-[#05D9FF] px-7 pb-2.5 pt-3 text-sm font-medium  leading-normal text-[#272727] transition duration-300 ease-in-out hover:bg-[#24deff]  focus:bg-[#24deff] focus:outline-none focus:ring-0 active:bg-[#24deff] active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] w-full sk-bold "
                                             data-te-ripple-init data-te-ripple-color="light">
                                             Login
                                         </button>
