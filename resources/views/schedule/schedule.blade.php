@@ -75,9 +75,13 @@
                                     <tr class="text-sm text-center py-4  text-[#AAAAAA] border-b border-[#4C4C4C]">
                                         <th class=" py-4 ">#</th>
                                         <th class=" py-4">ID</th>
-                                        <th class=" py-4 ">Account Name</th>
-                                        <th class=" py-4 ">Balance</th>
-                                        <th class=" py-4 ">Date</th>
+                                        <th class=" py-4 ">Schedule Name</th>
+                                        <th class=" py-4 ">Amount</th>
+                                        <th class=" py-4 ">Fromt Account</th>
+                                        <th class=" py-4  ">To Account</th>
+                                        <th class=" py-4  ">Frequency</th>
+                                        <th class=" py-4  ">Start Date</th>
+                                        <th class=" py-4  ">To Date</th>
                                         <th class=" py-4  ">Actions</th>
                                     </tr>
                                 </thead>
@@ -88,7 +92,11 @@
                                         <td class="py-4">01</td>
                                         <td class="py-4 ">BDO Checking</td>
                                         <td class="py-4  ">20,300.00</td>
+                                        <td class="py-4 ">BDC Checkings</td>
+                                        <td class="py-4 ">BPI Savings</td>
+                                        <td class="py-4 ">Monthly</td>
                                         <td class="py-4 ">01/07/2024</td>
+                                        <td class="py-4 ">01/10/2024</td>
                                         <td class="py-4  ">
                                             <div class="flex justify-center">
                                                 <div class="flex flex-row "><button class="px-1 "><svg
