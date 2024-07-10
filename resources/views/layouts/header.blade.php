@@ -2,7 +2,7 @@
     <div class="px-[4.5rem]">
         <div class="py-8 text-white">
             <div class="flex flex-row">
-                <button type="button" id="ViewDashboard">
+                <button type="button" id="ViewLogoDashboard">
                 <img src="/image/BY-WHITE.png" class="h-8" alt="">
                 </button>
                 <div class="sk ml-24 flex text-lg text-[#7A7A7A]">
@@ -126,6 +126,9 @@
             window.location.href = "{{ route('income.income') }}";
         })
 
+        document.getElementById("ViewLogoDashboard").addEventListener("click", function() {
+            window.location.href = "{{ route('dashboard.dashboard') }}";
+        })
         document.getElementById("ViewDashboard").addEventListener("click", function() {
             window.location.href = "{{ route('dashboard.dashboard') }}";
         })

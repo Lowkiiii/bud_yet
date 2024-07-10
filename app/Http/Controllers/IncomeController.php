@@ -33,4 +33,10 @@ class IncomeController extends Controller
             return Redirect::back()->withErrors(['error' => 'An error occurred while saving the income.']);
         }
     }
+
+    public function index()
+    {
+        $userIncome = Auth::user()->userIncome;
+        return view('income.income', compact('userIncome'));
+    }
 }
