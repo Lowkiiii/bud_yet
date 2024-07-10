@@ -18,9 +18,9 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::post('logout', [AuthenticationController::class, 'destroy'])->name('logout'); 
+    Route::post('logout', [AuthenticationController::class, 'destroy'])->name('logout');
 });
- 
+
 Route::middleware('auth')->group(function () {
     Route::get('/accounts', [UserController::class, 'accounts'])->name('accounts.accounts');
     Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard.dashboard');
@@ -30,8 +30,15 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    // income
+    Route::get('/income', [IncomeController::class, 'index'])->name('income.income');
+    Route::post('/income', [IncomeController::class, 'store'])->name('income.store');
+    Route::get('/edit-income/{id}', [IncomeController::class, 'edit'])->name('income.edit');
+    Route::put('/update-income', [IncomeController::class, 'update'])->name('income.update');
+    Route::get('/delete-income/{id}', [IncomeController::class, 'delete'])->name('income.delete');
+});
+
+Route::middleware('auth')->group(function () {
     // Academics routes
     Route::post('/accounts', [IncomeController::class, 'store'])->name('income.store');
 });
-
-

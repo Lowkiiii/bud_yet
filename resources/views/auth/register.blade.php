@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,20 +15,24 @@
             margin: 0;
             background-color: #f0f0f0;
         }
+
         form {
             background-color: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
         }
+
         div {
             margin-bottom: 15px;
         }
+
         label {
             display: block;
             margin-bottom: 5px;
         }
+
         input {
             width: 100%;
             padding: 8px;
@@ -35,6 +40,7 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
+
         button {
             width: 100%;
             padding: 10px;
@@ -44,15 +50,17 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
         button:hover {
             background-color: #218838;
         }
     </style>
 </head>
+
 <body>
     <form method="POST" action="{{ route('register.account') }}">
         @csrf
-        
+
         <div>
             <label for="first_name">First Name</label>
             <input id="first_name" type="text" name="first_name" value="{{ old('first_name') }}" required autofocus>
@@ -89,4 +97,5 @@
         </div>
     </form>
 </body>
+
 </html>
