@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('tbl_account_transaction', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
+            $table->unsignedBigInteger('user_id');
             $table->double('amount');
             $table->date('date');
             $table->timestamps();

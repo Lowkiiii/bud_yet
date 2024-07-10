@@ -32,4 +32,9 @@ class Account extends Model
         'account_name, balance, min_balance, max_balance, user_id'
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

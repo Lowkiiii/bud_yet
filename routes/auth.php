@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\AccountsController;
+use App\Http\Controllers\ActTransactionController;
 use Illuminate\Support\Facades\Route;
 
 //use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -45,4 +46,9 @@ Route::middleware('auth')->group(function () {
 
     // Account
     Route::post('/accounts', [AccountsController::class, 'store'])->name('account.store');
+
+    //Get Accounts
+    Route::get('/transaction', [ActTransactionController::class, 'getAccount'])->name('transaction.transaction');
+    //store transaction
+    Route::post('/transaction', [ActTransactionController::class, 'store'])->name('transaction.store');
 });
