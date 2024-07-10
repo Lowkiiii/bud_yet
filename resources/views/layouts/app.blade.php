@@ -86,12 +86,12 @@
                         }
                     },
                     series: [{
-                            name: 'Incone',
-                            data: [2000, 12000, 9000, 30000, 23000]
+                            name: 'Income',
+                            data: [2000, 12000, 9000, 30000, 23000,2000, 12000, 9000, 30000, 23000, 2000, 12000]
                         },
                         {
                             name: 'Expense',
-                            data: [6000, 8000, 6000, 24000, 4000]
+                            data: [6000, 8000, 6000, 24000, 4000, 8000, 6000, 24000, 4000, 8000, 6000, 24000]
                         }
                     ],
                     legend: {
@@ -113,11 +113,18 @@
                         type: 'category',
                         tickPlacement: 'on',
                         categories: [
+                            'January',
+                            'Febuary',
                             'March',
                             'April',
                             'May',
                             'June',
                             'July',
+                            'August',
+                            'September',
+                            'October',
+                            'November',
+                            'December'
 
                         ],
                         axisBorder: {

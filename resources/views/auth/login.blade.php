@@ -7,29 +7,29 @@ Login
 @section('content')
 <section class="bg-[#1D1D1D] h-screen">
     <div class="flex min-h-full justify-center bg-[#1D1D1D] ">
-        <div class="flex flex-col justify-center  sm:w-1/2">
-            <div>
-                <div class=" p-2 w-10/12 sm:mx-auto sm:max-w-md  animate-fade-in-right ">
-                    <div class="px-8 py-9 w-full  bg-white rounded-[15px] ">
+        <div class="flex flex-col justify-center w-full  sm:w-1/2">
+         
+                <div class=" p-2 w-full mx-auto sm:mx-auto sm:w-10/12 sm:max-w-md  animate-fade-in-right ">
+                    <div class="px-8 py-9 w-full  bg-[#1D1D1D] rounded-[15px] sm:bg-white ">
 
-
-                        <img src="/image/BUDYET-LOGO.png" alt="BUDYET-LOGO" class="block w-8.08 h-7  mt-6 item-start">
+                        <img src="/image/BY-WHITE.png" alt="BUDYET-LOGO" class="block sm:hidden w-8.08 h-7  mt-6 item-start">
+                        <img src="/image/BUDYET-LOGO.png" alt="BUDYET-LOGO" class="sm:block hidden w-8.08 h-7  mt-6 item-start">
 
                         <div class="mt-6" id="LoginInfo">
-                            <h2 id="" class="text-2xl flex flex-row sk-bold text-[#272727] animate-blink">
+                            <h2 id="" class="text-2xl flex flex-row sk-bold text-white sm:text-[#272727] animate-blink">
                                 <div>&#9996;</div> <span class="">Login</span>
                                 <div class="flex-grow"></div>
                             </h2>
 
 
-                            <p class="flex text-sm py-1  text-[#747474] animate-blink">
+                            <p class="flex text-sm py-1 text-white sm:text-[#747474] animate-blink">
                                 Welcome to Bud-Yet, your online <br> Finance Manager.
                             </p>
                         </div>
 
                         <div class="mt-6 hidden " id="RegisterInfo">
 
-                            <h2 class="text-2xl flex flex-row sk-bold text-[#272727] animate-blink ">
+                            <h2 class="text-2xl flex flex-row sk-bold text-white sm:text-[#272727] animate-blink ">
                                 <div>&#x1F4C8;</div> <span class="">Register</span>
                                 <div class="flex-grow"></div>
                             </h2>
@@ -157,10 +157,11 @@ Login
                         <div class="py-4 animate-blink " id="RegisterNow">
 
 
-                            <div id="" class="text-xs text-[#959595] text-center py-2 ">
+                            <div id="" class="text-xs 
+                            text-[#959595] text-center py-2 ">
                                 <span>Don't have an account?</span>
                                 <div class="flex justify-center items-center">
-                                    <button id="RegisterToggle" class="text-xs text-center text-[#272727] hover:text-[#00B1D0]">Register
+                                    <button id="RegisterToggle" class="text-xs text-center text-white sm:text-[#272727] hover:text-[#00B1D0]">Register
                                         Now!</button>
                                 </div>
                             </div>
@@ -175,7 +176,7 @@ Login
                             <div id="" class="text-xs text-[#959595] text-center py-2 ">
                                 <span>Already have an Account?</span>
                                 <div class="flex justify-center items-center">
-                                    <button id="LoginToggle" class="text-xs text-center text-[#272727] hover:text-[#00B1D0]">Login
+                                    <button id="LoginToggle" class="text-xs text-center text-white sm:text-[#272727] hover:text-[#00B1D0]">Login
                                         Now!</button>
                                 </div>
                             </div>
@@ -193,9 +194,9 @@ Login
                 </div>
 
 
-            </div>
+            
         </div>
-        <div class="flex bg-no-repeat bg-cover w-full mx-auto md:flex hidden">
+        <div class="flex bg-no-repeat hidden bg-cover w-full mx-auto md:flex ">
             <div class="w-full h-screen overflow-hidden relative ">
                 <!-- Carousel Container -->
                 <div data-hs-carousel='{"loadingClasses": "opacity-0", "isAutoPlay": true}' class="absolute  left-5 top-[70%] bottom-0 flex items-center justify-center z-10 w-7/12">

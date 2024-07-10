@@ -27,7 +27,7 @@ class IncomeController extends Controller
 
             $income->save();
 
-            return redirect()->route('studentProf')->with('flash_message', 'Income Added!');
+            return redirect()->route('income')->with('flash_message', 'Income Added!');
         } catch (\Exception $e) {
             Log::error('Error saving income: ' . $e->getMessage());
             return Redirect::back()->withErrors(['error' => 'An error occurred while saving the income.']);

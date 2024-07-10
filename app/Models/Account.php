@@ -29,11 +29,7 @@ class Account extends Model
      * @var array
      */
     protected $fillable = [
-        'name, balance, min_balance, max_balance, user_id'
+        'account_name, balance, min_balance, max_balance, user_id'
     ];
 
-    // protected $casts = [
-    //     'date_started' => 'datetime',
-    //     'date_ended' => 'datetime',
-    // ];
 }

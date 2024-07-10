@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthenticationController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\AccountsController;
 use Illuminate\Support\Facades\Route;
 
 //use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -39,6 +40,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    // Academics routes
-    Route::post('/accounts', [IncomeController::class, 'store'])->name('income.store');
+    // Income
+    Route::post('/income', [IncomeController::class, 'store'])->name('income.store');
+
+    // Account
+    Route::post('/accounts', [AccountsController::class, 'store'])->name('account.store');
 });
