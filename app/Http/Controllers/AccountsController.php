@@ -44,7 +44,7 @@ class AccountsController extends Controller
     public function index()
     {
 
-        $account = Account::where('id', auth()->id())->get();
+        $account = Account::where('user_id', auth()->id())->get();
 
         return view('accounts.accounts', compact('account'));
         //return view('dashboard.dashboard', compact('userIncome'));

@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
     // Account
     Route::post('/accounts', [AccountsController::class, 'store'])->name('account.store');
     Route::get('/accounts', [AccountsController::class, 'index'])->name('accounts.accounts');
+
     Route::get('/edit-accounts/{id}', [AccountsController::class, 'edit'])->name('accounts.edit');
     Route::put('/update-accounts', [AccountsController::class, 'update'])->name('accounts.update');
     Route::get('/delete-accounts/{id}', [AccountsController::class, 'delete'])->name('accounts.delete');
