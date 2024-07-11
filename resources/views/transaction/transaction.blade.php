@@ -77,21 +77,22 @@
                                         <th class=" py-4">ID</th>
                                         <th class=" py-4 ">Account Name</th>
                                         <th class=" py-4 ">Amount</th>
-                                        <th class=" py-4 ">Transaction</th>
+                                        <th class=" py-4 ">Transaction Type</th>
                                         <th class=" py-4  ">Category</th>
                                         <th class=" py-4  ">Date</th>
                                         <th class=" py-4  ">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($transactions as $index => $transaction)
                                     <tr class="border-b text-base text-center border-[#4C4C4C]">
-                                        <td class="py-4 "> 1</td>
-                                        <td class="py-4">01</td>
-                                        <td class="py-4 ">BDO Checking</td>
-                                        <td class="py-4  ">20,300.00</td>
-                                        <td class="py-4 ">Deposit</td>
-                                        <td class="py-4 ">Salaray</td>
-                                        <td class="py-4 ">01/07/2024</td>
+                                        <td class="py-4">{{ $index + 1 }}</td>
+                                        <td class="py-4">{{ $transaction->id }}</td>
+                                        <td class="py-4">{{ $transaction->account->account_name }}</td>
+                                        <td class="py-4">{{ number_format($transaction->amount, 2) }}</td>
+                                        <td class="py-4">{{ ucfirst($transaction->type) }}</td>
+                                        <td class="py-4">{{ $transaction->category }}</td>
+                                        <td class="py-4">{{ $transaction->date->format('d/m/Y') }}</td>
                                         <td class="py-4  ">
                                             <div class="flex justify-center">
                                                 <div class="flex flex-row "><button class="px-1 "><svg
@@ -116,34 +117,12 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
-                <!-- Inputs for storing Income (di lang pag panasa ako lang di bahala saylo) -->
-                {{-- <div class="p-8">
-                    <h2 class="text-white text-2xl">Add New Income</h2>
-                    <form action="{{ route('income.store') }}" method="POST" class="mt-4">
-                        @csrf
-                        <div class="mb-4">
-                            <label for="income_name" class="block text-white">Income Name:</label>
-                            <input type="text" name="income_name" id="income_name" class="w-full p-2 mt-1 rounded bg-gray-800 text-white">
-                        </div>
-                        <div class="mb-4">
-                            <label for="amount" class="block text-white">Amount:</label>
-                            <input type="number" name="amount" id="amount" class="w-full p-2 mt-1 rounded bg-gray-800 text-white">
-                        </div>
-                        <div class="mb-4">
-                            <label for="date" class="block text-white">Date:</label>
-                            <input type="date" name="date" id="date" class="w-full p-2 mt-1 rounded bg-gray-800 text-white">
-                        </div>
-                        <div class="mb-4">
-                            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Add Income</button>
-                        </div>
-                    </form>
-                </div> --}}
             </div>
         </div>
 
@@ -160,10 +139,6 @@
                 <img src="/image/GridBG.png" class="object-cover w-screen h-full" alt="Grid Background">
             </div>
         </div>
-
-
-
-
 
     </section>
 @endsection

@@ -14,10 +14,10 @@ use Illuminate\Http\Request;
 class ActTransactionController extends Controller
 {
     //
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
     public function store(Request $request)
     {
         try {
@@ -69,5 +69,17 @@ class ActTransactionController extends Controller
         $accounts = Account::where('user_id', $user->id)->get();
         
         return view('transaction.transaction', compact('accounts'));
+    }
+
+    public function index()
+    {
+        $transactions = AccountTransaction::with('account')
+            ->where('user_id', Auth::id())
+            ->orderBy('date', 'desc')
+            ->get();
+
+        $accounts = Account::where('user_id', Auth::id())->get();
+
+        return view('transaction.transaction', compact('transactions', 'accounts'));
     }
 }
