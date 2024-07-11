@@ -45,21 +45,21 @@
         document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("TransactionSeeAll").addEventListener("click", function() {
                 const transactionView = document.getElementById("TransactionView");
-                transactionView.classList.toggle("max-h-[410px]");
+                transactionView.classList.toggle("sm:max-h-[410px]");
               
                 
             });
 
             document.getElementById("ScheduleSeeAll").addEventListener("click", function() {
                 const scheduleView = document.getElementById("ScheduleView");
-                scheduleView.classList.toggle("max-h-[410px]");
+                scheduleView.classList.toggle("h-[18rem]"); 
               
                 
             });
 
             document.getElementById("AccountSeeAll").addEventListener("click", function() {
                 const scheduleView = document.getElementById("AccountView");
-                scheduleView.classList.toggle("max-h-[360px]");
+                scheduleView.classList.toggle("sm:max-h-[410px]");
               
                 
             });
@@ -149,7 +149,7 @@
                         labels: {
                             style: {
                                 colors: '#AAAAAA',
-                                fontSize: '12px',
+                                fontSize: '8px',
                                 fontFamily: 'SkModernist, sans-serif',
                                 fontWeight: 400
                             },
@@ -165,7 +165,7 @@
                             maxWidth: 140,
                             style: {
                                 colors: '#AAAAAA',
-                                fontSize: '12px',
+                                fontSize: '8px',
                                 fontFamily: 'SkModernist, sans-serif',
                                 fontWeight: 400
                             },
@@ -198,17 +198,17 @@
                                 title: newTitle,
                                 mode,
                                 hasTextLabel: true,
-                                wrapperExtClasses: 'min-w-28',
+                                wrapperExtClasses: 'min-w-18',
                                 labelDivider: ':',
                                 labelExtClasses: 'ms-2'
                             });
                         }
                     },
                     responsive: [{
-                        breakpoint: 568,
+                        breakpoint:250,
                         options: {
                             chart: {
-                                height: 300
+                                height: 250
                             },
                             labels: {
                                 style: {

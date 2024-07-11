@@ -17,6 +17,7 @@
     "dependencies": {
         "@midudev/tailwind-animations": "^0.0.7",
         "@preline/carousel": "^2.3.0",
+        "@preline/overlay": "^2.3.0",
         "apexcharts": "^3.49.2",
         "gotham-fonts": "^1.0.3",
         "lodash": "^4.17.21",

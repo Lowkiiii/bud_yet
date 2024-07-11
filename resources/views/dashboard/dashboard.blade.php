@@ -7,17 +7,17 @@ Dashboard
 @section('content')
 <section class="bg-[#181818] mx-auto justify-center items-center h-full w-full overflow-hidden">
     <!-- Foreground Content -->
-    <div class="z-20 relative w-full mx-auto justify-center items-center overflow-hidden px-[3rem] xl:w-[94rem] animate-blink">
+    <div class="z-20 relative  sm:pt-0  mx-auto justify-center items-center overflow-hidden sm:px-[3rem] w-full xl:w-[94rem] animate-blink">
 
-        <div class="p-8 px-26">
-            <div class="mt-19 md:mt-18  flex">
+        <div class="sm:p-8 p-6 sm:px-26">
+            <div class="mt-1 md:mt-18  flex">
 
-                <h1 class="text-white text-4xl  sk">
+                <h1 class="text-white sm:text-4xl text-xl  sk">
                     Hello, <span class="sk-bold text-[#05D9FF]"> {{ Auth::user()->username }}</span> &#128075;
-                    <p class="text-xl text-[#7A7A7A] mt-1">
-                        Welcome to the Dashboard, track your finances here! </p>
+                    <p class="text-base sm:text-xl  text-[#7A7A7A] mt-1">
+                        Welcome to the Dashboard <span class="sm:block hidden">,track your finances here! </span> </p>
                 </h1>
-                <div class="flex flex-row items-center ms-auto ">
+                <div class="flex flex-row items-center ms-auto hidden sm:block ">
                     <div class="flex flex-row">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF" class="size-8 mr-3">
                             <path d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
@@ -31,48 +31,48 @@ Dashboard
 
 
             </div>
-            <div class="mt-[4rem]  text-white">
-                <div class="w-full flex pb-4">
-                    <div class="w-7/12 mr-4 ">
-                        <div class="bg-[#2B2B2B]  rounded-xl p-4 border border-[#244C53] mb-4">
+            <div class="mt-[1rem] sm:mt-[4rem]  text-white">
+                <div class="w-full flex-row sm:flex pb-4">
+                    <div class="w-full sm:w-7/12 mr-4 flex sm:flex-col overflow-x-auto sm:overflow-x-hidden ">
+                        <div class="bg-[#2B2B2B]  rounded-xl p-4 pr-9 sm:pr-0  border border-[#244C53] sm:mb-4 mb-3 mr-3 sm:m-0">
                             <div class="flex flex-col">
-                                <p class="text-[#AAAAAA]">Income</p>
-                                <h1 class="text-4xl sk-bold py-3 text-[#05D9FF]">
+                                <p class="text-[#AAAAAA] text-xs sm:text-base"">Income</p>
+                                <h1 class="text-2xl sm:text-4xl sk-bold py-1 sm:py-3 text-[#05D9FF]">
                                     ₱23,912.20
                                 </h1>
-                                <p class="sk text-sm text-[#AAAAAA]">
+                                <p class="sk text-[0.6rem] sm:text-sm text-[#AAAAAA]">
                                     Your last income was <span class="text-[#05D9FF] sk-bold">₱19,203.29</span> last
                                     month!
                                 </p>
                             </div>
                         </div>
-                        <div class="bg-[#2B2B2B] rounded-xl p-4 border border-[#244C53] mb-4">
+                        <div class="bg-[#2B2B2B]  rounded-xl p-4 pr-9 sm:pr-0 border border-[#244C53] sm:mb-4 mb-3 mr-3 sm:m-0">
                             <div class="flex flex-col">
-                                <p class="text-[#AAAAAA]">Expenses</p>
-                                <h1 class="text-4xl sk-bold py-3 text-[#FF1F1F]">
+                                <p class="text-[#AAAAAA] text-xs sm:text-base">Expenses</p>
+                                <h1 class="text-2xl sm:text-4xl sk-bold py-1 sm:py-3 text-[#FF1F1F]">
                                     ₱16,232.12
                                 </h1>
-                                <p class="sk text-sm text-[#AAAAAA]">
+                                <p class="sk text-[0.6rem]  sm:text-sm text-[#AAAAAA]">
                                     Your last expense was <span class="text-[#FF1F1F] sk-bold">₱10,912.00</span> last
                                     month!
                                 </p>
                             </div>
                         </div>
-                        <div class="bg-[#2B2B2B] rounded-xl p-4 border border-[#244C53] ">
+                        <div class="bg-[#2B2B2B]  rounded-xl p-4 pr-9 sm:pr-0 border border-[#244C53] sm:mb-4 mb-3  sm:m-0">
                             <div class="flex flex-col">
-                                <p class="text-[#AAAAAA]">Total Balance</p>
-                                <h1 class="text-4xl sk-bold py-3 ">
+                                <p class="text-[#AAAAAA] text-xs sm:text-base"">Total Balance</p>
+                                <h1 class="text-2xl sm:text-4xl sk-bold py-1 sm:py- ">
                                     ₱7,680.08
                                 </h1>
-                                <p class="sk text-sm text-[#AAAAAA]">
+                                <p class="sk text-[0.6rem] sm:text-sm text-[#AAAAAA]">
                                     Your last balance was <span class=" sk-bold">₱4,399.12</span> last
                                     month!
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="w-full mr-4 ">
-                        <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold p-4 border  h-full border-[#244C53] ">
+                    <div class="w-full  mr-4 ">
+                        <div class="bg-[#2B2B2B] text-lg rounded-xl sk-bold p-4 border  h-full border-[#244C53] mt-2 sm:mt-0 ">
                             <div class="flex">
                                 Transaction Statistics
                                 <button>
@@ -96,6 +96,7 @@ Dashboard
                                     <span class="text-[13px] text-gray-600 dark:text-neutral-400">
                                         Income
                                     </span>
+                                   
                                 </div>
                             </div>
                             <!-- End Legend Indicator -->
@@ -103,8 +104,8 @@ Dashboard
                         </div>
                     </div>
 
-                    <div class="w-3/5  ">
-                        <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold p-4 border h-full [32rem] border-[#244C53] ">
+                    <div class="w-full sm:w-3/5 sm:mt-0 mt-4 ">
+                        <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold  w-full p-4 border h-full [32rem] border-[#244C53] ">
                             <div class="flex">
                                 Account Listing
 
@@ -120,7 +121,7 @@ Dashboard
                             </div>
 
 
-                            <div id="AccountView" class="sk  overflow-y-auto w-full max-h-[360px]
+                            <div id="AccountView" class="sk  overflow-y-auto w-full max-h-[200px] sm:max-h-[360px]
                                  [&::-webkit-scrollbar]:w-2
                                  [&::-webkit-scrollbar-track]:rounded-full
                                  [&::-webkit-scrollbar-track]:bg-gray-100
@@ -128,7 +129,7 @@ Dashboard
                                  [&::-webkit-scrollbar-thumb]:bg-gray-300
                                  dark:[&::-webkit-scrollbar-track]:bg-neutral-700
                                  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
-                                <table class="table-fixed text-start w-full">
+                                <table class="table-auto text-start w-full">
                                     <table class=" table-auto text-start py-4 w-full ">
                                         <thead class="text-start py-4 ">
                                             <tr class="text-sm py-4 text-[#AAAAAA] border-b border-[#4C4C4C]">
@@ -179,9 +180,9 @@ Dashboard
                 </div>
             </div>
 
-            <div class="w-[full] flex text-white">
-                <div class="w-full mr-4">
-                    <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold p-4 border h-full [32rem] border-[#244C53] ">
+            <div class="w-full pb-12 sm:pb-0 sm:flex text-white">
+                <div class="w-full  mr-4">
+                    <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold p-4 border  sm:h-auto  border-[#244C53] ">
                         <div class="flex">
                             Recent Transaction
                             <button>
@@ -194,7 +195,7 @@ Dashboard
                             </button>
                         </div>
 
-                        <div id="TransactionView" class="sk  overflow-y-auto w-full max-h-[410px]
+                        <div id="TransactionView" class="sk  overflow-y-auto w-full h-[18rem]
                                  [&::-webkit-scrollbar]:w-2
                                  [&::-webkit-scrollbar-track]:rounded-full
                                  [&::-webkit-scrollbar-track]:bg-gray-100
@@ -202,10 +203,10 @@ Dashboard
                                  [&::-webkit-scrollbar-thumb]:bg-gray-300
                                  dark:[&::-webkit-scrollbar-track]:bg-neutral-700
                                  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
-                            <table class="table-fixed text-start w-full">
+                            <table class="table-auto text-start w-full">
                                 <thead class="text-start ">
-                                    <tr class="text-sm py-4 text-start text-[#AAAAAA] border-b border-[#4C4C4C]">
-                                        <th class="text-start py-4 px-4">Transaction Name</th>
+                                    <tr class="text-[0.7rem] sm:text-sm py-4 text-start text-[#AAAAAA] border-b border-[#4C4C4C]">
+                                        <th class="text-start p-1 px-1 sm:py-4 sm:px-4">Transaction Name</th>
                                         <th class="text-start py-4 px-4">Account</th>
                                         <th class="text-start py-4 px-4">Type</th>
                                         <th class="text-start py-4 px-4">Amount</th>
@@ -214,51 +215,6 @@ Dashboard
                                 </thead>
                                 <tbody>
 
-
-
-                                    <tr class="border-b border-[#4C4C4C]">
-                                        <td class="py-4 text-sm"> &#x1F354; Food</td>
-                                        <td class="py-4 text-sm">BDO Checking</td>
-                                        <td class="py-4 text-sm">Withdraw</td>
-                                        <td class="py-4 text-sm text-[#FF1F1F]">-200.00</td>
-                                        <td class="py-4 text-sm">01/07/2024</td>
-                                    </tr>
-
-                                    <tr class="border-b border-[#4C4C4C]">
-                                        <td class="py-4 text-sm"> &#x1F354; Food</td>
-                                        <td class="py-4 text-sm">BDO Checking</td>
-                                        <td class="py-4 text-sm">Withdraw</td>
-                                        <td class="py-4 text-sm text-[#FF1F1F]">-200.00</td>
-                                        <td class="py-4 text-sm">01/07/2024</td>
-                                    </tr>
-                                    <tr class="border-b border-[#4C4C4C]">
-                                        <td class="py-4 text-sm"> &#x1F354; Food</td>
-                                        <td class="py-4 text-sm">BDO Checking</td>
-                                        <td class="py-4 text-sm">Withdraw</td>
-                                        <td class="py-4 text-sm text-[#FF1F1F]">-200.00</td>
-                                        <td class="py-4 text-sm">01/07/2024</td>
-                                    </tr>
-                                    <tr class="border-b border-[#4C4C4C]">
-                                        <td class="py-4 text-sm"> &#x1F354; Food</td>
-                                        <td class="py-4 text-sm">BDO Checking</td>
-                                        <td class="py-4 text-sm">Withdraw</td>
-                                        <td class="py-4 text-sm text-[#FF1F1F]">-200.00</td>
-                                        <td class="py-4 text-sm">01/07/2024</td>
-                                    </tr>
-                                    <tr class="border-b border-[#4C4C4C]">
-                                        <td class="py-4 text-sm"> &#x1F354; Food</td>
-                                        <td class="py-4 text-sm">BDO Checking</td>
-                                        <td class="py-4 text-sm">Withdraw</td>
-                                        <td class="py-4 text-sm text-[#FF1F1F]">-200.00</td>
-                                        <td class="py-4 text-sm">01/07/2024</td>
-                                    </tr>
-                                    <tr class="border-b border-[#4C4C4C]">
-                                        <td class="py-4 text-sm"> &#x1F354; Food</td>
-                                        <td class="py-4 text-sm">BDO Checking</td>
-                                        <td class="py-4 text-sm">Withdraw</td>
-                                        <td class="py-4 text-sm text-[#FF1F1F]">-200.00</td>
-                                        <td class="py-4 text-sm">01/07/2024</td>
-                                    </tr>
                                     <tr class="border-b border-[#4C4C4C]">
                                         <td class="py-4 text-sm"> &#x1F354; Food</td>
                                         <td class="py-4 text-sm">BDO Checking</td>
@@ -304,8 +260,8 @@ Dashboard
                     </div>
 
                 </div>
-                <div class="w-[31rem] ">
-                    <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold p-4 border h-full[32rem] border-[#244C53] ">
+                <div class="w-full  sm:w-[31rem] mt-4 sm:mt-0">
+                    <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold p-4 border h-auto  border-[#244C53] ">
                         <div class="flex">
                             Schedule
                             <button>
@@ -316,7 +272,7 @@ Dashboard
                             </button>
                         </div>
 
-                        <div id="ScheduleView" class=" sk overflow-y-auto w-full max-h-[410px]
+                        <div id="ScheduleView" class=" sk overflow-y-auto w-full  h-[18rem]
                                  [&::-webkit-scrollbar]:w-2
                                  [&::-webkit-scrollbar-track]:rounded-full
                                  [&::-webkit-scrollbar-track]:bg-gray-100
@@ -324,7 +280,7 @@ Dashboard
                                  [&::-webkit-scrollbar-thumb]:bg-gray-300
                                  dark:[&::-webkit-scrollbar-track]:bg-neutral-700
                                  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
-                            <table class="table-fixed text-start w-full"">
+                            <table class="table-auto text-start w-full"">
                                     <table class=" table-auto text-start py-4 w-full ">
                                         <thead class=" text-start py-4 ">
                                             <tr class=" text-sm py-4 text-[#AAAAAA] border-b border-[#4C4C4C]">
@@ -393,12 +349,12 @@ Dashboard
 
     <!-- Background Image -->
     <div class="absolute h-screen w-full bg-[#181818] inset-0 z-0 flex">
-        <div class="absolute w-1/2 mx-auto justify-center items-center">
+        <div class="absolute w-1/2 mx-auto justify-center items-center hidden  sm:block">
             <div class=" w-full h-full  justify-center items-center">
                 <img src="/image/Abstract2.png" class="absolute object-cover bottom-0 right-0 transform translate-x-[100%] translate-y-[100%] z-30 h-[30rem] opacity-70 hidden md:block" alt="">
             </div>
         </div>
-        <div class="w-full h-2/5 bg-[#1D1D1D] z-10">
+        <div class="w-full h-2/5 bg-[#1D1D1D] z-10 hidden sm:block">
             <img src="/image/GridBG.png" class="object-cover w-screen h-full" alt="Grid Background">
         </div>
     </div>
