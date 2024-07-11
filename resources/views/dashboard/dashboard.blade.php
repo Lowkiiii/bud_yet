@@ -5,17 +5,16 @@ Dashboard
 @endsection
 
 @section('content')
-<section class="bg-[#181818] mx-auto justify-center items-center h-full w-full overflow-hidden">
+<section class="bg-[#181818] sk mx-auto justify-center items-center h-full w-full overflow-hidden">
     <!-- Foreground Content -->
-    <div class="z-20 relative  sm:pt-0  mx-auto justify-center items-center overflow-hidden sm:px-[3rem] w-full xl:w-[94rem] animate-blink">
+    <div class="z-20 relative  pt-8 sm:pt-0  mx-auto justify-center items-center overflow-hidden sm:px-[3rem] w-full xl:w-[94rem] animate-blink">
 
-        <div class="sm:p-8 p-6 sm:px-26">
-            <div class="mt-1 md:mt-18  flex">
-
+        <div class="sm:p-4 p-4 sm:px-26">
+            <div class=" pt-4 sm:pt-0  flex">
                 <h1 class="text-white sm:text-4xl text-xl  sk">
                     Hello, <span class="sk-bold text-[#05D9FF]"> {{ Auth::user()->username }}</span> &#128075;
-                    <p class="text-base sm:text-xl  text-[#7A7A7A] mt-1">
-                        Welcome to the Dashboard <span class="sm:block hidden">,track your finances here! </span> </p>
+                    <p class="text-base sm:text-xl flex  text-[#7A7A7A] mt-1">
+                        Welcome to the Dashboard <span class="sm:block hidden">, track your finances here! </span> </p>
                 </h1>
                 <div class="flex flex-row items-center ms-auto hidden sm:block ">
                     <div class="flex flex-row">
@@ -25,16 +24,12 @@ Dashboard
                         </svg>
                         <p class="my-auto sk text-xl text-white">{{ now()->format('F d, Y') }}</p>
                     </div>
-
                 </div>
-
-
-
             </div>
-            <div class="mt-[1rem] sm:mt-[4rem]  text-white">
+            <div class="mt-[1rem] sm:mt-[2rem]  text-white">
                 <div class="w-full flex-row sm:flex pb-4">
-                    <div class="w-full sm:w-7/12 mr-4 flex sm:flex-col overflow-x-auto sm:overflow-x-hidden ">
-                        <div class="bg-[#2B2B2B]  rounded-xl p-4 pr-9 sm:pr-0  border border-[#244C53] sm:mb-4 mb-3 mr-3 sm:m-0">
+                    <div class="w-full absolute sm:relative right-0 sm:w-7/12 mr-0 sm:mr-4 flex sm:flex-col overflow-x-auto sm:overflow-x-hidden ">
+                        <div class="bg-[#2B2B2B] rounded-xl p-4 pr-9 sm:pr-0  border border-[#244C53] sm:mb-4 mb-3 ml-4 mr-2 sm:m-0">
                             <div class="flex flex-col">
                                 <p class="text-[#AAAAAA] text-xs sm:text-base"">Income</p>
                                 <h1 class="text-2xl sm:text-4xl sk-bold py-1 sm:py-3 text-[#05D9FF]">
@@ -46,7 +41,7 @@ Dashboard
                                 </p>
                             </div>
                         </div>
-                        <div class="bg-[#2B2B2B]  rounded-xl p-4 pr-9 sm:pr-0 border border-[#244C53] sm:mb-4 mb-3 mr-3 sm:m-0">
+                        <div class="bg-[#2B2B2B]  rounded-xl p-4 pr-9 sm:pr-0 border border-[#244C53] sm:mb-4 mb-3 mr-2 sm:m-0">
                             <div class="flex flex-col">
                                 <p class="text-[#AAAAAA] text-xs sm:text-base">Expenses</p>
                                 <h1 class="text-2xl sm:text-4xl sk-bold py-1 sm:py-3 text-[#FF1F1F]">
@@ -58,7 +53,7 @@ Dashboard
                                 </p>
                             </div>
                         </div>
-                        <div class="bg-[#2B2B2B]  rounded-xl p-4 pr-9 sm:pr-0 border border-[#244C53] sm:mb-4 mb-3  sm:m-0">
+                        <div class="bg-[#2B2B2B]  rounded-xl p-4 pr-9 sm:pr-0 border border-[#244C53] sm:mb-4 mb-3 mr-4 sm:m-0">
                             <div class="flex flex-col">
                                 <p class="text-[#AAAAAA] text-xs sm:text-base"">Total Balance</p>
                                 <h1 class="text-2xl sm:text-4xl sk-bold py-1 sm:py- ">
@@ -71,20 +66,20 @@ Dashboard
                             </div>
                         </div>
                     </div>
-                    <div class="w-full  mr-4 ">
+                    <div class="w-full pt-[8.2rem] sm:pt-0 mr-4 ">
                         <div class="bg-[#2B2B2B] text-lg rounded-xl sk-bold p-4 border  h-full border-[#244C53] mt-2 sm:mt-0 ">
                             <div class="flex">
                                 Transaction Statistics
-                                <button>
+                                {{-- <button>
                                     <p class="my-auto px-2 "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF" class="size-6 hover:fill-[#00B1D0]">
                                             <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
                                         </svg>
                                     </p>
-                                </button>
+                                </button> --}}
                             </div>
                             </p>
                             <!-- Legend Indicator -->
-                            <div class="sk flex justify-center sm:justify-end items-center gap-x-4 mb-3 sm:mb-6">
+                            <div class="sk flex justify-start items-center gap-x-4 mb-3 sm:mb-6">
                                 <div class="inline-flex items-center">
                                     <span class="size-2.5 inline-block bg-[#05D9FF] rounded-sm me-2"></span>
                                     <span class="text-[13px] text-gray-600 dark:text-neutral-400">
@@ -95,20 +90,17 @@ Dashboard
                                     <span class="size-2.5 inline-block bg-[#FF1F1F] rounded-sm me-2"></span>
                                     <span class="text-[13px] text-gray-600 dark:text-neutral-400">
                                         Income
-                                    </span>
-                                   
+                                    </span>                                  
                                 </div>
                             </div>
                             <!-- End Legend Indicator -->
                             <div id="hs-curved-area-charts"></div>
                         </div>
                     </div>
-
                     <div class="w-full sm:w-3/5 sm:mt-0 mt-4 ">
                         <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold  w-full p-4 border h-full [32rem] border-[#244C53] ">
                             <div class="flex">
                                 Account Listing
-
                                 <button type="button" id="ViewAccountFromDashboard" class="my-auto px-2 "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF" class="size-6 hover:fill-[#00B1D0]">
                                         <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
                                     </svg>
@@ -119,9 +111,7 @@ Dashboard
                                     })
                                 </script>
                             </div>
-
-
-                            <div id="AccountView" class="sk  overflow-y-auto w-full max-h-[200px] sm:max-h-[360px]
+                            <div id="AccountView" class="sk  overflow-y-auto w-full max-h-[14rem]
                                  [&::-webkit-scrollbar]:w-2
                                  [&::-webkit-scrollbar-track]:rounded-full
                                  [&::-webkit-scrollbar-track]:bg-gray-100
@@ -135,7 +125,6 @@ Dashboard
                                             <tr class="text-sm py-4 text-[#AAAAAA] border-b border-[#4C4C4C]">
                                                 <th class="text-start py-4 text-sm "">Account Name</th>
                                                     <th class=" text-start py-4 ">Balance</th>
-
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -159,97 +148,65 @@ Dashboard
                                                             </div>
                                                     </td>
                                     </div>
-                                    </tr>
-                           
+                                    </tr>                          
                                     @php $rowNumber++; @endphp
                                     @endforeach
                                     @else
                                     <tr>
-                                        <td class="py-4  ">No Data</td>
+                                        <td class="py-4 text-sm text-[#AAAAAA]">No Data</td>
                                     </tr>
                                     @endif
                                 </tbody>
                                     </table>
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
             </div>
-
             <div class="w-full pb-12 sm:pb-0 sm:flex text-white">
                 <div class="w-full  mr-4">
-                    <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold p-4 border  sm:h-auto  border-[#244C53] ">
+                    <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold p-4 border sm:h-auto  border-[#244C53] ">
                         <div class="flex">
                             Recent Transaction
                             <button>
                                 <p class="my-auto px-2 ">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF" class="size-6 hover:fill-[#00B1D0]">
                                         <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
-
                                     </svg>
                                 </p>
                             </button>
                         </div>
-
-                        <div id="TransactionView" class="sk  overflow-y-auto w-full h-[18rem]
-                                 [&::-webkit-scrollbar]:w-2
+                        <div id="TransactionView" class="sk  overflow-y-auto w-full max-h-[14rem]
+                                    [&::-webkit-scrollbar]:w-2
                                  [&::-webkit-scrollbar-track]:rounded-full
                                  [&::-webkit-scrollbar-track]:bg-gray-100
                                  [&::-webkit-scrollbar-thumb]:rounded-full
                                  [&::-webkit-scrollbar-thumb]:bg-gray-300
                                  dark:[&::-webkit-scrollbar-track]:bg-neutral-700
                                  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
-                            <table class="table-auto text-start w-full">
+                            <table class="table-fixed text-start w-full">
                                 <thead class="text-start ">
-                                    <tr class="text-[0.7rem] sm:text-sm py-4 text-start text-[#AAAAAA] border-b border-[#4C4C4C]">
-                                        <th class="text-start p-1 px-1 sm:py-4 sm:px-4">Transaction Name</th>
-                                        <th class="text-start py-4 px-4">Account</th>
-                                        <th class="text-start py-4 px-4">Type</th>
-                                        <th class="text-start py-4 px-4">Amount</th>
-                                        <th class="text-start py-4 px-4">Date</th>
+                                    <tr class="text-[0.7rem] px-8 sm:py-4 sm:px-4 sm:text-sm py-1 text-start text-[#AAAAAA] border-b border-[#4C4C4C]">
+                                        <th class="text-center py-4">Name</th>
+                                        <th class="text-center ">Account</th>
+                                        <th class="text-center ">Type</th>
+                                        <th class="text-center">Amount</th>
+                                        <th class="text-center ">Date</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-
-                                    <tr class="border-b border-[#4C4C4C]">
-                                        <td class="py-4 text-sm"> &#x1F354; Food</td>
-                                        <td class="py-4 text-sm">BDO Checking</td>
-                                        <td class="py-4 text-sm">Withdraw</td>
-                                        <td class="py-4 text-sm text-[#FF1F1F]">-200.00</td>
-                                        <td class="py-4 text-sm">01/07/2024</td>
-                                    </tr>
-                                    <tr class="border-b border-[#4C4C4C]">
-                                        <td class="py-4 text-sm"> &#x1F354; Food</td>
-                                        <td class="py-4 text-sm">BDO Checking</td>
-                                        <td class="py-4 text-sm">Withdraw</td>
-                                        <td class="py-4 text-sm text-[#FF1F1F]">-200.00</td>
-                                        <td class="py-4 text-sm">01/07/2024</td>
-                                    </tr>
-                                    <tr class="border-b border-[#4C4C4C]">
-                                        <td class="py-4 text-sm"> &#x1F354; Food</td>
-                                        <td class="py-4 text-sm">BDO Checking</td>
-                                        <td class="py-4 text-sm">Withdraw</td>
-                                        <td class="py-4 text-sm text-[#FF1F1F]">-200.00</td>
-                                        <td class="py-4 text-sm">01/07/2024</td>
-                                    </tr>
-                                    <tr class="border-b border-[#4C4C4C]">
-                                        <td class="py-4 text-sm"> &#x1F354; Food</td>
-                                        <td class="py-4 text-sm">BDO Checking</td>
-                                        <td class="py-4 text-sm">Withdraw</td>
-                                        <td class="py-4 text-sm text-[#FF1F1F]">-200.00</td>
-                                        <td class="py-4 text-sm">01/07/2024</td>
-                                    </tr>
-
+                                <tbody class=" text-[0.6rem] text-start sm:text-sm">
+                                    <tr class="border-b  text-start border-[#4C4C4C]">
+                                        <td class="text-center py-1 sm:py-4"> &#x1F354; Food</td>
+                                        <td class=" text-center leading-3">BDO Checking</td>
+                                        <td class=" text-center">Withdraw</td>
+                                        <td class=" text-center text-[#FF1F1F]">-200.00</td>
+                                        <td class=" text-center">01/07/2024</td>
+                                    </tr>                             
+                                
                                 </tbody>
                             </table>
                             <div>
-
                             </div>
-
-
                         </div>
                         <div class="flex  justify-end items-end">
                             <button class="items-center text-[#00B1D0] justify-end text-sm mt-3 hover:text-[#3BE1FF]" id="TransactionSeeAll">
@@ -257,10 +214,9 @@ Dashboard
                             </button>
                         </div>
                     </div>
-
                 </div>
                 <div class="w-full  sm:w-[31rem] mt-4 sm:mt-0">
-                    <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold p-4 border h-auto  border-[#244C53] ">
+                    <div class="bg-[#2B2B2B]  text-lg rounded-xl sk-bold p-4 border sm:h-auto  border-[#244C53] ">
                         <div class="flex">
                             Schedule
                             <button>
@@ -270,8 +226,7 @@ Dashboard
                                 </p>
                             </button>
                         </div>
-
-                        <div id="ScheduleView" class=" sk overflow-y-auto w-full  h-[18rem]
+                        <div id="ScheduleView" class=" sk overflow-y-auto w-full max-h-[14rem]
                                  [&::-webkit-scrollbar]:w-2
                                  [&::-webkit-scrollbar-track]:rounded-full
                                  [&::-webkit-scrollbar-track]:bg-gray-100
@@ -285,7 +240,6 @@ Dashboard
                                             <tr class=" text-sm py-4 text-[#AAAAAA] border-b border-[#4C4C4C]">
                                 <th class="text-start py-4 text-sm "">Schedule Name</th>
                                                 <th class=" text-start py-4 ">Date</th>
-
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -305,7 +259,6 @@ Dashboard
                                                 <td class=" py-4 text-sm">&#x1F4F1; Phone</td>
                                     <td class="py-4 text-sm">12/8/2024</td>
                                 </tr>
-
                                 <tr class="border-b border-[#4C4C4C]"">
                                                 <td class=" py-4 text-sm"> &#x1F3E0; Buy Property</td>
                                     <td class="py-4 text-sm">10/12/2024</td>
@@ -314,7 +267,6 @@ Dashboard
                                                 <td class=" py-4 text-sm">&#x1F4F1; Phone</td>
                                     <td class="py-4 text-sm">12/8/2024</td>
                                 </tr>
-
                                 <tr class="border-b border-[#4C4C4C]"">
                                                 <td class=" py-4 text-sm"> &#x1F3E0; Buy Property</td>
                                     <td class="py-4 text-sm">10/12/2024</td>
@@ -323,12 +275,8 @@ Dashboard
                                                 <td class=" py-4 text-sm">&#x1F4F1; Phone</td>
                                     <td class="py-4 text-sm">12/8/2024</td>
                                 </tr>
-
-
-
                                 </tbody>
                             </table>
-
                         </div>
                         <div class="flex  justify-end items-end">
                             <button class="items-center text-[#00B1D0] justify-end text-sm mt-3 hover:text-[#3BE1FF]" id="ScheduleSeeAll">
@@ -336,16 +284,10 @@ Dashboard
                             </button>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
-
-
     </div>
-
-
     <!-- Background Image -->
     <div class="absolute h-screen w-full bg-[#181818] inset-0 z-0 flex">
         <div class="absolute w-1/2 mx-auto justify-center items-center hidden  sm:block">
@@ -357,17 +299,13 @@ Dashboard
             <img src="/image/GridBG.png" class="object-cover w-screen h-full" alt="Grid Background">
         </div>
     </div>
-
-
     <script>
         document.getElementById("ViewAccounts").addEventListener("click", function() {
             window.location.href = "{{ route('accounts.accounts') }}";
         })
-
         document.getElementById("ViewDashboard").addEventListener("click", function() {
             window.location.href = "{{ route('dashboard.dashboard') }}";
         })
     </script>
-
 </section>
 @endsection

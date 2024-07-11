@@ -45,21 +45,21 @@
         document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("TransactionSeeAll").addEventListener("click", function() {
                 const transactionView = document.getElementById("TransactionView");
-                transactionView.classList.toggle("sm:max-h-[410px]");
+                transactionView.classList.toggle("max-h-[14rem]");
               
                 
             });
 
             document.getElementById("ScheduleSeeAll").addEventListener("click", function() {
                 const scheduleView = document.getElementById("ScheduleView");
-                scheduleView.classList.toggle("h-[18rem]"); 
+                scheduleView.classList.toggle("max-h-[14rem]"); 
               
                 
             });
 
             document.getElementById("AccountSeeAll").addEventListener("click", function() {
                 const scheduleView = document.getElementById("AccountView");
-                scheduleView.classList.toggle("sm:max-h-[410px]");
+                scheduleView.classList.toggle("max-h-[14rem]");
               
                 
             });
@@ -87,11 +87,11 @@
                     },
                     series: [{
                             name: 'Income',
-                            data: [2000, 12000, 9000, 30000, 23000,2000, 12000, 9000, 30000, 23000, 2000, 12000]
+                            data: [2000, 12000, 9000, 30000, 23000]
                         },
                         {
                             name: 'Expense',
-                            data: [6000, 8000, 6000, 24000, 4000, 8000, 6000, 24000, 4000, 8000, 6000, 24000]
+                            data: [6000, 8000, 6000, 24000, 4000]
                         }
                     ],
                     legend: {
@@ -118,13 +118,7 @@
                             'March',
                             'April',
                             'May',
-                            'June',
-                            'July',
-                            'August',
-                            'September',
-                            'October',
-                            'November',
-                            'December'
+                      
 
                         ],
                         axisBorder: {
