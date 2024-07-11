@@ -29,10 +29,20 @@ class AccountTransaction extends Model
      * @var array
      */
     protected $fillable = [
-        'type, amount, date'
+        'amount, date, user_id, account_id, type, category'
     ];
 
     protected $casts = [
         'date' => 'datetime',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function account()
+    {
+        return $this->belongsTo(Account::class);
+    }
 }

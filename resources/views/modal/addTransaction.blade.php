@@ -21,8 +21,10 @@
                     </div>
                     
                     <div class="px-8 py-3 mt-2 overflow-y-auto ">
+                        <form action="{{ route('transaction.store') }}" method="POST">
+                            @csrf
                         <div class="relative mb-2">
-                            <input type="text" id="hs-floating-underline-input-email" class=" outline-none sk peer py-4 px-0 block w-full bg-transparent border-t-transparent border-b-2 border-x-transparent border-b-gray-200 text-sm placeholder:text-transparent focus:border-t-transparent focus:border-x-transparent focus:ring-0 disabled:opacity-50 disabled:pointer-events-none dark:border-b-neutral-700 text-white dark:focus:ring-neutral-600 focus:border-b-[#00B1D0]
+                            <input type="text" name="amount" id="amount" class=" outline-none sk peer py-4 px-0 block w-full bg-transparent border-t-transparent border-b-2 border-x-transparent border-b-gray-200 text-sm placeholder:text-transparent focus:border-t-transparent focus:border-x-transparent focus:ring-0 disabled:opacity-50 disabled:pointer-events-none dark:border-b-neutral-700 text-white dark:focus:ring-neutral-600 focus:border-b-[#00B1D0]
                             focus:pt-6
                             focus:pb-2
                             [&:not(:placeholder-shown)]:pt-6
@@ -34,32 +36,40 @@
                           peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:translate-x-0.5 peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-gray-500 dark:peer-[:not(:placeholder-shown)]:text-neutral-500 dark:text-neutral-500 sk">Amount</label>
                           </div>
                         <div class="relative">
-                            <select class="py-4 bg-[#2B2B2B] outline-none rounded-lg focus:border-[#4C4C4C] px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none sk dark:border-transparent dark:text-neutral-400 dark:focus:ring-[#4C4C4C]">
+                            <select name="account_id" class="py-4 bg-[#2B2B2B] outline-none rounded-lg focus:border-[#4C4C4C] px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none sk dark:border-transparent dark:text-neutral-400 dark:focus:ring-[#4C4C4C]">
                                 <option value="" disabled selected hidden>Account</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
+                                @foreach($accounts as $account)
+                                    <option value="{{ $account->id }}">{{ $account->account_name }}</option>
+                                @endforeach
                             </select>
                           </div>
 
                        
                           <div class="w-full space-x-4 flex">
                           <div class="w-full relative  py-2 ">
-                            <select class="py-4 bg-[#2B2B2B] outline-none rounded-lg focus:border-[#4C4C4C] px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none sk dark:border-transparent dark:text-neutral-400 dark:focus:ring-[#4C4C4C]">
+                            <select name="type" class="py-4 bg-[#2B2B2B] outline-none rounded-lg focus:border-[#4C4C4C] px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none sk dark:border-transparent dark:text-neutral-400 dark:focus:ring-[#4C4C4C]">
                                 <option value="" disabled selected hidden>Transaction Type</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
+                                <option value="deposit">Deposit</option>
+                                <option value="withdraw">Withdraw</option>
                             </select>
                           </div>
                           <div class="w-full relative py-2 ">
-                            <select class="py-4 bg-[#2B2B2B] outline-none rounded-lg focus:border-[#4C4C4C] px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none sk dark:border-transparent dark:text-neutral-400 dark:focus:ring-[#4C4C4C]">
+                            <select name="category" class="py-4 bg-[#2B2B2B] outline-none rounded-lg focus:border-[#4C4C4C] px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none sk dark:border-transparent dark:text-neutral-400 dark:focus:ring-[#4C4C4C]">
                                 <option value="" disabled selected hidden>Category</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
+                                <option value="Food">Food</option>
+                                <option value="Rent">Rent</option>
+                                <option value="Utilities">Utilities</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Other">Other</option>
                             </select>
                           </div>
+                          <div class="text-xs flex-col flex font-semibold  items-start justify-start sk truncate text-white  w-full mt-2 ">
+
+                            <input type="date" class="py-4 sk bg-[#2B2B2B] rounded-lg text-white outline-none px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none dark:border-transparent dark:text-neutral-400 hide-calendar-icon" id="date" name="date" placeholder="Date" />
+
+                            <span class="text-red-500"></span>
                         </div>
                     </div>
                     <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t border-[#4C4C4C]">
@@ -68,11 +78,12 @@
                             data-hs-overlay="#addTransaction">
                             Close
                         </button>
-                        <button type="button"
+                        <button type="submit"
                             class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-[#05D9FF] text-[#272727] hover:bg-[#00B1D0] disabled:opacity-50 disabled:pointer-events-none sk-bold">
                             Save changes
                         </button>
                     </div>
+                </form>
                 </div>
             </div>
         </div>

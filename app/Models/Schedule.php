@@ -29,7 +29,7 @@ class Schedule extends Model
      * @var array
      */
     protected $fillable = [
-        'amount, frequency, start_date, end_date, user_id'
+        'name, amount, frequency, start_date, end_date, user_id'
     ];
 
     protected $casts = [

@@ -40,6 +40,6 @@ class IncomeController extends Controller
         $userIncome = Income::where('user_id', auth()->id())->get();
 
         return view('income.income', compact('userIncome'));
-        return view('dashboard.dashboard', compact('userIncome'));
+        //return view('dashboard.dashboard', compact('userIncome'));
     }
 }

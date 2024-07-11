@@ -49,4 +49,15 @@ class User extends Authenticatable
         return $this->first_name . ' ' . $this->last_name;
         // return $this->username;
     }
+
+    public function accounts()
+    {
+        return $this->hasMany(Account::class);
+    }
+
+    public function getAccountsTrans()
+    {
+        return $this->hasMany(AccountTransaction::class);
+    }
+    
 }

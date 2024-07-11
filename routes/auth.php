@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\AccountsController;
+use App\Http\Controllers\ActTransactionController;
 use Illuminate\Support\Facades\Route;
 
 //use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -30,19 +31,22 @@ Route::middleware('auth')->group(function () {
     Route::get('/transaction', [UserController::class, 'transaction'])->name('transaction.transaction');
 });
 
-Route::middleware('auth')->group(function () {
-    // income
-    Route::get('/income', [IncomeController::class, 'index'])->name('income.income');
-    Route::post('/income', [IncomeController::class, 'store'])->name('income.store');
-    Route::get('/edit-income/{id}', [IncomeController::class, 'edit'])->name('income.edit');
-    Route::put('/update-income', [IncomeController::class, 'update'])->name('income.update');
-    Route::get('/delete-income/{id}', [IncomeController::class, 'delete'])->name('income.delete');
-});
 
 Route::middleware('auth')->group(function () {
     // Income
+    Route::get('/income', [IncomeController::class, 'index'])->name('income.income');
     Route::post('/income', [IncomeController::class, 'store'])->name('income.store');
 
     // Account
     Route::post('/accounts', [AccountsController::class, 'store'])->name('account.store');
+    Route::get('/accounts', [AccountsController::class, 'index'])->name('accounts.accounts');
+
+    //Get Accounts for Option in Account Transaction
+    Route::get('/transaction/accounts', [ActTransactionController::class, 'getAccount'])->name('transaction.transaction');
+
+    //Post Account Transaction
+    Route::get('/transaction', [ActTransactionController::class, 'index'])->name('transaction.index');
+
+    //store transaction
+    Route::post('/transaction', [ActTransactionController::class, 'store'])->name('transaction.store');
 });

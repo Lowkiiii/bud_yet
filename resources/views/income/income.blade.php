@@ -90,7 +90,7 @@ Income
                                 <thead class="text-start">
                                     <tr class="text-sm text-center py-4  text-[#AAAAAA] border-b border-[#4C4C4C]">
                                         <th class=" py-4 ">#</th>
-                                        <th class=" py-4">ID</th>
+                                        {{-- <th class=" py-4">ID</th> --}}
                                         <th class=" py-4 ">Income Name</th>
                                         <th class=" py-4 ">Balance</th>
                                         <th class=" py-4 ">Date</th>
@@ -103,7 +103,7 @@ Income
                                     @foreach ($userIncome as $userIncome)
                                     <tr class="border-b text-base text-center border-[#4C4C4C]">
                                         <td class="py-4 ">{{ $rowNumber }}</td>
-                                        <td class="py-4 "> {{ $userIncome->id }}</td>
+                                        {{-- <td class="py-4 "> {{ $userIncome->id }}</td> --}}
                                         <td class="py-4 "> {{ $userIncome->income_name }}</td>
                                         <td class="py-4 "> {{ $userIncome->amount }}</td>
                                         <td class="py-4 "> {{ $userIncome->date }}</td>
@@ -165,10 +165,6 @@ Income
             <img src="/image/GridBG.png" class="object-cover w-screen h-full" alt="Grid Background">
         </div>
     </div>
-
-
-
-
 
 </section>
 @endsection
