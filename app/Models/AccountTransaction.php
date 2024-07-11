@@ -29,7 +29,7 @@ class AccountTransaction extends Model
      * @var array
      */
     protected $fillable = [
-        'amount, date, user_id, account_id'
+        'amount, date, user_id, account_id, type, category'
     ];
 
     protected $casts = [

@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Account;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -21,23 +22,45 @@ class ActTransactionController extends Controller
     {
         try {
             $validatedData = $request->validate([
-                'amount' => 'required|numeric',
+                'amount' => 'required|numeric|min:0.01',
                 'date' => 'required|date',
-                'account_id' => 'required|exists:tbl_account,id', // Add this line
+                'account_id' => 'required|exists:tbl_account,id',
+                'type' => 'required|in:deposit,withdraw',
+                'category' => 'required|string|max:255',
             ]);
-
+    
+            DB::beginTransaction();
+    
+            $account = Account::findOrFail($validatedData['account_id']);
+    
+            if ($validatedData['type'] == 'withdraw' && $account->balance < $validatedData['amount']) {
+                throw new \Exception('Insufficient funds');
+            }
+    
             $accountTransac = new AccountTransaction();
             $accountTransac->amount = $validatedData['amount'];
             $accountTransac->date = $validatedData['date'];
             $accountTransac->user_id = Auth::id();
-            $accountTransac->account_id = $validatedData['account_id']; // Add this line
-
+            $accountTransac->account_id = $validatedData['account_id'];
+            $accountTransac->type = $validatedData['type'];
+            $accountTransac->category = $validatedData['category'];
             $accountTransac->save();
-
+    
+            // Update account balance
+            if ($validatedData['type'] == 'deposit') {
+                $account->balance += $validatedData['amount'];
+            } else {
+                $account->balance -= $validatedData['amount'];
+            }
+            $account->save();
+    
+            DB::commit();
+    
             return redirect()->route('transaction')->with('flash_message', 'Transaction Added!');
         } catch (\Exception $e) {
+            DB::rollBack();
             Log::error('Error saving Transaction: ' . $e->getMessage());
-            return Redirect::back()->withErrors(['error' => 'An error occurred while saving the Transaction.']);
+            return Redirect::back()->withErrors(['error' => $e->getMessage()]);
         }
     }
     public function getAccount()
