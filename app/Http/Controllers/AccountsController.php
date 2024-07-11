@@ -28,8 +28,8 @@ class AccountsController extends Controller
             $account = new Account();
             $account->account_name = $validatedData['account_name'];
             $account->balance = $validatedData['balance'];
-            $account->min_balance= $validatedData['min_balance'];
-            $account->max_balance= $validatedData['max_balance'];
+            $account->min_balance = $validatedData['min_balance'];
+            $account->max_balance = $validatedData['max_balance'];
             $account->user_id = Auth::id();
 
             $account->save();
@@ -39,5 +39,14 @@ class AccountsController extends Controller
             Log::error('Error saving Account: ' . $e->getMessage());
             return Redirect::back()->withErrors(['error' => 'An error occurred while saving the Account.']);
         }
+    }
+
+    public function index()
+    {
+
+        $account = Account::where('id', auth()->id())->get();
+
+        return view('accounts.accounts', compact('account'));
+        //return view('dashboard.dashboard', compact('userIncome'));
     }
 }

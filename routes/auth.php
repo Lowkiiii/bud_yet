@@ -31,21 +31,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/transaction', [UserController::class, 'transaction'])->name('transaction.transaction');
 });
 
+
 Route::middleware('auth')->group(function () {
-    // income
+    // Income
     Route::get('/income', [IncomeController::class, 'index'])->name('income.income');
     Route::post('/income', [IncomeController::class, 'store'])->name('income.store');
     Route::get('/edit-income/{id}', [IncomeController::class, 'edit'])->name('income.edit');
     Route::put('/update-income', [IncomeController::class, 'update'])->name('income.update');
     Route::get('/delete-income/{id}', [IncomeController::class, 'delete'])->name('income.delete');
-});
-
-Route::middleware('auth')->group(function () {
-    // Income
-    Route::post('/income', [IncomeController::class, 'store'])->name('income.store');
 
     // Account
     Route::post('/accounts', [AccountsController::class, 'store'])->name('account.store');
+    Route::get('/accounts', [AccountsController::class, 'index'])->name('accounts.accounts');
+    Route::get('/edit-accounts/{id}', [AccountsController::class, 'edit'])->name('accounts.edit');
+    Route::put('/update-accounts', [AccountsController::class, 'update'])->name('accounts.update');
+    Route::get('/delete-accounts/{id}', [AccountsController::class, 'delete'])->name('accounts.delete');
 
     //Get Accounts
     Route::get('/transaction', [ActTransactionController::class, 'getAccount'])->name('transaction.transaction');
