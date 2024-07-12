@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/income', [IncomeController::class, 'store'])->name('income.store');
 
     // Account
+
     Route::post('/accounts', [AccountsController::class, 'store'])->name('account.store');
     Route::get('/accounts', [AccountsController::class, 'index'])->name('accounts.accounts');
 
@@ -49,4 +50,5 @@ Route::middleware('auth')->group(function () {
 
     //store transaction
     Route::post('/transaction', [ActTransactionController::class, 'store'])->name('transaction.store');
+    Route::get('/dashboard', [ActTransactionController::class, 'dashboard'])->name('dashboard.dashboard');   // dashboard transaction list
 });

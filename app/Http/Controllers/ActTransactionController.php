@@ -87,4 +87,17 @@ class ActTransactionController extends Controller
 
         return view('transaction.transaction', compact('transactions', 'accounts'));
     }
+    public function dashboard()
+    {
+        $transactions = DB::table('tbl_account_transaction AS transaction')
+            ->select('transaction.*', 'accounts.*')
+            ->where('accounts.user_id', Auth::id())
+            ->join('tbl_account AS accounts', 'transaction.account_id', '=', 'accounts.id')
+            ->orderBy('date', 'desc')
+            ->get();
+
+        $account = Account::where('user_id', auth()->id())->get();
+
+        return view('dashboard.dashboard', compact('transactions', 'account'));
+    }
 }
