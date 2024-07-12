@@ -81,7 +81,9 @@ Accounts
                                             <td class="py-4">{{ $account->id }}</td>
                                             <td class="py-4">{{ $account->account_name }}</td>
                                             <td class="py-4">{{ $account->balance }}</td>
-                                            <td class="py-4">{{ $account->created_at }}</td>
+                                            @php $timestamp = strtotime($account->created_at) @endphp
+                                            <td class="py-4">{{ date('F d, Y', $timestamp) }}</td>
+                                            {{-- <td class="py-4">{{ $account->created_at }}</td> --}}
                                             <td class="py-4">
                                                 <div class="flex justify-center">
                                                     <div class="flex flex-row">

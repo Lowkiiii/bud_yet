@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 use App\Models\AccountTransaction;
 use App\Models\User;
@@ -28,15 +29,15 @@ class ActTransactionController extends Controller
                 'type' => 'required|in:deposit,withdraw',
                 'category' => 'required|string|max:255',
             ]);
-    
+
             DB::beginTransaction();
-    
+
             $account = Account::findOrFail($validatedData['account_id']);
-    
+
             if ($validatedData['type'] == 'withdraw' && $account->balance < $validatedData['amount']) {
                 throw new \Exception('Insufficient funds');
             }
-    
+
             $accountTransac = new AccountTransaction();
             $accountTransac->amount = $validatedData['amount'];
             $accountTransac->date = $validatedData['date'];
@@ -45,7 +46,7 @@ class ActTransactionController extends Controller
             $accountTransac->type = $validatedData['type'];
             $accountTransac->category = $validatedData['category'];
             $accountTransac->save();
-    
+
             // Update account balance
             if ($validatedData['type'] == 'deposit') {
                 $account->balance += $validatedData['amount'];
@@ -53,9 +54,9 @@ class ActTransactionController extends Controller
                 $account->balance -= $validatedData['amount'];
             }
             $account->save();
-    
+
             DB::commit();
-    
+
             return redirect()->route('transaction')->with('flash_message', 'Transaction Added!');
         } catch (\Exception $e) {
             DB::rollBack();
@@ -67,16 +68,20 @@ class ActTransactionController extends Controller
     {
         $user = Auth::user();
         $accounts = Account::where('user_id', $user->id)->get();
-        
+
         return view('transaction.transaction', compact('accounts'));
     }
 
     public function index()
     {
-        $transactions = AccountTransaction::with('account')
-            ->where('user_id', Auth::id())
+        $transactions = DB::table('tbl_account_transaction AS transaction')
+            ->select('transaction.*', 'accounts.*')
+            ->where('accounts.user_id', Auth::id())
+            ->join('tbl_account AS accounts', 'transaction.account_id', '=', 'accounts.id')
             ->orderBy('date', 'desc')
             ->get();
+
+        // var_dump($transactions);
 
         $accounts = Account::where('user_id', Auth::id())->get();
 

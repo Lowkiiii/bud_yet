@@ -106,7 +106,9 @@ Income
                                         {{-- <td class="py-4 "> {{ $userIncome->id }}</td> --}}
                                         <td class="py-4 "> {{ $userIncome->income_name }}</td>
                                         <td class="py-4 "> {{ $userIncome->amount }}</td>
-                                        <td class="py-4 "> {{ $userIncome->date }}</td>
+                                        @php $timestamp = strtotime($userIncome->date) @endphp
+                                        <td class="py-4">{{ date('F d, Y', $timestamp) }}</td>
+                                        {{-- <td class="py-4 "> {{ $userIncome->date }}</td> --}}
                                         <td class="py-4  ">
                                             <div class="flex justify-center">
                                                 <div class="flex flex-row "><button class="px-1 "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FF4E4E " class="size-5 hover:fill-[#FF0000]" data-hs-overlay="#deleteAccount">

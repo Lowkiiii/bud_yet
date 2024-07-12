@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     //Get Accounts for Option in Account Transaction
     Route::get('/transaction/accounts', [ActTransactionController::class, 'getAccount'])->name('transaction.transaction');
 
-    //Post Account Transaction
+    //get Account Transaction
     Route::get('/transaction', [ActTransactionController::class, 'index'])->name('transaction.index');
 
     //store transaction

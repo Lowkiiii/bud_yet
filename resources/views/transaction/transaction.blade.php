@@ -84,15 +84,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($transactions as $index => $transaction)
+                                    @if (!empty($transactions) && count($transactions) > 0)
+                                    @php $rowNumber = 1; @endphp
+                                    @foreach ($transactions as $transaction)    
                                     <tr class="border-b text-base text-center border-[#4C4C4C]">
-                                        <td class="py-4">{{ $index + 1 }}</td>
+                                        <td class="py-4 ">{{ $rowNumber }}</td>
                                         <td class="py-4">{{ $transaction->id }}</td>
-                                        <td class="py-4">{{ $transaction->account->account_name }}</td>
+                                        <td class="py-4">{{ $transaction->account_name }}</td>
                                         <td class="py-4">{{ number_format($transaction->amount, 2) }}</td>
                                         <td class="py-4">{{ ucfirst($transaction->type) }}</td>
                                         <td class="py-4">{{ $transaction->category }}</td>
-                                        <td class="py-4">{{ $transaction->date->format('d/m/Y') }}</td>
+                                        @php $timestamp = strtotime($transaction->date) @endphp
+                                        <td class="py-4">{{ date('F d, Y', $timestamp) }}</td>
                                         <td class="py-4  ">
                                             <div class="flex justify-center">
                                                 <div class="flex flex-row "><button class="px-1 "><svg
@@ -117,7 +120,13 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    @php $rowNumber++; @endphp
                                     @endforeach
+                                    @else
+                                    <tr>
+                                        <td class="py-4  ">No Data</td>
+                                    </tr>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>

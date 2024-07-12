@@ -63,7 +63,7 @@
                         <p class="ml-1">Income</p>
                     </button>
                     <button type="button" id="ViewTransaction"
-                        class="flex items-center px-6 justify-center {{ request()->routeIs('transaction.transaction') ? 'text-[#05D9FF]' : 'text-[#7A7A7A]' }} hover:text-[#05D9FF]"">
+                        class="flex items-center px-6 justify-center {{ request()->routeIs('transaction.transaction') ? 'text-[#05D9FF]' : 'text-[#7A7A7A]' }} hover:text-[#05D9FF]">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor" class="size-5">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -155,7 +155,7 @@
         window.location.href = "{{ route('schedule.schedule') }}";
     })
     document.getElementById("ViewTransaction").addEventListener("click", function() {
-        window.location.href = "{{ route('transaction.transaction') }}";
+        window.location.href = "{{ route('transaction.index') }}";
     })
 
     const menuButton = document.getElementById('menuButton');
