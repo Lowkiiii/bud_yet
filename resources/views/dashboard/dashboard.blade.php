@@ -31,13 +31,12 @@ Dashboard
                     <div class="w-full absolute sm:relative right-0 sm:w-7/12 mr-0 sm:mr-4 flex sm:flex-col overflow-x-auto sm:overflow-x-hidden ">
                         <div class="bg-[#2B2B2B] rounded-xl p-4 pr-9 sm:pr-0  border border-[#244C53] sm:mb-4 mb-3 ml-4 mr-2 sm:m-0">
                             <div class="flex flex-col">
-                                <p class="text-[#AAAAAA] text-xs sm:text-base"">Income</p>
+                                <p class="text-[#AAAAAA] text-xs sm:text-base"">Deposit</p>
                                 <h1 class="text-2xl sm:text-4xl sk-bold py-1 sm:py-3 text-[#05D9FF]">
                                     ₱23,912.20
                                 </h1>
                                 <p class="sk text-[0.6rem] sm:text-sm text-[#AAAAAA]">
-                                    Your last income was <span class="text-[#05D9FF] sk-bold">₱19,203.29</span> last
-                                    month!
+                                    Your Overall deposit was <span class="text-[#05D9FF] sk-bold">₱19,203.29</span>
                                 </p>
                             </div>
                         </div>
@@ -48,8 +47,7 @@ Dashboard
                                     ₱16,232.12
                                 </h1>
                                 <p class="sk text-[0.6rem]  sm:text-sm text-[#AAAAAA]">
-                                    Your last expense was <span class="text-[#FF1F1F] sk-bold">₱10,912.00</span> last
-                                    month!
+                                    Your Overall expense was <span class="text-[#FF1F1F] sk-bold">₱10,912.00</span>
                                 </p>
                             </div>
                         </div>
@@ -60,8 +58,7 @@ Dashboard
                                     ₱7,680.08
                                 </h1>
                                 <p class="sk text-[0.6rem] sm:text-sm text-[#AAAAAA]">
-                                    Your last balance was <span class=" sk-bold">₱4,399.12</span> last
-                                    month!
+                                    Your Total balance is <span class=" sk-bold">₱4,399.12</span>
                                 </p>
                             </div>
                         </div>
@@ -89,7 +86,7 @@ Dashboard
                                 <div class="inline-flex items-center">
                                     <span class="size-2.5 inline-block bg-[#FF1F1F] rounded-sm me-2"></span>
                                     <span class="text-[13px] text-gray-600 dark:text-neutral-400">
-                                        Income
+                                        Deposit
                                     </span>                                  
                                 </div>
                             </div>
@@ -309,6 +306,12 @@ Dashboard
         document.getElementById("ViewDashboard").addEventListener("click", function() {
             window.location.href = "{{ route('dashboard.dashboard') }}";
         })
+    </script>
+
+    {{-- for monthly statistics --}}
+    <script>
+        var incomeData = @json(array_values($incomeData));
+        var expenseData = @json(array_values($expenseData));
     </script>
 </section>
 @endsection

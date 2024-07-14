@@ -53,7 +53,7 @@
                             </select>
                           </div>
                           <div class="w-full relative py-2 ">
-                            <select name="category  " class="py-4 bg-[#2B2B2B] outline-none rounded-lg focus:border-[#4C4C4C] px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none sk dark:border-transparent dark:text-neutral-400 dark:focus:ring-[#4C4C4C]">
+                            <select name="category" class="py-4 bg-[#2B2B2B] outline-none rounded-lg focus:border-[#4C4C4C] px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none sk dark:border-transparent dark:text-neutral-400 dark:focus:ring-[#4C4C4C]">
                                 <option value="" disabled selected hidden>Category</option>
                                 <option value="Food">Food</option>
                                 <option value="Rent">Rent</option>

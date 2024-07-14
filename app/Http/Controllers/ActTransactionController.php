@@ -87,8 +87,49 @@ class ActTransactionController extends Controller
 
         return view('transaction.transaction', compact('transactions', 'accounts'));
     }
+    // public function dashboard()
+    // {
+    //     $transactions = DB::table('tbl_account_transaction AS transaction')
+    //         ->select('transaction.*', 'accounts.*')
+    //         ->where('accounts.user_id', Auth::id())
+    //         ->join('tbl_account AS accounts', 'transaction.account_id', '=', 'accounts.id')
+    //         ->orderBy('date', 'desc')
+    //         ->get();
+
+    //     $account = Account::where('user_id', auth()->id())->get();
+
+    //     return view('dashboard.dashboard', compact('transactions', 'account'));
+    // }
+
     public function dashboard()
     {
+        $currentYear = date('Y');
+
+        $incomeData = AccountTransaction::where('type', 'deposit')
+            ->whereYear('date', $currentYear)
+            ->selectRaw('MONTH(date) as month, SUM(amount) as total')
+            ->groupBy('month')
+            ->orderBy('month')
+            ->pluck('total', 'month')
+            ->toArray();
+
+        $expenseData = AccountTransaction::where('type', 'withdraw')
+            ->whereYear('date', $currentYear)
+            ->selectRaw('MONTH(date) as month, SUM(amount) as total')
+            ->groupBy('month')
+            ->orderBy('month')
+            ->pluck('total', 'month')
+            ->toArray();
+
+        // Fill in missing months with zero
+        for ($i = 1; $i <= 12; $i++) {
+            if (!isset($incomeData[$i])) $incomeData[$i] = 0;
+            if (!isset($expenseData[$i])) $expenseData[$i] = 0;
+        }
+
+        ksort($incomeData);
+        ksort($expenseData);
+
         $transactions = DB::table('tbl_account_transaction AS transaction')
             ->select('transaction.*', 'accounts.*')
             ->where('accounts.user_id', Auth::id())
@@ -98,6 +139,6 @@ class ActTransactionController extends Controller
 
         $account = Account::where('user_id', auth()->id())->get();
 
-        return view('dashboard.dashboard', compact('transactions', 'account'));
+        return view('dashboard.dashboard', compact('transactions', 'account', 'incomeData', 'expenseData'));
     }
 }
