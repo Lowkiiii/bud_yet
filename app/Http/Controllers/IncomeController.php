@@ -38,8 +38,16 @@ class IncomeController extends Controller
     {
         // $userIncome = Auth::user()->userIncome;
         $userIncome = Income::where('user_id', auth()->id())->get();
+        $totalIncome = Income::where('user_id', auth()->id())
+            ->whereMonth('created_at', now()->month)
+            ->whereYear('created_at', now()->year)
+            ->sum('amount');
+        $totalPastIncome = Income::where('user_id', auth()->id())
+            ->whereMonth('created_at', now()->subMonth()->month)
+            ->whereYear('created_at', now()->subMonth()->year)
+            ->sum('amount');
 
-        return view('income.income', compact('userIncome'));
+        return view('income.income', compact('userIncome', 'totalIncome', 'totalPastIncome'));
         //return view('dashboard.dashboard', compact('userIncome'));
     }
 

@@ -33,10 +33,17 @@ Dashboard
                             <div class="flex flex-col">
                                 <p class="text-[#AAAAAA] text-xs sm:text-base"">Deposit</p>
                                 <h1 class="text-2xl sm:text-4xl sk-bold py-1 sm:py-3 text-[#05D9FF]">
-                                    ₱23,912.20
+                                    @if (!empty($totalDeposit))
+                                    {{-- Display calculated total amount from the controller --}}
+                                    {{ number_format($totalDeposit, 2) }}
+                                @endif
                                 </h1>
                                 <p class="sk text-[0.6rem] sm:text-sm text-[#AAAAAA]">
-                                    Your Overall deposit was <span class="text-[#05D9FF] sk-bold">₱19,203.29</span>
+                                    Your Overall deposit was <span class="text-[#05D9FF] sk-bold">
+                                        @if (!empty($totalPastDeposit))
+                                        {{ number_format($totalPastDeposit, 2) }}
+                                @endif
+                                    </span>
                                 </p>
                             </div>
                         </div>
@@ -44,21 +51,34 @@ Dashboard
                             <div class="flex flex-col">
                                 <p class="text-[#AAAAAA] text-xs sm:text-base">Expenses</p>
                                 <h1 class="text-2xl sm:text-4xl sk-bold py-1 sm:py-3 text-[#FF1F1F]">
-                                    ₱16,232.12
+                                    @if (!empty($totalWithdraw))
+                                    {{-- Display calculated total amount from the controller --}}
+                                    {{ number_format($totalWithdraw, 2) }}
+                                @endif
                                 </h1>
                                 <p class="sk text-[0.6rem]  sm:text-sm text-[#AAAAAA]">
-                                    Your Overall expense was <span class="text-[#FF1F1F] sk-bold">₱10,912.00</span>
+                                    Your Overall expense was <span class="text-[#FF1F1F] sk-bold">
+                                        @if (!empty($totalPastWithdraw))
+                                        {{ number_format($totalPastWithdraw, 2) }}
+                                @endif
+                                    </span>
                                 </p>
                             </div>
                         </div>
                         <div class="bg-[#2B2B2B]  rounded-xl p-4 pr-9 sm:pr-0 border border-[#244C53] sm:mb-4 mb-3 mr-4 sm:m-0">
                             <div class="flex flex-col">
-                                <p class="text-[#AAAAAA] text-xs sm:text-base"">Total Balance</p>
-                                <h1 class="text-2xl sm:text-4xl sk-bold py-1 sm:py- ">
-                                    ₱7,680.08
-                                </h1>
+                                <p class="text-[#AAAAAA] text-xs sm:text-base">Total Balance</p>
+                                <h1 class="text-2xl sm:text-4xl sk-bold py-1 sm:py-3 text-[#05D9FF]">
+                                @if (!empty($totalAmount))
+                                    {{-- Display calculated total amount from the controller --}}
+                                    {{ number_format($totalAmount, 2) }}
+                                @endif
                                 <p class="sk text-[0.6rem] sm:text-sm text-[#AAAAAA]">
-                                    Your Total balance is <span class=" sk-bold">₱4,399.12</span>
+                                    Your Total balance is <span class="text-[#05D9FF] sk-bold">
+                                        @if (!empty($totalPastAmount))
+                                        {{ number_format($totalPastAmount, 2) }}
+                                        @endif
+                                    </span>
                                 </p>
                             </div>
                         </div>

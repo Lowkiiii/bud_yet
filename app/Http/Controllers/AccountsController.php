@@ -40,21 +40,11 @@ class AccountsController extends Controller
             return Redirect::back()->withErrors(['error' => 'An error occurred while saving the Account.']);
         }
     }
-
     public function index()
     {
-
         $account = Account::where('user_id', auth()->id())->get();
 
+        // return view('transaction.transaction', compact('transactions', 'accounts'));
         return view('accounts.accounts', compact('account'));
-    }
-
-    public function account_dashboard()
-    {
-
-        $account = Account::where('user_id', auth()->id())->get();
-        // dd($account);
-
-        return view('dashboard.dashboard', compact('account'));
     }
 }

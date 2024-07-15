@@ -137,8 +137,46 @@ class ActTransactionController extends Controller
             ->orderBy('date', 'desc')
             ->get();
 
-        $account = Account::where('user_id', auth()->id())->get();
+        // total deposit
+        $totalDeposit = AccountTransaction::where('user_id', auth()->id())
+            ->where('type', 'deposit')
+            ->whereMonth('created_at', now()->month)
+            ->whereYear('created_at', now()->year)
+            ->sum('amount');
+        $totalPastDeposit = AccountTransaction::where('user_id', auth()->id())
+            ->where('type', 'deposit')
+            ->whereMonth('created_at', now()->subMonth()->month)
+            ->whereYear('created_at', now()->subMonth()->year)
+            ->sum('amount');
 
-        return view('dashboard.dashboard', compact('transactions', 'account', 'incomeData', 'expenseData'));
+
+        // total expense
+        $totalWithdraw = AccountTransaction::where('user_id', auth()->id())
+            ->where('type', 'withdraw')
+            ->whereMonth('created_at', now()->month)
+            ->whereYear('created_at', now()->year)
+            ->sum('amount');
+        $totalPastWithdraw = AccountTransaction::where('user_id', auth()->id())
+            ->where('type', 'withdraw')
+            ->whereMonth('created_at', now()->subMonth()->month)
+            ->whereYear('created_at', now()->subMonth()->year)
+            ->sum('amount');
+
+        // data from account
+        $account = Account::where('user_id', auth()->id())->get();
+        //total amount
+
+        $totalAmount = Account::where('user_id', auth()->id())
+            ->whereMonth('created_at', now()->month)
+            ->whereYear('created_at', now()->year)
+            ->sum('balance');
+
+        $totalPastAmount = Account::where('user_id', auth()->id())
+            ->whereMonth('created_at', now()->subMonth()->month)
+            ->whereYear('created_at', now()->subMonth()->year)
+            ->sum('balance');
+
+        // return view('dashboard.dashboard', compact('transactions', 'account', 'incomeData', 'expenseData'));
+        return view('dashboard.dashboard', compact('transactions', 'account', 'incomeData', 'expenseData', 'totalAmount', 'totalPastAmount', 'totalWithdraw', 'totalPastWithdraw', 'totalDeposit', 'totalPastDeposit'));
     }
 }

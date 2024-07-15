@@ -59,10 +59,17 @@ Income
                         <div class="flex flex-col">
 
                             <h1 class="text-4xl sk-bold py-3 text-[#05D9FF]">
-                                ₱23,912.20
+                                @if (!empty($totalIncome))
+                                {{-- Display calculated total amount from the controller --}}
+                                {{ number_format($totalIncome, 2) }}
+                            @endif
                             </h1>
                             <p class="sk text-sm text-[#AAAAAA]">
-                                Your last income was <span class="text-[#05D9FF] sk-bold">₱19,203.29</span> last
+                                Your last income was <span class="text-[#05D9FF] sk-bold">
+                                    @if (!empty($totalPastIncome))
+                                    {{ number_format($totalPastIncome, 2) }}
+                                    @endif
+                                </span> last
                                 month!
                             </p>
                         </div>
