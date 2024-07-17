@@ -100,13 +100,13 @@ Dashboard
                                 <div class="inline-flex items-center">
                                     <span class="size-2.5 inline-block bg-[#05D9FF] rounded-sm me-2"></span>
                                     <span class="text-[13px] text-gray-600 dark:text-neutral-400">
-                                        Expense
+                                        Deposit
                                     </span>
                                 </div>
                                 <div class="inline-flex items-center">
                                     <span class="size-2.5 inline-block bg-[#FF1F1F] rounded-sm me-2"></span>
                                     <span class="text-[13px] text-gray-600 dark:text-neutral-400">
-                                        Deposit
+                                        Expense
                                     </span>                                  
                                 </div>
                             </div>
@@ -128,7 +128,7 @@ Dashboard
                                     })
                                 </script>
                             </div>
-                            <div id="AccountView" class="sk  overflow-y-auto w-full max-h-[14rem]
+                            <div id="AccountView" class="sk  overflow-y-auto w-full h-full
                                  [&::-webkit-scrollbar]:w-2
                                  [&::-webkit-scrollbar-track]:rounded-full
                                  [&::-webkit-scrollbar-track]:bg-gray-100

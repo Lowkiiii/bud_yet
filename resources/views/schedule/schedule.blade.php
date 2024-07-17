@@ -12,6 +12,7 @@
             @include('modal/addSchedule')
             @include('modal/editSchedule')
             @include('modal/deleteSchedule')
+            
 
         </div>
 

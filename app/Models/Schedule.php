@@ -29,10 +29,33 @@ class Schedule extends Model
      * @var array
      */
     protected $fillable = [
-        'name, amount, frequency, start_date, end_date, user_id'
+        'name, amount, frequency, start_date, end_date, user_id, from_account_id, to_account_id, target_amount, status'
     ];
 
     protected $casts = [
-        'date' => 'datetime',
+        'start_date' => 'date',
+        'end_date' => 'date',
+        'amount' => 'decimal:2',
+        'target_amount' => 'decimal:2',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function fromAccount()
+    {
+        return $this->belongsTo(Account::class, 'from_account_id');
+    }
+
+    public function toAccount()
+    {
+        return $this->belongsTo(Account::class, 'to_account_id');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 'active');
+    }
 }
