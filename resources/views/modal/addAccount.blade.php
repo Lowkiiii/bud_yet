@@ -1,6 +1,6 @@
 <div id="addAccount"
-        <div class="hs-overlay hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hidden size-full fixed top-0 start-0 z-[80] opacity-0 overflow-x-hidden transition-all overflow-y-auto pointer-events-none flex justify-center items-center">
-            <div class="sm:max-w-lg sm:w-full m-3 sm:mx-auto">
+         class="hs-overlay hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hidden size-full fixed top-0 start-0 z-[80] opacity-0 overflow-x-hidden transition-all overflow-y-auto pointer-events-none flex justify-center items-center">
+            <div class=" w-full sm:max-w-lg sm:w-full m-3 sm:mx-auto">
                 <div
                     class="flex flex-col bg-[#2B2B2B] border shadow-sm rounded-xl pointer-events-auto dark:bg-neutral-800 border-[#244C53]">
                     <div class="flex justify-between items-center py-3 px-4 border-b border-[#4C4C4C]">
@@ -19,7 +19,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="px-8 py-3 mt-2 overflow-y-auto">
+                    <div class="px-4 sm:px-8 py-3 mt-2 overflow-y-auto">
                         <form action="{{ route('account.store') }}" method="POST" class="mt-2">
                             @csrf
                         <div class="relative">

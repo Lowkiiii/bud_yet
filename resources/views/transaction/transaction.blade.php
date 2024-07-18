@@ -16,20 +16,19 @@
         </div>
 
         <div
-            class="z-20 relative w-full mx-auto justify-center items-center overflow-hidden px-[3rem] xl:w-[94rem] animate-blink">
+        class="z-20 relative  pt-8 sm:pt-0  mx-auto justify-center items-center overflow-hidden sm:px-[3rem] w-full xl:w-[94rem] animate-blink">
 
-            <div class="p-8 px-26">
-                <div class="mt-19 md:mt-18   flex">
-
-                    <h1 class="text-white text-4xl  sk">
+        <div class="sm:p-4 p-4 sm:px-26">
+                <div class="pt-4 sm:pt-0 flex">
+                    <h1 class="text-white sm:text-4xl text-xl  sk">
                         <div class="flex items-center">
                             <span class="sk-bold text-[#05D9FF]">Transaction</span>
                             <span class="text-center my-auto mx-auto ml-2">&#x1F9FE;</span>
                         </div>
-                        <p class="text-xl text-[#7A7A7A] mt-1">
+                        <p class="text-base sm:text-xl text-[#7A7A7A] mt-0 sm:mt-1">
                             Your current transactions of the month.</p>
                     </h1>
-                    <div class="flex flex-row items-center ms-auto ">
+                    <div class="hidden sm:flex flex-row items-center ms-auto ">
                         <div class="flex flex-row">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF" class="size-8 mr-3">
                                 <path
@@ -44,7 +43,7 @@
                 </div>
 
 
-                <div class="bg-[#2B2B2B] text-white rounded-xl mt-10 p-8 border border-[#244C53] mb-4">
+                <div class="bg-[#2B2B2B] text-white rounded-xl mt-4 sm:mt-10 p-4 sm:p-8 border border-[#244C53] mb-4">
                     <div class="flex flex-col">
 
                         <div class="sk-bold text-xl text-start w-full  flex flex-row">
@@ -70,17 +69,16 @@
                          dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
 
 
-                            <table class="table-auto text-start w-full">
-                                <thead class="text-start">
-                                    <tr class="text-sm text-center py-4  text-[#AAAAAA] border-b border-[#4C4C4C]">
-                                        <th class=" py-4 ">#</th>
-                                        <th class=" py-4">ID</th>
-                                        <th class=" py-4 ">Account Name</th>
-                                        <th class=" py-4 ">Amount</th>
-                                        <th class=" py-4 ">Transaction Type</th>
-                                        <th class=" py-4  ">Category</th>
-                                        <th class=" py-4  ">Date</th>
-                                        <th class=" py-4  ">Actions</th>
+                         <table class="table-auto text-start w-full">
+                            <thead class="text-start">
+                                <tr class="text-xs text-center py-4  text-[#AAAAAA] border-b border-[#4C4C4C]">
+                                        <th class=" py-4 px-4">#</th>
+                                        <th class=" py-4 px-4">Name</th>
+                                        <th class=" py-4 px-4">Amount</th>
+                                        <th class=" py-4 px-4">Transaction Type</th>
+                                        <th class=" py-4  px-4">Category</th>
+                                        <th class=" py-4  px-4">Date</th>
+                                        <th class=" py-4  px-4">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -89,7 +87,6 @@
                                     @foreach ($transactions as $transaction)    
                                     <tr class="border-b text-base text-center border-[#4C4C4C]">
                                         <td class="py-4 ">{{ $rowNumber }}</td>
-                                        <td class="py-4">{{ $transaction->id }}</td>
                                         <td class="py-4">{{ $transaction->account_name }}</td>
                                         <td class="py-4">{{ number_format($transaction->amount, 2) }}</td>
                                         <td class="py-4">{{ ucfirst($transaction->type) }}</td>
@@ -144,7 +141,7 @@
                         alt="">
                 </div>
             </div>
-            <div class="w-full h-2/5 bg-[#1D1D1D] z-10">
+            <div class="w-full h-2/5 bg-[#1D1D1D] z-10 sm:block hidden">
                 <img src="/image/GridBG.png" class="object-cover w-screen h-full" alt="Grid Background">
             </div>
         </div>

@@ -20,6 +20,10 @@
         width: 18px;
         height: 18px;
     }
+    .hs-dropdown-menu[data-hs-dropdown-placement="right-end"] {
+        top: 100%;
+        right: 0;
+    }
 }
 
 /* Apply component styles */

@@ -14,20 +14,21 @@ Accounts
         @include('modal/deleteAccount')
     </div>
 
-    <div class="z-20 relative w-full mx-auto justify-center items-center overflow-hidden px-[3rem] xl:w-[94rem] animate-blink">
+    <div
+    class="z-20 relative  pt-8 sm:pt-0  mx-auto justify-center items-center overflow-hidden sm:px-[3rem] w-full xl:w-[94rem] animate-blink">
 
-        <div class="p-8 px-26">
-            <div class="mt-19 md:mt-18   flex">
+    <div class="sm:p-4 p-4 sm:px-26">
+            <div class="pt-4 sm:pt-0 flex">
 
-                <h1 class="text-white text-4xl  sk">
+                <h1 class="text-white sm:text-4xl text-xl  sk">
                     <div class="flex items-center">
                         <span class="sk-bold text-[#05D9FF]">Accounts</span>
-                        <span class="text-center pb-3 ml-2">&#x1F4B3;</span>
+                        <span class="text-center pb-1 sm:pb-3 ml-1 sm:ml-2">&#x1F4B3;</span>
                     </div>
-                    <p class="text-xl text-[#7A7A7A] mt-1">
+                    <p class="text-base sm:text-xl text-[#7A7A7A] mt-0 sm:mt-1">
                         Create and manage your accounts. </p>
                 </h1>
-                <div class="flex flex-row items-center ms-auto ">
+                <div class="hidden sm:flex flex-row items-center ms-auto ">
                     <div class="flex flex-row">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF" class="size-8 mr-3">
                             <path d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
@@ -39,7 +40,7 @@ Accounts
             </div>
 
 
-            <div class="bg-[#2B2B2B] text-white rounded-xl mt-10 p-8 border border-[#244C53] mb-4">
+            <div class="bg-[#2B2B2B] text-white rounded-xl mt-4 sm:mt-10 p-4 sm:p-8 border border-[#244C53] mb-4">
                 <div class="flex flex-col">
 
                     <div class="sk-bold text-xl text-start w-full  flex flex-row">
@@ -65,8 +66,7 @@ Accounts
                             <thead class="text-start">
                                 <tr class="text-sm text-center py-4  text-[#AAAAAA] border-b border-[#4C4C4C]">
                                     <th class=" py-4 ">#</th>
-                                    <th class=" py-4">ID</th>
-                                    <th class=" py-4 ">Account Name</th>
+                                    <th class=" py-4 ">Name</th>
                                     <th class=" py-4 ">Balance</th>
                                     <th class=" py-4 ">Date</th>
                                     <th class=" py-4  ">Actions</th>
@@ -76,9 +76,8 @@ Accounts
                                 @if (!empty($account) && count($account) > 0)
                                     @php $rowNumber = 1; @endphp
                                     @foreach ($account as $account)
-                                        <tr class="border-b text-base text-center border-[#4C4C4C]">
+                                        <tr class="border-b text-sm sm:text-base text-center border-[#4C4C4C]">
                                             <td class="py-4">{{ $rowNumber }}</td>
-                                            <td class="py-4">{{ $account->id }}</td>
                                             <td class="py-4">{{ $account->account_name }}</td>
                                             <td class="py-4">{{ $account->balance }}</td>
                                             @php $timestamp = strtotime($account->created_at) @endphp
@@ -87,7 +86,25 @@ Accounts
                                             <td class="py-4">
                                                 <div class="flex justify-center">
                                                     <div class="flex flex-row">
-                                                        {{-- buttons --}}
+                                                        <div class="flex flex-row "><button class="px-1 "><svg
+                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                            fill="#FF4E4E " class="size-5 hover:fill-[#FF0000]"
+                                                            data-hs-overlay="#deleteSchedule">
+                                                            <path fill-rule="evenodd"
+                                                                d="M16.5 4.478v.227a48.816 48.816 0 0 1 3.878.512.75.75 0 1 1-.256 1.478l-.209-.035-1.005 13.07a3 3 0 0 1-2.991 2.77H8.084a3 3 0 0 1-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 0 1-.256-1.478A48.567 48.567 0 0 1 7.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 0 1 3.369 0c1.603.051 2.815 1.387 2.815 2.951Zm-6.136-1.452a51.196 51.196 0 0 1 3.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 0 0-6 0v-.113c0-.794.609-1.428 1.364-1.452Zm-.355 5.945a.75.75 0 1 0-1.5.058l.347 9a.75.75 0 1 0 1.499-.058l-.346-9Zm5.48.058a.75.75 0 1 0-1.498-.058l-.347 9a.75.75 0 0 0 1.5.058l.345-9Z"
+                                                                clip-rule="evenodd" />
+                                                        </svg></button>
+                                                    <button
+                                                        class="px-1 border-l border-[#4C4C4C] disabled:pointer-events-none "
+                                                        data-hs-overlay="#editSchedule">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                            fill="#8FFF74" class="size-5 hover:fill-[#42FF13]">
+                                                            <path
+                                                                d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
+                                                            <path
+                                                                d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
+                                                        </svg></button>
+                                                </div>
                                                     </div>
                                                 </div>
                                             </td>
@@ -139,7 +156,7 @@ Accounts
                 <img src="/image/Abstract2.png" class="absolute object-cover bottom-0 right-0 transform translate-x-[100%] translate-y-[100%] z-30 h-[30rem] opacity-70 hidden md:block" alt="">
             </div>
         </div>
-        <div class="w-full h-2/5 bg-[#1D1D1D] z-10">
+        <div class="w-full h-2/5 bg-[#1D1D1D] z-10 sm:block hidden">
             <img src="/image/GridBG.png" class="object-cover w-screen h-full" alt="Grid Background">
         </div>
     </div>
