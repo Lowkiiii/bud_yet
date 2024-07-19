@@ -5,6 +5,29 @@ Login
 @endsection
 
 @section('content')
+
+<script>
+ 
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+    // Output Laravel session messages into JavaScript variables
+    var errorMessage = @json(session('error'));
+    var successMessage = @json(session('success'));
+
+    // Check and display error message alert
+    if (errorMessage) {
+        alert(errorMessage);
+    }
+
+    // Check and display success message alert
+    if (successMessage) {
+        alert(successMessage);
+    }
+});
+
+</script>
+
+
 <section class="bg-[#1D1D1D] h-screen">
     <div class="flex min-h-full justify-center bg-[#1D1D1D] ">
         <div class="flex flex-col justify-center w-full  sm:w-1/2">
@@ -56,7 +79,7 @@ Login
                                         </div>
                                     </div>
                                     <div class="relative">
-                                        <input id="hs-toggle-password" type="password" name="password" class="peer py-3 px-4 ps-11 block w-full bg-[#E5E5E5] border-transparent rounded-[12px] text-sm dark:bg-[#E5E5E5] dark:border-transparent dark:text-black dark:placeholder-neutral-500 dark:focus:ring-neutral-600" value="" required>
+                                        <input id="hs-toggle-password" type="password" name="password" class="peer py-3 px-4 ps-11 block w-full bg-[#E5E5E5] border-transparent rounded-[12px] text-sm dark:bg-[#E5E5E5] dark:border-transparent dark:text-black dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Enter Password" required>
                                         <div class="absolute inset-y-0 start-0 flex items-center ps-4">
                                             <svg class="flex-shrink-0 size-4 text-gray-500 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4a6.5 6.5 0 1 0-4-4Z">
@@ -133,8 +156,9 @@ Login
                                             <!-- Optional: Add an icon or indicator here if needed -->
                                         </div>
                                     </div>
+
                                       <div class="relative">
-                                        <input id="hs-toggle-password-Register" type="password" name="password" class="peer py-3 px-4 ps-4 block w-full bg-[#E5E5E5] border-transparent rounded-[12px] text-sm dark:bg-[#E5E5E5] dark:border-transparent dark:text-black dark:placeholder-neutral-500 dark:focus:ring-neutral-600" value="" required>
+                                        <input id="hs-toggle-password-Register"  id="register_password" type="password" name="password" class="peer py-3 px-4 ps-4 block w-full bg-[#E5E5E5] border-transparent rounded-[12px] text-sm dark:bg-[#E5E5E5] dark:border-transparent dark:text-black dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Enter Password" required>
                                         <div class="absolute inset-y-0 start-0 flex items-center ps-4">
                                            
                                         </div>
@@ -155,7 +179,7 @@ Login
                                         </button>
                                     </div>
                                     <div class="relative">
-                                        <input id="hs-toggle-password-Register" type="password" name="password" class="peer py-3 px-4 ps-4 block w-full bg-[#E5E5E5] border-transparent rounded-[12px] text-sm dark:bg-[#E5E5E5] dark:border-transparent dark:text-black dark:placeholder-neutral-500 dark:focus:ring-neutral-600" value="" required>
+                                        <input id="hs-toggle-password-Register" type="password" form="password_confirmation" name="password_confirmation" class="peer py-3 px-4 ps-4 block w-full bg-[#E5E5E5] border-transparent rounded-[12px] text-sm dark:bg-[#E5E5E5] dark:border-transparent dark:text-black dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Confirm Password" required>
                                         <div class="absolute inset-y-0 start-0 flex items-center ps-4">
                                            
                                         </div>
