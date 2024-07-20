@@ -58,4 +58,8 @@ class Schedule extends Model
     {
         return $query->where('status', 'active');
     }
+    public function account()
+    {
+        return $this->belongsTo(Account::class);
+    }
 }

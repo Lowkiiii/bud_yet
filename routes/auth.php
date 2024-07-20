@@ -53,4 +53,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/transaction', [ActTransactionController::class, 'store'])->name('transaction.store');
     Route::get('/dashboard', [ActTransactionController::class, 'dashboard'])->name('dashboard.dashboard');   // dashboard transaction list
 
+
+    //Schedule
+    Route::get('/schedules', [ScheduleController::class, 'index'])->name('schedules.index');
+    Route::post('/schedules', [ScheduleController::class, 'store'])->name('schedules.store');
 });
