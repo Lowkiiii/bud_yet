@@ -48,7 +48,7 @@ class ScheduleController extends Controller
             $schedule->end_date = $validatedData['end_date'];
             $schedule->save();
 
-            // // Trigger the initial transaction
+            // Trigger the initial transaction
             // $this->processSchedule($schedule);
 
             return redirect()->route('schedules.index')->with('success', 'Schedule created successfully');
