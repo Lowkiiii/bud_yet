@@ -6,6 +6,40 @@
         <span class="px-4 {{ request()->routeIs('schedule.schedule') ? 'block' : 'hidden' }}">Schedule</span>
         <span class="px-4 {{ request()->routeIs('income.income') ? 'block' : 'hidden' }}">Income</span>
         <span class="px-4 {{ request()->routeIs('transaction.transaction') ? 'block' : 'hidden' }}">Transaction</span>
+
+        <div class="hs-dropdown relative inline-flex w-full justify-end items-end">
+            <span class="my-auto text-[0.6rem] text-[#AAAAAA] mr-2 sk">{{ Auth::user()->username }}</span>
+            <button id="hs-dropdown-default" type="button"
+                                class="hs-dropdown-toggle w-8 h-8  rounded-full overflow-hidden relative border border-[#05D9FF]"
+                                id="menuButton">
+                                <div class="relative group">
+                                    <label for="file_input" class="cursor-pointer">
+                                        <img src="image/dog-Close.png" alt="Profile"
+                                            class="w-full h-full rounded-full object-cover">
+                                    </label>
+                                </div>
+                            </button>
+          
+            <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-56 hidden z-10 mt-2 min-w-45 border-[#244C53]  border bg-[#1B1B1B] rounded-lg p-2" aria-labelledby="hs-dropdown-unstyled">
+                <div class="py-2 first:pt-0 last:pb-0">
+                    <div class="flex items-center gap-x-1 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 bg-[#2B2B2B] cursor-pointer"
+                        onclick="document.getElementById('logout-form').submit();">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="size-5 logout-text">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                        </svg>
+
+                        <form id="logout-form" method="POST" action="{{ route('logout') }}"
+                            class="inline">
+                            @csrf
+                            <button type="submit" class="hidden">Logout</button>
+                        </form>
+                        <span class="logout-text text-gray-800 dark:text-neutral-400 sk">Logout</span>
+                    </div>
+                </div>
+            </div>
+          </div>
     </div>
     
 

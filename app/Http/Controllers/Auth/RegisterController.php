@@ -31,10 +31,16 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255', 'unique:'.User::class],
+            'first_name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z]+$/'],
+            'last_name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z]+$/'],
+            'username' => ['required', 'string', 'max:255', 'unique:' . User::class],
             'password' => ['required', Rules\Password::defaults()],
+        ], [
+            'required' => 'The :attribute field is required.',
+            'string' => 'The :attribute field must be a string.',
+            'max' => 'The :attribute field must not exceed :max characters.',
+            'unique' => 'The :attribute has already been taken.',
+            'regex' => 'The :attribute field must only contain letters.',
         ]);
 
         try {
@@ -44,7 +50,7 @@ class RegisterController extends Controller
                 'username' => $request->username,
                 'password' => Hash::make($request->password),
             ]);
-Auth::login($user);
+            Auth::login($user);
 
             return redirect()->route('/dashboard')->with('success', 'Successfully registered');
         } catch (\Exception $e) {

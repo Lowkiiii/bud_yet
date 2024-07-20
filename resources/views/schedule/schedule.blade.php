@@ -18,20 +18,20 @@
 
 
         <div
-            class="z-20 relative w-full mx-auto justify-center items-center overflow-hidden px-[3rem] xl:w-[94rem] animate-blink">
+        class="z-20 relative  pt-8 sm:pt-0  mx-auto justify-center items-center overflow-hidden sm:px-[3rem] w-full xl:w-[94rem] animate-blink">
 
-            <div class="p-8 px-26">
-                <div class="mt-19 md:mt-18   flex">
+            <div class="sm:p-4 p-4 sm:px-26">
+                <div class="pt-4 sm:pt-0    flex">
 
-                    <h1 class="text-white text-4xl  sk">
+                    <h1 class="text-white sm:text-4xl text-xl  sk">
                         <div class="flex items-center">
                             <span class="sk-bold text-[#05D9FF]">Schedule</span>
-                            <span class="text-center mx-auto ml-2">&#x1F4C5;</span>
+                            <span class="text-center pb-1 sm:pb-3 ml-1 sm:ml-2">&#x1F4C5;</span>
                         </div>
-                        <p class="text-xl text-[#7A7A7A] mt-1">
+                        <p class="text-base sm:text-xl text-[#7A7A7A] mt-0 sm:mt-1">
                             Prepare your expnenses for the month. </p>
                     </h1>
-                    <div class="flex flex-row items-center ms-auto ">
+                    <div class="hidden sm:flex flex-row items-center ms-auto ">
                         <div class="flex flex-row">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF" class="size-8 mr-3">
                                 <path
@@ -46,7 +46,7 @@
                 </div>
 
 
-                <div class="bg-[#2B2B2B] text-white rounded-xl mt-10 p-8 border border-[#244C53] mb-4">
+                <div class="bg-[#2B2B2B] text-white rounded-xl mt-4 sm:mt-10 p-4 sm:p-8 border border-[#244C53] mb-4">
                     <div class="flex flex-col">
 
                         <div class="sk-bold text-xl text-start w-full  flex flex-row">
@@ -74,31 +74,25 @@
 
                             <table class="table-auto text-start w-full">
                                 <thead class="text-start">
-                                    <tr class="text-sm text-center py-4  text-[#AAAAAA] border-b border-[#4C4C4C]">
-                                        <th class=" py-4 ">#</th>
-                                        <th class=" py-4">ID</th>
-                                        <th class=" py-4 ">Schedule Name</th>
-                                        <th class=" py-4 ">Amount</th>
-                                        <th class=" py-4 ">Fromt Account</th>
-                                        <th class=" py-4  ">To Account</th>
-                                        <th class=" py-4  ">Frequency</th>
-                                        <th class=" py-4  ">Start Date</th>
-                                        <th class=" py-4  ">To Date</th>
-                                        <th class=" py-4  ">Actions</th>
+                                    <tr class=" text-xs sm:text-base text-center py-4   text-[#AAAAAA] border-b border-[#4C4C4C]">
+                                        <th class="px-4 py-4 ">#</th>
+                                        <th class=" px-4 py-4 ">Name</th>
+                                        <th class="px-4 py-4 ">Amount</th>
+                                        <th class="px-4 py-4  ">Frequency</th>
+                                        <th class=" px-4 py-4  ">Date Range</th>
+                                        <th class="px-4 py-4  ">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    <tr class="border-b text-base text-center border-[#4C4C4C]">
+                                    <tr class="border-b text-xs sm:text-base text-center border-[#4C4C4C]">
                                         <td class="py-4 "> 1</td>
-                                        <td class="py-4">01</td>
+
                                         <td class="py-4 ">BDO Checking</td>
                                         <td class="py-4  ">20,300.00</td>
-                                        <td class="py-4 ">BDC Checkings</td>
-                                        <td class="py-4 ">BPI Savings</td>
+ 
                                         <td class="py-4 ">Monthly</td>
-                                        <td class="py-4 ">01/07/2024</td>
-                                        <td class="py-4 ">01/10/2024</td>
+                                        <td class="py-4 px-4 whitespace-nowrap">01/07/24 - 01/07/24</td>
                                         <td class="py-4  ">
                                             <div class="flex justify-center">
                                                 <div class="flex flex-row "><button class="px-1 "><svg
@@ -143,7 +137,7 @@
                         alt="">
                 </div>
             </div>
-            <div class="w-full h-2/5 bg-[#1D1D1D] z-10">
+            <div class="w-full h-2/5 bg-[#1D1D1D] z-10 sm:blocl hidden">
                 <img src="/image/GridBG.png" class="object-cover w-screen h-full" alt="Grid Background">
             </div>
         </div>

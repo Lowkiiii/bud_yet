@@ -23,39 +23,29 @@ class AuthenticationController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function login(Request $request) : RedirectResponse
+    public function login(Request $request): RedirectResponse
     {
-        // $credentials = $request->validate([
-            
-        //     'username' => ['required', 'username'],
-        //     'password' => ['required'],
-        // ]);
-
         $credentials = $request->validate([
             'username' => ['required', 'string', 'exists:users,username'],
             'password' => ['required'],
         ]);
 
-        try{
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+        try {
+            if (Auth::attempt($credentials)) {
+                $request->session()->regenerate();
 
-            $user = Auth::user();
-            if($user){
-                return redirect()->intended('/dashboard');
+                $user = Auth::user();
+                if ($user) {
+                    return redirect()->intended('/dashboard');
+                }
+            } else {
+                return redirect()->back()->with('error', 'Invalid password')->withInput()->withErrors(['password' => 'Invalid password']);
             }
-            
-            
-        }
 
-     
-        return redirect()->back()->with('success', 'Successfully registered');
-    } catch (\Exception $e) {
-        return redirect()->back()->with('error', 'An error occurred while registering. Please try again.');
-    }
-    
-        
-    
+            return redirect()->back()->with('success', 'Successfully logged in');
+        } catch (\Exception) {
+            return redirect()->back()->with('error', 'An error occurred while logging in. Please try again.');
+        }
     }
 
     /**
@@ -71,7 +61,4 @@ class AuthenticationController extends Controller
 
         return redirect('/login');
     }
-
-    
-
 }
