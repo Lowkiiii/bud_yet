@@ -306,10 +306,7 @@
                                         <tr class=" text-xs sm:text-base text-center py-4   text-[#AAAAAA] border-b border-[#4C4C4C]">
                                             <th class="px-4 py-4 ">#</th>
                                             <th class=" px-4 py-4 ">Name</th>
-                                            {{-- <th class="px-4 py-4 ">Amount</th>
-                                            <th class="px-4 py-4  ">Frequency</th> --}}
                                             <th class=" px-4 py-4  ">Date Range</th>
-                                            {{-- <th class="px-4 py-4  ">Actions</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>

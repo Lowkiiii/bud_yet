@@ -44,7 +44,6 @@ class AccountsController extends Controller
     {
         $account = Account::where('user_id', auth()->id())->get();
 
-        // return view('transaction.transaction', compact('transactions', 'accounts'));
         return view('accounts.accounts', compact('account'));
     }
 }

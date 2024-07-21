@@ -86,8 +86,9 @@
                                 <tbody>
                                     @if (!empty($schedules) && count($schedules) > 0)
                                     @php $rowNumber = 1; @endphp
-                                    @foreach ($schedules as $schedules)   
-
+                                    @foreach ($schedules as $schedules)
+                                    
+                                
                                     <tr class="border-b text-xs sm:text-base text-center border-[#4C4C4C]">
                                         <td class="py-4 "> {{$rowNumber}}</td>
                                         <td class="py-4 ">{{ $schedules->name }}</td>

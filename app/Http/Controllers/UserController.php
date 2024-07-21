@@ -18,31 +18,29 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = Auth::user(); 
+        $user = Auth::user();
         return view('dashboard.dashboard', compact('user'));
     }
 
     public function accounts()
     {
         $user = Auth::user();
-        return view ('accounts.accounts', compact('user'));
+        return view('accounts.accounts', compact('user'));
     }
 
     public function schedule()
     {
         $user = Auth::user();
-        return view ('schedule.schedule', compact('user'));
+        return view('schedule.schedule', compact('user'));
     }
     public function income()
     {
         $user = Auth::user();
-        return view ('income.income', compact('user'));
+        return view('income.income', compact('user'));
     }
     public function transaction()
     {
         $user = Auth::user();
-        return view ('transaction.transaction', compact('user'));
+        return view('transaction.transaction', compact('user'));
     }
-    
-    
 }
