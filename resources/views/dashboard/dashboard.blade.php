@@ -300,47 +300,35 @@
                                  [&::-webkit-scrollbar-thumb]:bg-gray-300
                                  dark:[&::-webkit-scrollbar-track]:bg-neutral-700
                                  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
-                            <table class="table-auto text-start w-full"">
+                            <table class="table-auto text-start w-full">
                                 <table class=" table-auto text-start py-4 w-full ">
-                                    <thead class=" text-start py-4 ">
-                                        <tr class=" text-sm py-4 text-[#AAAAAA] border-b border-[#4C4C4C]">
-                                            <th class="text-start py-4 text-sm "">Schedule Name</th>
-                                            <th class=" text-start py-4 ">Date</th>
+                                    <thead class="text-start">
+                                        <tr class=" text-xs sm:text-base text-center py-4   text-[#AAAAAA] border-b border-[#4C4C4C]">
+                                            <th class="px-4 py-4 ">#</th>
+                                            <th class=" px-4 py-4 ">Name</th>
+                                            {{-- <th class="px-4 py-4 ">Amount</th>
+                                            <th class="px-4 py-4  ">Frequency</th> --}}
+                                            <th class=" px-4 py-4  ">Date Range</th>
+                                            {{-- <th class="px-4 py-4  ">Actions</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class=" border-b border-[#4C4C4C]"">
-                                            <td class="py-4 text-sm"> &#x1F3E0; Buy Property</td>
-                                            <td class="py-4 text-sm">10/12/2024</td>
+                                        @if (!empty($schedules) && count($schedules) > 0)
+                                        @php $rowNumber = 1; @endphp
+                                        @foreach ($schedules as $schedules)  
+
+                                        <tr class=" border-b border-[#4C4C4C]">
+                                            <td class="py-4 "> {{$rowNumber}}</td>
+                                            <td class="py-4 "> {{$schedules->name}}</td>
+                                            <td class="py-4 px-4 whitespace-nowrap">{{ $schedules->start_date }} - {{ $schedules->end_date }}</td>                                        </tr>
                                         </tr>
-                                        <tr class="border-b border-[#4C4C4C]"">
-                                            <td class=" py-4 text-sm">&#x1F4F1; Phone</td>
-                                            <td class="py-4 text-sm">12/8/2024</td>
+                                        @php $rowNumber++; @endphp
+                                        @endforeach
+                                        @else
+                                        <tr>
+                                            <td class="py-4  ">No Data</td>
                                         </tr>
-                                        <tr class="border-b border-[#4C4C4C]"">
-                                            <td class=" py-4 text-sm"> &#x1F3E0; Buy Property</td>
-                                            <td class="py-4 text-sm">10/12/2024</td>
-                                        </tr>
-                                        <tr class="border-b border-[#4C4C4C]"">
-                                            <td class=" py-4 text-sm">&#x1F4F1; Phone</td>
-                                            <td class="py-4 text-sm">12/8/2024</td>
-                                        </tr>
-                                        <tr class="border-b border-[#4C4C4C]"">
-                                            <td class=" py-4 text-sm"> &#x1F3E0; Buy Property</td>
-                                            <td class="py-4 text-sm">10/12/2024</td>
-                                        </tr>
-                                        <tr class="border-b border-[#4C4C4C]"">
-                                            <td class=" py-4 text-sm">&#x1F4F1; Phone</td>
-                                            <td class="py-4 text-sm">12/8/2024</td>
-                                        </tr>
-                                        <tr class="border-b border-[#4C4C4C]"">
-                                            <td class=" py-4 text-sm"> &#x1F3E0; Buy Property</td>
-                                            <td class="py-4 text-sm">10/12/2024</td>
-                                        </tr>
-                                        <tr class="border-b border-[#4C4C4C]"">
-                                            <td class=" py-4 text-sm">&#x1F4F1; Phone</td>
-                                            <td class="py-4 text-sm">12/8/2024</td>
-                                        </tr>
+                                        @endif
                                     </tbody>
                                 </table>
                         </div>

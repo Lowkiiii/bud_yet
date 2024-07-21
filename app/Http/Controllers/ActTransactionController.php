@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\AccountTransaction;
 use App\Models\User;
 use App\Models\Account;
+use App\Models\Schedule;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -154,7 +155,17 @@ class ActTransactionController extends Controller
             ->whereYear('created_at', now()->subMonth()->year)
             ->sum('balance');
 
+        // get data from schedules to dashboard
+        $schedules = Schedule::where('user_id', Auth::id())
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        $accounts = Account::where('user_id', Auth::id());
+
+
+
+
         // return view('dashboard.dashboard', compact('transactions', 'account', 'incomeData', 'expenseData'));
-        return view('dashboard.dashboard', compact('transactions', 'account', 'incomeData', 'expenseData', 'totalAmount', 'totalPastAmount', 'totalWithdraw', 'totalPastWithdraw', 'totalDeposit', 'totalPastDeposit'));
+        return view('dashboard.dashboard', compact('transactions', 'account', 'incomeData', 'expenseData', 'totalAmount', 'totalPastAmount', 'totalWithdraw', 'totalPastWithdraw', 'totalDeposit', 'totalPastDeposit', 'accounts', 'schedules'));
     }
 }

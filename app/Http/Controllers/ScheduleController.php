@@ -12,8 +12,13 @@ class ScheduleController extends Controller
 {
     public function index()
     {
-        $schedules = Schedule::where('user_id', Auth::id())->get();
+        $schedules = Schedule::where('user_id', Auth::id())->get()
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         $accounts = Account::where('user_id', Auth::id())->get();
+
+
         return view('schedule.schedule', compact('schedules', 'accounts'));
     }
 

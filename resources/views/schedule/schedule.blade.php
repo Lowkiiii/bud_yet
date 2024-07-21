@@ -84,15 +84,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if (!empty($schedules) && count($schedules) > 0)
+                                    @php $rowNumber = 1; @endphp
+                                    @foreach ($schedules as $schedules)   
 
                                     <tr class="border-b text-xs sm:text-base text-center border-[#4C4C4C]">
-                                        <td class="py-4 "> 1</td>
-
-                                        <td class="py-4 ">BDO Checking</td>
-                                        <td class="py-4  ">20,300.00</td>
- 
-                                        <td class="py-4 ">Monthly</td>
-                                        <td class="py-4 px-4 whitespace-nowrap">01/07/24 - 01/07/24</td>
+                                        <td class="py-4 "> {{$rowNumber}}</td>
+                                        <td class="py-4 ">{{ $schedules->name }}</td>
+                                        <td class="py-4  ">{{ $schedules->amount }}</td>
+                                        <td class="py-4 ">{{ $schedules->frequency }}</td>
+                                        <td class="py-4 px-4 whitespace-nowrap">{{ $schedules->start_date }} - {{ $schedules->end_date }}</td>
                                         <td class="py-4  ">
                                             <div class="flex justify-center">
                                                 <div class="flex flex-row "><button class="px-1 "><svg
@@ -117,6 +118,13 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    @php $rowNumber++; @endphp
+                                    @endforeach
+                                    @else
+                                    <tr>
+                                        <td class="py-4  ">No Data</td>
+                                    </tr>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
