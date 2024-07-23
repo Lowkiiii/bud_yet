@@ -42,34 +42,63 @@
                                     <option value="{{ $account->id }}">{{ $account->account_name }}</option>
                                 @endforeach
                             </select>
-                          </div>
-                       
-                          <div class="w-full space-x-4 flex">
-                          <div class="w-full relative  py-2 ">
-                            <select name="type" class="py-4 bg-[#2B2B2B] outline-none rounded-lg focus:border-[#4C4C4C] px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none sk dark:border-transparent dark:text-neutral-400 dark:focus:ring-[#4C4C4C]">
-                                <option value="" disabled selected hidden>Transaction Type</option>
-                                <option value="deposit">Deposit</option>
-                                <option value="withdraw">Withdraw</option>
-                            </select>
-                          </div>
-                          <div class="w-full relative py-2 ">
-                            <select name="category" class="py-4 bg-[#2B2B2B] outline-none rounded-lg focus:border-[#4C4C4C] px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none sk dark:border-transparent dark:text-neutral-400 dark:focus:ring-[#4C4C4C]">
-                                <option value="" disabled selected hidden>Category</option>
-                                <option value="Food">Food</option>
-                                <option value="Rent">Rent</option>
-                                <option value="Utilities">Utilities</option>
-                                <option value="Entertainment">Entertainment</option>
-                                <option value="Shopping">Shopping</option>
-                                <option value="Transportation">Transportation</option>
-                                <option value="Other">Other</option>
-                            </select>
-                          </div>
-                          <div class="text-xs flex-col flex font-semibold  items-start justify-start sk truncate text-white  w-full mt-2 ">
-
-                            <input type="date" class="py-4 sk bg-[#2B2B2B] rounded-lg text-white outline-none px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none dark:border-transparent dark:text-neutral-400 hide-calendar-icon" id="date" name="date" placeholder="Date" />
-
-                            <span class="text-red-500"></span>
                         </div>
+
+                        <div id="toAccountDiv" class="w-full relative py-2" style="display: none;">
+                            <select name="to_account_id" id="toAccount" class="py-4 bg-[#2B2B2B] outline-none rounded-lg focus:border-[#4C4C4C] px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none sk dark:border-transparent dark:text-neutral-400 dark:focus:ring-[#4C4C4C]">
+                                <option value="" disabled selected hidden>To Account</option>
+                                @foreach($accounts as $account)
+                                    <option value="{{ $account->id }}">{{ $account->account_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div id="incomeSourceDiv" class="w-full relative py-2" style="display: none;">
+                            <select name="income_id" id="incomeSource" class="py-4 bg-[#2B2B2B] outline-none rounded-lg focus:border-[#4C4C4C] px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none sk dark:border-transparent dark:text-neutral-400 dark:focus:ring-[#4C4C4C]">
+                                <option value="" disabled selected hidden>Select Income Source</option>
+                                @foreach($incomes as $income)
+                                    <option value="{{ $income->id }}">{{ $income->income_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                          <div class="w-full space-x-4 flex">
+                            <div class="w-full relative  py-2 ">
+                                <select name="type" id="transactionType" class="py-4 bg-[#2B2B2B] outline-none rounded-lg focus:border-[#4C4C4C] px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none sk dark:border-transparent dark:text-neutral-400 dark:focus:ring-[#4C4C4C]">
+                                    <option value="" disabled selected hidden>Transaction Type</option>
+                                    <option value="deposit">Deposit</option>
+                                    <option value="withdraw">Withdraw</option>
+                                    <option value="transfer">Transfer</option>
+                                </select>
+                            </div>
+                            
+                            
+                            <div class="w-full relative py-2 ">
+                                <select name="category" id="categorySelect" class="py-4 bg-[#2B2B2B] outline-none rounded-lg focus:border-[#4C4C4C] px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none sk dark:border-transparent dark:text-neutral-400 dark:focus:ring-[#4C4C4C]">
+                                    <option value="" disabled selected hidden>Category</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Rent">Rent</option>
+                                    <option value="Utilities">Utilities</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Shopping">Shopping</option>
+                                    <option value="Transportation">Transportation</option>
+                                    <option value="Other">Other</option>
+                                    
+                                </select>
+                            </div>
+                            
+                            <div id="otherCategoryDiv" class="w-full relative py-2" style="display: none;">
+                                <input type="text" name="other_category" id="otherCategory" placeholder="Enter custom category" class="py-4 bg-[#2B2B2B] outline-none rounded-lg focus:border-[#4C4C4C] px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none sk dark:border-transparent dark:text-neutral-400 dark:focus:ring-[#4C4C4C]">
+                            </div>
+                            
+                            
+
+                            <div class="text-xs flex-col flex font-semibold  items-start justify-start sk truncate text-white  w-full mt-2 ">
+
+                                <input type="date" class="py-4 sk bg-[#2B2B2B] rounded-lg text-white outline-none px-4 pe-2 block w-full text-sm border-b border-[#4C4C4C] disabled:opacity-50 disabled:pointer-events-none dark:border-transparent dark:text-neutral-400 hide-calendar-icon" id="date" name="date" placeholder="Date" />
+
+                                <span class="text-red-500"></span>
+                            </div>
                     </div>
                     <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t border-[#4C4C4C]">
                         <button type="button"
@@ -86,3 +115,75 @@
                 </div>
             </div>
         </div>
+
+        {{-- script for the transaction type select element --}}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var transactionTypeSelect = document.getElementById('transactionType');
+                if (transactionTypeSelect) {
+                    transactionTypeSelect.addEventListener('change', function() {
+                        var toAccountDiv = document.getElementById('toAccountDiv');
+                        var toAccountSelect = document.getElementById('toAccount');
+                        if (this.value === 'transfer') {
+                            toAccountDiv.style.display = 'block';
+                            toAccountSelect.required = true;
+                        } else {
+                            toAccountDiv.style.display = 'none';
+                            toAccountSelect.required = false;
+                        }
+                    });
+                } else {
+                    console.error('Transaction type select element not found');
+                }
+            });
+        </script>
+
+
+        {{-- script for the category select element --}}
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var categorySelect = document.getElementById('categorySelect');
+            var otherCategoryDiv = document.getElementById('otherCategoryDiv');
+            var otherCategoryInput = document.getElementById('otherCategory');
+        
+            if (categorySelect) {
+                categorySelect.addEventListener('change', function() {
+                    if (this.value === 'Other') {
+                        otherCategoryDiv.style.display = 'block';
+                        otherCategoryInput.required = true;
+                    } else {
+                        otherCategoryDiv.style.display = 'none';
+                        otherCategoryInput.required = false;
+                    }
+                });
+            }
+        });
+        
+        </script>
+
+
+        {{-- script for the transaction type select element --}}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            var transactionTypeSelect = document.getElementById('transactionType');
+            var toAccountDiv = document.getElementById('toAccountDiv');
+            var incomeSourceDiv = document.getElementById('incomeSourceDiv');
+
+            if (transactionTypeSelect) {
+                transactionTypeSelect.addEventListener('change', function() {
+                    if (this.value === 'transfer') {
+                        toAccountDiv.style.display = 'block';
+                        incomeSourceDiv.style.display = 'none';
+                    } else if (this.value === 'deposit') {
+                        toAccountDiv.style.display = 'none';
+                        incomeSourceDiv.style.display = 'block';
+                    } else {
+                        toAccountDiv.style.display = 'none';
+                        incomeSourceDiv.style.display = 'none';
+                    }
+                });
+            }
+
+        });
+        </script>
+

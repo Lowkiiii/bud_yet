@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\AccountTransaction;
 use App\Models\User;
+use App\Models\Income;
 use App\Models\Account;
 use App\Models\Schedule;
 use Illuminate\Support\Facades\Log;
@@ -16,50 +17,67 @@ use Illuminate\Http\Request;
 class ActTransactionController extends Controller
 {
     public function store(Request $request)
-    {
-        try {
-            $validatedData = $request->validate([
-                'amount' => 'required|numeric|min:0.01',
-                'date' => 'required|date',
-                'account_id' => 'required|exists:tbl_account,id',
-                'type' => 'required|in:deposit,withdraw',
-                'category' => 'required|string|max:255',
-            ]);
+{
+    Log::info('Received transaction data: ' . json_encode($request->all()));
+    try {
+        $validatedData = $request->validate([
+            'amount' => 'required|numeric|min:0.01',
+            'date' => 'required|date',
+            'account_id' => 'required|exists:tbl_account,id',
+            'type' => 'required|in:deposit,withdraw,transfer',
+            'category' => 'required|string|max:255',
+            'other_category' => 'nullable|string|max:255',
+            'to_account_id' => 'required_if:type,transfer|exists:tbl_account,id',
+            'income_id' => 'required_if:type,deposit|exists:tbl_income,id',
+        ]);
 
-            DB::beginTransaction();
+        DB::beginTransaction();
 
-            $account = Account::findOrFail($validatedData['account_id']);
+        $account = Account::findOrFail($validatedData['account_id']);
 
-            if ($validatedData['type'] == 'withdraw' && $account->balance < $validatedData['amount']) {
-                throw new \Exception('Insufficient funds');
-            }
-
-            $accountTransac = new AccountTransaction();
-            $accountTransac->amount = $validatedData['amount'];
-            $accountTransac->date = $validatedData['date'];
-            $accountTransac->user_id = Auth::id();
-            $accountTransac->account_id = $validatedData['account_id'];
-            $accountTransac->type = $validatedData['type'];
-            $accountTransac->category = $validatedData['category'];
-            $accountTransac->save();
-
-            // Update account balance
-            if ($validatedData['type'] == 'deposit') {
-                $account->balance += $validatedData['amount'];
-            } else {
-                $account->balance -= $validatedData['amount'];
-            }
-            $account->save();
-
-            DB::commit();
-
-            return redirect()->route('transaction')->with('flash_message', 'Transaction Added!');
-        } catch (\Exception $e) {
-            DB::rollBack();
-            Log::error('Error saving Transaction: ' . $e->getMessage());
-            return Redirect::back()->withErrors(['error' => $e->getMessage()]);
+        if (($validatedData['type'] == 'withdraw' || $validatedData['type'] == 'transfer') && $account->balance < $validatedData['amount']) {
+            throw new \Exception('Insufficient funds');
         }
+
+        $accountTransac = new AccountTransaction();
+        $accountTransac->amount = $validatedData['amount'];
+        $accountTransac->date = $validatedData['date'];
+        $accountTransac->user_id = Auth::id();
+        $accountTransac->account_id = $validatedData['account_id'];
+        $accountTransac->type = $validatedData['type'];
+        $accountTransac->category = $validatedData['category'] === 'Other' ? $validatedData['other_category'] : $validatedData['category'];
+
+        if ($validatedData['type'] == 'transfer') {
+            $accountTransac->to_account_id = $validatedData['to_account_id'];
+            $toAccount = Account::findOrFail($validatedData['to_account_id']);
+        } elseif ($validatedData['type'] == 'deposit') {
+            $accountTransac->income_id = $validatedData['income_id'];
+        }
+
+        $accountTransac->save();
+
+        // Update account balance
+        if ($validatedData['type'] == 'deposit') {
+            $account->balance += $validatedData['amount'];
+        } elseif ($validatedData['type'] == 'withdraw') {
+            $account->balance -= $validatedData['amount'];
+        } elseif ($validatedData['type'] == 'transfer') {
+            $account->balance -= $validatedData['amount'];
+            $toAccount->balance += $validatedData['amount'];
+            $toAccount->save();
+        }
+        $account->save();
+
+        DB::commit();
+
+        return redirect()->route('transaction')->with('flash_message', 'Transaction Added!');
+    } catch (\Exception $e) {
+        DB::rollBack();
+        Log::error('Error saving Transaction: ' . $e->getMessage());
+        return Redirect::back()->withErrors(['error' => $e->getMessage()]);
     }
+}
+
     public function getAccount()
     {
         $user = Auth::user();
@@ -77,7 +95,8 @@ class ActTransactionController extends Controller
             ->orderBy('transaction.created_at', 'desc') // Specify the table alias here
             ->get();
         $accounts = Account::where('user_id', Auth::id())->get();
-        return view('transaction.transaction', compact('transactions', 'accounts'));
+        $incomes = Income::where('user_id', Auth::id())->get();
+        return view('transaction.transaction', compact('transactions', 'accounts', 'incomes'));
     }
 
     public function dashboard()

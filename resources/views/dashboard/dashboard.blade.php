@@ -37,7 +37,7 @@
                             <div
                                 class="bg-[#2B2B2B]  min-w-[200px] sm:min-w-auto rounded-xl p-4 pr-9 sm:pr-0  border border-[#244C53] sm:mb-4 mb-3 ml-4 mr-2 sm:m-0">
                                 <div class="flex flex-col">
-                                    <p class="text-[#AAAAAA] text-xs sm:text-base"">Income</p>
+                                    <p class="text-[#AAAAAA] text-xs sm:text-base"">Deposit</p>
                                     <h1 class="text-2xl sm:text-4xl sk-bold py-1 sm:py-3 text-[#05D9FF]">
                                         @if (!empty($totalDeposit))
                                             {{-- Display calculated total amount from the controller --}}

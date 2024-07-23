@@ -14,13 +14,14 @@ class ScheduleController extends Controller
     {
         $schedules = Schedule::where('user_id', Auth::id())->latest()->get();
         $accounts = Account::where('user_id', Auth::id())->get();
-
+        
         return view('schedule.schedule', compact('schedules', 'accounts'));
     }
+    
 
     public function create()
     {
-        return redirect()->route('schedules.index');
+        return redirect()->route('schedule.index');
     }
     public function store(Request $request)
     {
@@ -52,7 +53,7 @@ class ScheduleController extends Controller
             // Trigger the initial transaction
             // $this->processSchedule($schedule);
 
-            return redirect()->route('schedules.index')->with('success', 'Schedule created successfully');
+            return redirect()->route('schedule.schedule')->with('success', 'Schedule created successfully');
         } catch (\Exception $e) {
             Log::error('Error creating schedule: ' . $e->getMessage());
             return back()->withErrors(['error' => 'An error occurred while creating the schedule.']);
