@@ -58,6 +58,12 @@
                                 </p>
                             </button>
                         </div>
+                        <div class="flex items-center justify-end mb-4">
+                            <input type="text" class="w-64 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" id="searchTransactions" placeholder="Search transactions">
+                            <button class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Search</button>
+                        </div>
+                       
+                        
                         <div id="TransactionView"
                             class="sk flex overflow-y-auto w-full h-full
                          [&::-webkit-scrollbar]:w-2
@@ -82,6 +88,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                                    <script>
+                                        $(document).ready(function(){
+                                            $('#searchTransactions').on('keyup', function(){
+                                                var value = $(this).val().toLowerCase();
+                                                // Only target tr elements within tbody, excluding thead
+                                                $('#TransactionView tbody tr').filter(function(){
+                                                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                });
+                                            });
+                                        });
+                                    </script>
                                     @if (!empty($transactions) && count($transactions) > 0)
                                     @php $rowNumber = 1; @endphp
                                     @foreach ($transactions as $transaction)    
