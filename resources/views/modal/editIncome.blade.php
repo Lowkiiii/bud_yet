@@ -5,11 +5,11 @@
                     class="flex flex-col bg-[#2B2B2B] border shadow-sm rounded-xl pointer-events-auto dark:bg-neutral-800 border-[#244C53]">
                     <div class="flex justify-between items-center py-3 px-4 border-b border-[#4C4C4C]">
                         <h3 class="sk-bold text-xl text-gray-800 dark:text-white">
-                          Edit Income &#x1FAF0;
+                          Add Income &#x1FAF0;
                         </h3>
                         <button type="button"
                             class="flex justify-center items-center size-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700"
-                            data-hs-overlay="#addIncome">
+                            data-hs-overlay="#editIncome">
                             <span class="sr-only">Close</span>
                             <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -69,7 +69,7 @@
                     <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t border-[#4C4C4C]">
                         <button type="button"
                             class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border  bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 border-[#4C4C4C] dark:text-white dark:hover:bg-neutral-800"
-                            data-hs-overlay="#addIncome">
+                            data-hs-overlay="#editIncome">
                             Close
                         </button>
                         <button type="submit"
