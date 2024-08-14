@@ -42,6 +42,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/accounts', [AccountsController::class, 'store'])->name('account.store');
     Route::get('/accounts', [AccountsController::class, 'index'])->name('accounts.accounts');
+    Route::get('/accounts/{id}/edit', [AccountsController::class, 'edit'])->name('accounts.edit');
+    Route::put('/accounts/{id}', [AccountsController::class, 'update'])->name('accounts.update');
+    Route::delete('/accounts/{id}', [AccountsController::class, 'destroy'])->name('accounts.destroy');
 
     //Get Accounts for Option in Account Transaction
     Route::get('/transaction/accounts', [ActTransactionController::class, 'getAccount'])->name('transaction.transaction');
