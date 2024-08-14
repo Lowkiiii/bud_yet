@@ -37,9 +37,10 @@ Route::middleware('auth')->group(function () {
     // Income
     Route::get('/income', [IncomeController::class, 'index'])->name('income.income');
     Route::post('/income', [IncomeController::class, 'store'])->name('income.store');
+    Route::put('/income/{id}', [IncomeController::class, 'update'])->name('income.update');
+    Route::delete('/income/{id}', [IncomeController::class, 'destroy'])->name('income.destroy');
 
     // Account
-
     Route::post('/accounts', [AccountsController::class, 'store'])->name('account.store');
     Route::get('/accounts', [AccountsController::class, 'index'])->name('accounts.accounts');
     Route::get('/accounts/{id}/edit', [AccountsController::class, 'edit'])->name('accounts.edit');
@@ -59,6 +60,8 @@ Route::middleware('auth')->group(function () {
     //Schedule
     Route::get('/schedule', [ScheduleController::class, 'index'])->name('schedule.schedule');
     Route::post('/schedule', [ScheduleController::class, 'store'])->name('schedule.store');
+    Route::put('/schedule/{id}', [ScheduleController::class, 'update'])->name('schedule.update');
+    Route::delete('/schedule/{id}', [ScheduleController::class, 'destroy'])->name('schedule.destroy');
    
     
     Route::resource('account', AccountsController::class);

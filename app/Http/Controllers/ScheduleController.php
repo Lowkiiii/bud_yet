@@ -7,7 +7,7 @@ use App\Models\Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
-
+use Illuminate\Support\Facades\Redirect;
 class ScheduleController extends Controller
 {
     public function index()
@@ -60,34 +60,62 @@ class ScheduleController extends Controller
         }
     }
 
-    // public function processSchedule(Schedule $schedule)
-    // {
-    //     // Check if the schedule is active and within the date range
-    //     if ($schedule->status === 'active' && $schedule->start_date <= now() && $schedule->end_date >= now()) {
-    //         $fromAccount = Account::findOrFail($schedule->from_account_id);
-    //         $toAccount = Account::findOrFail($schedule->to_account_id);
+    public function update(Request $request, $id)
+    {
+        try {
+            $validatedData = $request->validate([
+                'name' => 'required|string',
+                'amount' => 'required|numeric',
+                'target_amount' => 'required|numeric',
+                'from_account_id' => 'required|exists:tbl_account,id',
+                'to_account_id' => 'required|exists:tbl_account,id',
+                'frequency' => 'required|in:daily,weekly,monthly,annually',
+                'start_date' => 'required|date',
+                'end_date' => 'required|date|after:start_date',
+            ]);
 
-    //         // Check if there's enough balance in the from account
-    //         if ($fromAccount->balance >= $schedule->amount) {
-    //             // Perform the transaction
-    //             $fromAccount->balance -= $schedule->amount;
-    //             $toAccount->balance += $schedule->amount;
+            $schedule = Schedule::findOrFail($id);
 
-    //             $fromAccount->save();
-    //             $toAccount->save();
+            if ($schedule->user_id !== Auth::id()) {
+                return redirect()->back()->with('error', 'You are not authorized to update this skills.');
+            }
 
-    //             // Log the transaction
-    //             Log::info("Scheduled transaction processed: {$schedule->amount} transferred from account {$fromAccount->id} to account {$toAccount->id}");
 
-    //             // Check if target amount is reached (if applicable)
-    //             if ($toAccount->balance >= $schedule->target_amount) {
-    //                 $schedule->status = 'completed';
-    //                 $schedule->save();
-    //             }
-    //         } else {
-    //             Log::warning("Insufficient funds for scheduled transaction: Schedule ID {$schedule->id}");
-    //         }
-    //     }
-    // }
+            $schedule->user_id = Auth::id();
+            $schedule->status = 'active';
+            $schedule->name = $validatedData['name'];
+            $schedule->amount = $validatedData['amount'];
+            $schedule->target_amount = $validatedData['target_amount'];
+            $schedule->from_account_id = $validatedData['from_account_id'];
+            $schedule->to_account_id = $validatedData['to_account_id'];
+            $schedule->frequency = $validatedData['frequency'];
+            $schedule->start_date = $validatedData['start_date'];
+            $schedule->end_date = $validatedData['end_date'];
+            $schedule->save();
+
+            return redirect()->route('schedule')->with('flash_message', 'Account Updated!');
+        } catch (\Exception $e) {
+            Log::error('Error updating Account: ' . $e->getMessage());
+            return Redirect::back()->withErrors(['error' => 'An error occurred while updating the Account.']);
+        }
+    }
+
+    public function destroy($id)
+    {
+        try {
+            $schedule = Schedule::findOrFail($id);
+
+            if ($schedule->user_id !== Auth::id()) {
+                return redirect()->back()->with('error', 'You are not authorized to delete this schedule.');
+            }
+
+            $schedule->delete();
+
+            return redirect()->route('schedules')->with('flash_message', 'Account successfully deleted.');
+        } catch (\Exception $e) {
+            Log::error('Error deleting Account: ' . $e->getMessage());
+            return Redirect::back()->withErrors(['error' => 'An error occurred while deleting the Account.']);
+        }
+    }
 
 }

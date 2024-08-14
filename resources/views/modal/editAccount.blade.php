@@ -101,7 +101,7 @@
                     <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t border-[#4C4C4C]">
                         <button type="button"
                             class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border  bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 border-[#4C4C4C] dark:text-white dark:hover:bg-neutral-800"
-                            data-hs-overlay="#editAccount">
+                            data-hs-overlay="#editAccount-{{ $account->id }}">
                             Close
                         </button>
                         <button type="submit"
