@@ -79,7 +79,8 @@
                                         <th class=" px-4 py-4 ">Name</th>
                                         <th class="px-4 py-4 ">Amount</th>
                                         <th class="px-4 py-4  ">Frequency</th>
-                                        <th class=" px-4 py-4  ">Date Range</th>
+                                        <th class=" px-4 py-4  ">Start Date</th>
+                                        <th class=" px-4 py-4  ">End Date</th>
                                         <th class="px-4 py-4  ">Actions</th>
                                     </tr>
                                 </thead>
@@ -92,7 +93,11 @@
                                         <td class="py-4 ">{{ $schedule->name }}</td>
                                         <td class="py-4  ">{{ $schedule->amount }}</td>
                                         <td class="py-4 ">{{ $schedule->frequency }}</td>
-                                        <td class="py-4 px-4 whitespace-nowrap">{{ $schedule->start_date }} - {{ $schedule->end_date }}</td>
+                                        @php $timestamp = strtotime($schedule->start_date) @endphp
+                                        <td class="py-4">{{ date('F d, Y', $timestamp) }}</td>
+                                        @php $timestamp = strtotime($schedule->end_date) @endphp
+                                        <td class="py-4">{{ date('F d, Y', $timestamp) }}</td>
+                                        
                                         <td class="py-4  ">
                                             <div class="flex justify-center">
                                                 <div class="flex flex-row "><button class="px-1 "><svg

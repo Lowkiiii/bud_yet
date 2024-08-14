@@ -85,31 +85,31 @@ Accounts
                                         <td class="py-4">{{ $account->max_balance }}</td>
                                         @php $timestamp = strtotime($account->created_at) @endphp
                                         <td class="py-4">{{ date('F d, Y', $timestamp) }}</td>
+                                    
                                         <td class="py-4">
 
-                
-                                    <div class="flex justify-center">
-                                        <div class="flex flex-row space-x-2">
-                                            <!-- Edit Button -->
-                                            <button type="button" data-hs-overlay="#editAccount-{{ $account->id }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF" class="size-5 hover:fill-[#00B1D0]">
-                                                    <path fill-rule="evenodd" d="M14.828 2.586a2 2 0 1 1 2.828 2.828L7.828 15.242a8 8 0 0 1-3.255 2.049L2.6 19.243a.75.75 0 0 1-.95-.95l1.952-1.973a8 8 0 0 1 2.05-3.255l9.879-9.879ZM13.415 4l.586.586-8.879 8.879a6.5 6.5 0 0 0-1.582 2.837l-.94 2.366 2.366-.94a6.5 6.5 0 0 0 2.837-1.582L18 6.586 17.415 6 13.415 4ZM16.828 3a.5.5 0 0 1 .707 0l2.121 2.121a.5.5 0 0 1 0 .707l-1.414 1.414-2.828-2.828L16.828 3ZM10 15.5V19h3.5l5.086-5.086-3.585-3.586L10 15.5ZM9.5 14H6v-3.5L14.914 2.086l3.586 3.586L9.5 14Z" clip-rule="evenodd"/>
-                                                </svg>
-                                            </button>
+                                            <div class="flex justify-center">
+                                                <div class="flex flex-row space-x-2">
+                                                    <!-- Edit Button -->
+                                                    <button type="button" data-hs-overlay="#editAccount-{{ $account->id }}">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF" class="size-5 hover:fill-[#00B1D0]">
+                                                            <path fill-rule="evenodd" d="M14.828 2.586a2 2 0 1 1 2.828 2.828L7.828 15.242a8 8 0 0 1-3.255 2.049L2.6 19.243a.75.75 0 0 1-.95-.95l1.952-1.973a8 8 0 0 1 2.05-3.255l9.879-9.879ZM13.415 4l.586.586-8.879 8.879a6.5 6.5 0 0 0-1.582 2.837l-.94 2.366 2.366-.94a6.5 6.5 0 0 0 2.837-1.582L18 6.586 17.415 6 13.415 4ZM16.828 3a.5.5 0 0 1 .707 0l2.121 2.121a.5.5 0 0 1 0 .707l-1.414 1.414-2.828-2.828L16.828 3ZM10 15.5V19h3.5l5.086-5.086-3.585-3.586L10 15.5ZM9.5 14H6v-3.5L14.914 2.086l3.586 3.586L9.5 14Z" clip-rule="evenodd"/>
+                                                        </svg>
+                                                    </button>
 
-                                            <!-- Delete Button -->
-                                            
-                                            <button type="button" data-hs-overlay="#deleteAccount-{{ $account->id }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FF6347" class="size-5 hover:fill-[#E05242]">
-                                                    <path fill-rule="evenodd" d="M6.75 4.5a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 .75.75V5h2.25a.75.75 0 0 1 0 1.5h-1.066l-.74 13.05a2.25 2.25 0 0 1-2.245 2.2H8.301a2.25 2.25 0 0 1-2.245-2.2L5.316 6.5H4.25a.75.75 0 0 1 0-1.5H6.75V4.5Zm8.625 2.25v13.5H8.625v-13.5H15.375ZM10.875 2.25a.75.75 0 0 1 .75-.75h1.75a.75.75 0 0 1 .75.75v.75H10.875V2.25Z" clip-rule="evenodd"/>
-                                                </svg>
-                                            </button>
-                                                
-                                            
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                                    <!-- Delete Button -->
+                                                    
+                                                    <button type="button" data-hs-overlay="#deleteAccount-{{ $account->id }}">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FF6347" class="size-5 hover:fill-[#E05242]">
+                                                            <path fill-rule="evenodd" d="M6.75 4.5a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 .75.75V5h2.25a.75.75 0 0 1 0 1.5h-1.066l-.74 13.05a2.25 2.25 0 0 1-2.245 2.2H8.301a2.25 2.25 0 0 1-2.245-2.2L5.316 6.5H4.25a.75.75 0 0 1 0-1.5H6.75V4.5Zm8.625 2.25v13.5H8.625v-13.5H15.375ZM10.875 2.25a.75.75 0 0 1 .75-.75h1.75a.75.75 0 0 1 .75.75v.75H10.875V2.25Z" clip-rule="evenodd"/>
+                                                        </svg>
+                                                    </button>
+                                                        
+                                                    
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
                             @php $rowNumber++; @endphp
                         @endforeach
                     @else
