@@ -11,6 +11,7 @@ Income
     <div>
         @include('modal/deleteAccount')
         @include('modal/addIncome')
+        @include('modal/editIncome')
 
     </div>
 
