@@ -14,22 +14,24 @@ Income
 
     </div>
 
-    <div
-    class="z-20 relative  pt-8 sm:pt-0  mx-auto justify-center items-center overflow-hidden sm:px-[3rem] w-full xl:w-[94rem] animate-blink">
+    <div class="z-20 relative w-full mx-auto justify-center items-center overflow-hidden px-[3rem] xl:w-[94rem] animate-blink">
 
-    <div class="sm:p-4 p-4 sm:px-26">
-        <div class="pt-4 sm:pt-0 flex">
-            <h1 class="text-white sm:text-4xl text-xl  sk">
-                <div class="flex items-center">
+        <div class="p-8 px-26">
+            <div class="mt-19 md:mt-18   flex">
+
+                <h1 class="text-white text-4xl  sk">
+                    <div class="flex items-center">
+
+
                         <span class="sk-bold text-[#05D9FF]">
                             Income &#x1F4B5;
                         </span>
 
                     </div>
-                    <p class="text-base sm:text-xl text-[#7A7A7A] mt-0 sm:mt-1">
+                    <p class="text-xl text-[#7A7A7A] mt-1">
                         Add your income. </p>
                 </h1>
-                <div class="hidden sm:flex flex-row items-center ms-auto ">
+                <div class="flex flex-row items-center ms-auto ">
                     <div class="flex flex-row">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF" class="size-8 mr-3">
                             <path d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
@@ -40,15 +42,15 @@ Income
                 </div>
             </div>
 
-            <div class="w-full relative sm:flex h-full">
+            <div class="w-full flex h-full">
 
-                <div class="bg-[#2B2B2B] text-white w-full sm:w-1/2 h-full rounded-xl mt-4 sm:mt-10 p-4 sm:p-8 border border-[#244C53] mb-4">
+                <div class="bg-[#2B2B2B] text-white w-1/2 h-full rounded-xl mt-10 p-8 border border-[#244C53] mb-4">
                     <div class="flex flex-col">
 
-                        <div class="sk-bold text-base sm:text-xl text-start w-full  flex flex-row">
+                        <div class="sk-bold text-xl text-start w-full  flex flex-row">
                             Current Income
                             <button type="button" class="disabled:pointer-events-none" data-hs-overlay="#addIncome">
-                                <p class="my-auto px-1 sm:px-2 "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF" class="size-5 sm:size-6 hover:fill-[#00B1D0]">
+                                <p class="my-auto px-2 "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#05D9FF" class="size-6 hover:fill-[#00B1D0]">
                                         <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
                                     </svg>
                                 </p>
@@ -56,20 +58,16 @@ Income
                         </div>
                         <div class="flex flex-col">
 
-                            <h1 class="text-xl sm:text-4xl sk-bold py-1 sm:py-3 text-[#05D9FF]">
+                            <h1 class="text-4xl sk-bold py-3 text-[#05D9FF]">
                                 @if (!empty($totalIncome))
                                 {{-- Display calculated total amount from the controller --}}
                                 {{ number_format($totalIncome, 2) }}
-                                @else
-                                <span class="whitespace-nowrap">No Data</span>
                             @endif
                             </h1>
-                            <p class="sk text-xs sm:text-sm text-[#AAAAAA]">
+                            <p class="sk text-sm text-[#AAAAAA]">
                                 Your last income was <span class="text-[#05D9FF] sk-bold">
                                     @if (!empty($totalPastIncome))
                                     {{ number_format($totalPastIncome, 2) }}
-                                    @else
-                                    <span>No Data</span>
                                     @endif
                                 </span> last
                                 month!
@@ -79,7 +77,7 @@ Income
 
                 </div>
 
-                <div class="bg-[#2B2B2B] w-full ml-0 sm:ml-4 text-white rounded-xl mt-4 sm:mt-10 p-4 sm:p-8 border border-[#244C53] mb-4">
+                <div class="bg-[#2B2B2B] w-full ml-4 text-white rounded-xl mt-10 p-8 border border-[#244C53] mb-4">
                     <div class="flex flex-col">
 
                         <div class="sk-bold text-xl text-start w-full  flex flex-row">
@@ -97,13 +95,13 @@ Income
 
                             <table class="table-auto text-start w-full">
                                 <thead class="text-start">
-                                    <tr class="text-xs sm:text-sm text-center py-4  text-[#AAAAAA] border-b border-[#4C4C4C]">
-                                        <th class=" py-4 px-3">#</th>
+                                    <tr class="text-sm text-center py-4  text-[#AAAAAA] border-b border-[#4C4C4C]">
+                                        <th class=" py-4 ">#</th>
                                         {{-- <th class=" py-4">ID</th> --}}
-                                        <th class=" py-4 px-3 ">Income Name</th>
-                                        <th class=" py-4 px-3 ">Balance</th>
-                                        <th class=" py-4 px-3 ">Date</th>
-                                        <th class=" py-4 px-3 ">Actions</th>
+                                        <th class=" py-4 ">Income Name</th>
+                                        <th class=" py-4 ">Balance</th>
+                                        <th class=" py-4 ">Date</th>
+                                        <th class=" py-4  ">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -130,7 +128,7 @@ Income
                                     @endforeach
                                     @else
                                     <tr>
-                                        <td class="py-4 whitespace-nowrap">No Data</td>
+                                        <td class="py-4  ">No Data</td>
                                     </tr>
                                     @endif
                                 </tbody>
@@ -172,7 +170,7 @@ Income
                 <img src="/image/Abstract2.png" class="absolute object-cover bottom-0 right-0 transform translate-x-[100%] translate-y-[100%] z-30 h-[30rem] opacity-70 hidden md:block" alt="">
             </div>
         </div>
-        <div class="w-full h-2/5 bg-[#1D1D1D] z-10 sm:block hidden">
+        <div class="w-full h-2/5 bg-[#1D1D1D] z-10">
             <img src="/image/GridBG.png" class="object-cover w-screen h-full" alt="Grid Background">
         </div>
     </div>

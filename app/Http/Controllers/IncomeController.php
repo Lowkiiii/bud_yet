@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Income;
+use App\Models\Account;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 
@@ -47,7 +48,10 @@ class IncomeController extends Controller
             ->whereYear('created_at', now()->subMonth()->year)
             ->sum('amount');
 
-        return view('income.income', compact('userIncome', 'totalIncome', 'totalPastIncome'));
+        $user = Auth::user();
+        $accounts = Account::where('user_id', $user->id)->get();
+
+        return view('income.income', compact('userIncome', 'totalIncome', 'totalPastIncome', 'accounts'));
         //return view('dashboard.dashboard', compact('userIncome'));
     }
 
