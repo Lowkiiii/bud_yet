@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/accounts', [UserController::class, 'accounts'])->name('accounts.accounts');
     Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard.dashboard');
-    //Route::get('/schedule', [UserController::class, 'schedule'])->name('schedule.schedule');
+    Route::get('/schedule', [UserController::class, 'schedule'])->name('schedule.schedule');
     Route::get('/income', [UserController::class, 'income'])->name('income.income');
     Route::get('/transaction', [UserController::class, 'transaction'])->name('transaction.transaction');
 });
@@ -53,8 +53,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/transaction', [ActTransactionController::class, 'store'])->name('transaction.store');
     Route::get('/dashboard', [ActTransactionController::class, 'dashboard'])->name('dashboard.dashboard');   // dashboard transaction list
 
-
     //Schedule
     Route::get('/schedule', [ScheduleController::class, 'index'])->name('schedule.schedule');
-    Route::post('/schedule', [ScheduleController::class, 'store'])->name('schedules.store');
+    Route::post('/schedule', [ScheduleController::class, 'store'])->name('schedule.store');
+   
+    
+    Route::resource('account', AccountsController::class);
+
 });

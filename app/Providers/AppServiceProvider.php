@@ -23,11 +23,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer(['*'], function ($view) {
-            if (Auth::check()) {
-                $accounts = Account::where('user_id', Auth::id())->get();
-                $view->with('accounts', $accounts);
-            }
-        });
+        // View::composer(['*'], function ($view) {
+        //     if (Auth::check()) {
+        //         $accounts = Account::where('user_id', Auth::id())->get();
+        //         $view->with('accounts', $accounts);
+        //     }
+        // });
     }
 }

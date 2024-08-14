@@ -73,9 +73,9 @@ Accounts
                                 </tr>
                             </thead>
                             <tbody>
-                                @if (!empty($account) && count($account) > 0)
+                                @if (!empty($accounts) && count($accounts) > 0)
                                     @php $rowNumber = 1; @endphp
-                                    @foreach ($account as $account)
+                                    @foreach ($accounts as $account)
                                         <tr class="border-b text-sm sm:text-base text-center border-[#4C4C4C]">
                                             <td class="py-4">{{ $rowNumber }}</td>
                                             <td class="py-4">{{ $account->account_name }}</td>
@@ -96,14 +96,15 @@ Accounts
                                                         </svg></button>
                                                     <button
                                                         class="px-1 border-l border-[#4C4C4C] disabled:pointer-events-none "
-                                                        data-hs-overlay="#editSchedule">
+                                                        data-hs-overlay="#editAccount">
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                             fill="#8FFF74" class="size-5 hover:fill-[#42FF13]">
                                                             <path
                                                                 d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
                                                             <path
                                                                 d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
-                                                        </svg></button>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                                     </div>
                                                 </div>
@@ -124,28 +125,6 @@ Accounts
     </div>
 
 
-    <!-- Inputs for storing Income (di lang pag panasa ako lang di bahala saylo) -->
-    {{-- <div class="p-8">
-                    <h2 class="text-white text-2xl">Add New Income</h2>
-                    <form action="{{ route('income.store') }}" method="POST" class="mt-4">
-    @csrf
-    <div class="mb-4">
-        <label for="income_name" class="block text-white">Income Name:</label>
-        <input type="text" name="income_name" id="income_name" class="w-full p-2 mt-1 rounded bg-gray-800 text-white">
-    </div>
-    <div class="mb-4">
-        <label for="amount" class="block text-white">Amount:</label>
-        <input type="number" name="amount" id="amount" class="w-full p-2 mt-1 rounded bg-gray-800 text-white">
-    </div>
-    <div class="mb-4">
-        <label for="date" class="block text-white">Date:</label>
-        <input type="date" name="date" id="date" class="w-full p-2 mt-1 rounded bg-gray-800 text-white">
-    </div>
-    <div class="mb-4">
-        <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Add Income</button>
-    </div>
-    </form>
-    </div> --}}
     </div>
     </div>
 
@@ -160,7 +139,6 @@ Accounts
             <img src="/image/GridBG.png" class="object-cover w-screen h-full" alt="Grid Background">
         </div>
     </div>
-
 
 
 
