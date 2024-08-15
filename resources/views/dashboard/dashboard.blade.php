@@ -306,7 +306,8 @@
                                         <tr class=" text-xs sm:text-base text-center py-4   text-[#AAAAAA] border-b border-[#4C4C4C]">
                                             <th class="px-4 py-4 ">#</th>
                                             <th class=" px-4 py-4 ">Name</th>
-                                            <th class=" px-4 py-4  ">Date Range</th>
+                                            <th class=" px-4 py-4  ">Start Date</th>
+                                            <th class=" px-4 py-4  ">Endt Date</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -317,7 +318,10 @@
                                         <tr class=" border-b border-[#4C4C4C]">
                                             <td class="py-4 "> {{$rowNumber}}</td>
                                             <td class="py-4 "> {{$schedules->name}}</td>
-                                            <td class="py-4 px-4 whitespace-nowrap">{{ $schedules->start_date }} - {{ $schedules->end_date }}</td>                                        </tr>
+                                            @php $timestamp = strtotime($schedules->start_date) @endphp
+                                        <td class="py-4">{{ date('F d, Y', $timestamp) }}</td>
+                                        @php $timestamp = strtotime($schedules->end_date) @endphp
+                                        <td class="py-4">{{ date('F d, Y', $timestamp) }}</td>
                                         </tr>
                                         @php $rowNumber++; @endphp
                                         @endforeach
